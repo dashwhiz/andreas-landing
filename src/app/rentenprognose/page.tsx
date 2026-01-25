@@ -206,10 +206,9 @@ const InfoButton = styled.span`
 const Tooltip = styled.span`
   position: absolute;
   top: calc(100% + 8px);
-  max-height: 200px;
-  right: 0 !important;
 
-  width: auto;
+  width: 280px;
+  max-height: 200px;
   overflow: auto;
   padding: 10px 12px;
   border-radius: 12px;
@@ -222,9 +221,15 @@ const Tooltip = styled.span`
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease;
-
-  z-index: 50;
+  z-index: 100;
   white-space: normal;
+
+  @media (max-width: 720px) {
+    left: auto;
+    right: 0;
+    width: calc(100vw - 48px);
+    max-width: 280px;
+  }
 `;
 
 const Callout = styled.div`
