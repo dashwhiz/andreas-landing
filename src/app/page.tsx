@@ -7,6 +7,7 @@ import NavigationChip from '@/components/NavigationChip';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
+import amazonLogo from '../../public/amazon-logo.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -136,7 +137,7 @@ export default function Home() {
           <BookDescription>{t('home.welcome.description')}</BookDescription>
           <AmazonButton href="#" target="_blank" rel="noopener noreferrer">
             <Image
-              src="/amazon-logo.png"
+              src={amazonLogo}
               alt="Amazon"
               width={28}
               height={28}

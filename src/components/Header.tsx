@@ -6,6 +6,7 @@ import Image from 'next/image';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
+import amazonLogo from '../../public/amazon-logo.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -65,7 +66,7 @@ export default function Header() {
         <Logo href="/">{t('header.logo_text')}</Logo>
         <AmazonButton href="#" target="_blank" rel="noopener noreferrer" aria-label="Buy on Amazon">
           <Image
-            src="/amazon-logo.png"
+            src={amazonLogo}
             alt="Buy on Amazon"
             width={32}
             height={32}
