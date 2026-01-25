@@ -1,0 +1,171 @@
+{
+  "common": {
+    "learn_more": "Mehr erfahren"
+  },
+  "header": {
+    "logo_text": "Buch-Companion"
+  },
+  "footer": {
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "home": {
+    "welcome": {
+      "title": "Lorem ipsum dolor sit amet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+    },
+    "book": {
+      "title": "Das Buch",
+      "cta_button": "Auf Amazon kaufen",
+      "alt_text": "Buchcover"
+    },
+    "navigation": {
+      "title": "Inhalte entdecken",
+      "marktportfolio": "Globales Marktportfolio",
+      "ki_antworten": "KI-Antworten",
+      "zinseszins": "Zinseszins",
+      "rentenprognose": "Rentenprognose"
+    }
+  },
+  "marktportfolio": {
+    "title": "Globales Marktportfolio",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visualisierung der globalen Vermögensaufteilung.",
+    "chart": {
+      "aktien": "Aktien",
+      "anleihen": "Anleihen",
+      "gold": "Gold",
+      "private_equity": "Private Equity",
+      "bitcoin": "Bitcoin"
+    },
+    "source": "Quelle: Lorem ipsum, Stand: Januar 2025"
+  },
+  "ki_antworten": {
+    "title": "KI-Antworten",
+    "description": "Lorem ipsum dolor sit amet. Hier finden Sie Antworten von verschiedenen KI-Systemen auf ausgewählte Fragen.",
+    "providers": {
+      "chatgpt": "ChatGPT",
+      "gemini": "Gemini",
+      "perplexity": "Perplexity"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Lorem ipsum dolor sit amet?",
+        "answers": {
+          "chatgpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "gemini": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "perplexity": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      },
+      {
+        "id": "q2",
+        "question": "Consectetur adipiscing elit?",
+        "answers": {
+          "chatgpt": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+          "gemini": "Sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "perplexity": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+        }
+      }
+    ]
+  },
+  "zinseszins": {
+    "title": "Zinseszinsrechner",
+    "description": "Lorem ipsum dolor sit amet. Berechnen Sie den Zinseszins-Effekt für Ihre Investitionen.",
+    "explanation_title": "Erklärung",
+    "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Der Zinseszins-Effekt beschreibt, wie Zinsen auf bereits erhaltene Zinsen berechnet werden, was zu exponentiellem Wachstum führt.",
+    "sections": {
+      "inputs": "Eingaben",
+      "results": "Ergebnisse"
+    },
+    "inputs": {
+      "initial_amount": "Anfangsbetrag (EUR)",
+      "monthly_contribution": "Monatliche Einzahlung (EUR)",
+      "interest_rate": "Jährlicher Zinssatz (%)",
+      "duration": "Anlagedauer (Jahre)"
+    },
+    "results": {
+      "final_amount": "Endvermögen",
+      "total_contributions": "Eingezahlte Summe",
+      "total_interest": "Zinsertrag"
+    },
+    "calculate": "Berechnen"
+  },
+  "rentenprognose": {
+    "title": "Renten- & Vermögensrechner",
+    "description": "Dieses Tool erstellt auf Basis Ihrer Eckdaten und Ihrer Kontostände Ihre Vermögensübersicht und Rentenprognose. Es berechnet den Gegenwartswert Ihrer zukünftigen Sparaktivität und der gesetzlichen Rente und ermittelt daraus Gesamtvermögen sowie Gesamtrisiko in Risikoeinheiten (RE).",
+    "explanation_title": "Erklärung",
+    "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aus Vermögen und erwarteten Risikoprämien (RP) wird das Einkommen in der Rente im mittleren und im schlechten Szenario abgeleitet – jeweils in heutigen Preisen und als Prozent heutiger Ausgaben.",
+    "sections": {
+      "inputs": "Eingaben",
+      "base_data": "Eckdaten",
+      "wealth_overview": "Vermögensübersicht",
+      "results": "Ergebnisse"
+    },
+    "inputs": {
+      "safe_interest": "Sicherer Zins (% p.a.)",
+      "income_growth": "Prognose Einkommensentwicklung (% p.a.)",
+      "age_now": "Alter aktuell",
+      "age_retirement": "Alter Renteneintritt",
+      "life_expectancy": "Lebenserwartung",
+      "net_income": "Aktuelles Nettoeinkommen (EUR/Monat)",
+      "savings_rate": "Sparquote (%)",
+      "tax_rate": "Abgabensatz auf Renteneinkommen (%)",
+      "pension_forecast": "Prognose gesetzliche Rente (EUR/Monat)",
+      "z_value": "Z-Wert schlechtes Szenario"
+    },
+    "wealth_items": {
+      "bank_accounts": "Bankkonten",
+      "pension_assets": "Altersvorsorge",
+      "securities": "Wertpapiere",
+      "real_estate": "Immobilien",
+      "debt": "Kredite",
+      "future_savings": "Zukünftiges Sparen",
+      "statutory_pension": "Gesetzliche Rente"
+    },
+    "columns": {
+      "position": "Position",
+      "amount": "Betrag (000 EUR)",
+      "risk_units": "RE (Skala)",
+      "risk_premium": "RP (%)"
+    },
+    "results_labels": {
+      "total_wealth": "Gesamtvermögen heute (in 000 EUR)",
+      "risk_units": "Risikoeinheiten (RE)",
+      "risk_premium": "Risikoprämie (RP)",
+      "net_mid": "Mittleres Netto (EUR/Monat)",
+      "net_mid_pct": "Mittleres Netto (% Ausgaben heute)",
+      "net_bad": "Schlechtes Netto (EUR/Monat)",
+      "net_bad_pct": "Schlechtes Netto (% Ausgaben heute)",
+      "probability_bad": "Wahrscheinlichkeit schlechtes Szenario"
+    },
+    "tooltips": {
+      "safe_interest": "Mit diesem Zinssatz werden sichere Zahlungen auf- bzw. abgezinst.",
+      "income_growth": "Mit dieser Wachstumsrate verändert sich Ihr Einkommen pro Jahr im langfristigen Durchschnitt.",
+      "age_now": "Ihr heutiges Alter.",
+      "age_retirement": "In diesem Alter hören Sie mit dem Arbeiten auf.",
+      "life_expectancy": "Bis zu diesem Alter sollte Ihre Auszahlung reichen. Planen Sie einen Puffer von mindestens 5 Jahren ein.",
+      "net_income": "Der Betrag, der Ihnen nach Abzügen für Steuern und Sozialversicherung bleibt.",
+      "savings_rate": "Anteil des Nettoeinkommens, der gespart (positiv) oder entspart (negativ) wird.",
+      "tax_rate": "Pauschaler Unterschied zwischen Brutto- und Nettoeinkommen in der Rente.",
+      "pension_forecast": "Rentenauszahlung gemäß letztem Rentenbescheid bei 1% Rentenanpassungsfaktor.",
+      "z_value": "Wahrscheinlichkeit = NORM.S.DIST(Z; WAHR). Kumulative Standardnormalverteilung.",
+      "bank_accounts": "Kontostand.",
+      "pension_assets": "Aktueller Wert von privaten und betrieblichen Altersvorsorgeverträgen.",
+      "securities": "Aktuelle Depotwerte.",
+      "real_estate": "Aktueller Schätzwert.",
+      "debt": "Restschuld (bitte mit Minus-Zeichen).",
+      "future_savings": "Gegenwartswert der künftigen Sparbeiträge (automatisch berechnet).",
+      "statutory_pension": "Heutiger Wert Ihrer Ansprüche (automatisch berechnet)."
+    },
+    "profiles": {
+      "load": "Beispiel laden...",
+      "reset": "Zurücksetzen (User)"
+    },
+    "status": {
+      "ok": "Alles ok.",
+      "error_age": "Alter aktuell muss kleiner als Renteneintrittsalter sein.",
+      "error_life": "Lebenserwartung muss größer als Renteneintrittsalter sein.",
+      "error_tax": "Abgabensatz prüfen (0-100%).",
+      "error_z": "Z-Wert prüfen."
+    }
+  }
+}
