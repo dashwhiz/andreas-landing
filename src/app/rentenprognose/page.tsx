@@ -720,9 +720,41 @@ function formatOneDec(x: number): string {
 export default function RentenprognosePage() {
   const { t } = useTranslations();
   const [state, setState] = useState<State>(USER_DEFAULTS);
+  // Track which fields are being edited (to allow empty display)
+  const [editingFields, setEditingFields] = useState<Record<string, string>>(
+    {},
+  );
 
-  const updateField = (field: keyof State, value: number) => {
-    setState((prev) => ({ ...prev, [field]: value }));
+  const updateField = (field: keyof State, rawValue: string) => {
+    // Store raw value for display during editing
+    setEditingFields((prev) => ({ ...prev, [field]: rawValue }));
+    // Parse for calculations (empty = 0)
+    const value = rawValue === '' ? 0 : parseFloat(rawValue);
+    if (!isNaN(value)) {
+      setState((prev) => ({ ...prev, [field]: value }));
+    }
+  };
+
+  // Get display value - show editing value if active, otherwise numeric state
+  const getDisplayValue = (field: keyof State) => {
+    if (field in editingFields) {
+      return editingFields[field];
+    }
+    return state[field];
+  };
+
+  // On blur, clear editing state to show formatted number
+  const handleBlur = (field: keyof State) => {
+    setEditingFields((prev) => {
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  };
+
+  // Auto-select input content on focus for better UX
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
   };
 
   const { results, errors } = useMemo(() => {
@@ -841,12 +873,14 @@ export default function RentenprognosePage() {
     if (key && EXAMPLES[key]) {
       setState(EXAMPLES[key]);
       setSelectedProfile(key);
+      setEditingFields({});
     }
   };
 
   const handleReset = () => {
     setState(USER_DEFAULTS);
     setSelectedProfile('');
+    setEditingFields({});
   };
 
   return (
@@ -889,8 +923,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='0.5'
-                value={state.r}
-                onChange={(e) => updateField('r', Number(e.target.value))}
+                value={getDisplayValue('r')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('r')}
+                onChange={(e) => updateField('r', e.target.value)}
               />
             </Field>
             <Field>
@@ -906,8 +942,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='0.5'
-                value={state.g}
-                onChange={(e) => updateField('g', Number(e.target.value))}
+                value={getDisplayValue('g')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('g')}
+                onChange={(e) => updateField('g', e.target.value)}
               />
             </Field>
           </TwoCol>
@@ -923,8 +961,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='1'
-                value={state.ageNow}
-                onChange={(e) => updateField('ageNow', Number(e.target.value))}
+                value={getDisplayValue('ageNow')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('ageNow')}
+                onChange={(e) => updateField('ageNow', e.target.value)}
               />
             </Field>
             <Field>
@@ -940,8 +980,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='1'
-                value={state.ageRet}
-                onChange={(e) => updateField('ageRet', Number(e.target.value))}
+                value={getDisplayValue('ageRet')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('ageRet')}
+                onChange={(e) => updateField('ageRet', e.target.value)}
               />
             </Field>
           </TwoCol>
@@ -959,8 +1001,10 @@ export default function RentenprognosePage() {
             <Input
               type='number'
               step='1'
-              value={state.ageLife}
-              onChange={(e) => updateField('ageLife', Number(e.target.value))}
+              value={getDisplayValue('ageLife')}
+              onFocus={handleFocus}
+              onBlur={() => handleBlur('ageLife')}
+              onChange={(e) => updateField('ageLife', e.target.value)}
             />
           </StandaloneField>
 
@@ -975,8 +1019,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='50'
-                value={state.income}
-                onChange={(e) => updateField('income', Number(e.target.value))}
+                value={getDisplayValue('income')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('income')}
+                onChange={(e) => updateField('income', e.target.value)}
               />
             </Field>
             <Field>
@@ -990,8 +1036,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='0.5'
-                value={state.s}
-                onChange={(e) => updateField('s', Number(e.target.value))}
+                value={getDisplayValue('s')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('s')}
+                onChange={(e) => updateField('s', e.target.value)}
               />
             </Field>
           </TwoCol>
@@ -1007,8 +1055,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='0.5'
-                value={state.tax}
-                onChange={(e) => updateField('tax', Number(e.target.value))}
+                value={getDisplayValue('tax')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('tax')}
+                onChange={(e) => updateField('tax', e.target.value)}
               />
             </Field>
             <Field>
@@ -1024,10 +1074,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='50'
-                value={state.pensionMonthly}
-                onChange={(e) =>
-                  updateField('pensionMonthly', Number(e.target.value))
-                }
+                value={getDisplayValue('pensionMonthly')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('pensionMonthly')}
+                onChange={(e) => updateField('pensionMonthly', e.target.value)}
               />
             </Field>
           </TwoCol>
@@ -1043,8 +1093,10 @@ export default function RentenprognosePage() {
               <Input
                 type='number'
                 step='0.01'
-                value={state.zBad}
-                onChange={(e) => updateField('zBad', Number(e.target.value))}
+                value={getDisplayValue('zBad')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('zBad')}
+                onChange={(e) => updateField('zBad', e.target.value)}
               />
             </Field>
           </TwoCol>
@@ -1087,30 +1139,30 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.bankK}
-                      onChange={(e) =>
-                        updateField('bankK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('bankK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('bankK')}
+                      onChange={(e) => updateField('bankK', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reBank}
-                      onChange={(e) =>
-                        updateField('reBank', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reBank')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reBank')}
+                      onChange={(e) => updateField('reBank', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpBank}
-                      onChange={(e) =>
-                        updateField('rpBank', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpBank')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpBank')}
+                      onChange={(e) => updateField('rpBank', e.target.value)}
                     />
                   </td>
                 </tr>
@@ -1132,9 +1184,11 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.pensionAssetK}
+                      value={getDisplayValue('pensionAssetK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('pensionAssetK')}
                       onChange={(e) =>
-                        updateField('pensionAssetK', Number(e.target.value))
+                        updateField('pensionAssetK', e.target.value)
                       }
                     />
                   </td>
@@ -1142,9 +1196,11 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rePensionAsset}
+                      value={getDisplayValue('rePensionAsset')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rePensionAsset')}
                       onChange={(e) =>
-                        updateField('rePensionAsset', Number(e.target.value))
+                        updateField('rePensionAsset', e.target.value)
                       }
                     />
                   </td>
@@ -1152,9 +1208,11 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpPensionAsset}
+                      value={getDisplayValue('rpPensionAsset')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpPensionAsset')}
                       onChange={(e) =>
-                        updateField('rpPensionAsset', Number(e.target.value))
+                        updateField('rpPensionAsset', e.target.value)
                       }
                     />
                   </td>
@@ -1175,30 +1233,30 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.secK}
-                      onChange={(e) =>
-                        updateField('secK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('secK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('secK')}
+                      onChange={(e) => updateField('secK', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reSec}
-                      onChange={(e) =>
-                        updateField('reSec', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reSec')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reSec')}
+                      onChange={(e) => updateField('reSec', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpSec}
-                      onChange={(e) =>
-                        updateField('rpSec', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpSec')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpSec')}
+                      onChange={(e) => updateField('rpSec', e.target.value)}
                     />
                   </td>
                 </tr>
@@ -1220,30 +1278,30 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.immoK}
-                      onChange={(e) =>
-                        updateField('immoK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('immoK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('immoK')}
+                      onChange={(e) => updateField('immoK', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reImmo}
-                      onChange={(e) =>
-                        updateField('reImmo', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reImmo')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reImmo')}
+                      onChange={(e) => updateField('reImmo', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpImmo}
-                      onChange={(e) =>
-                        updateField('rpImmo', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpImmo')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpImmo')}
+                      onChange={(e) => updateField('rpImmo', e.target.value)}
                     />
                   </td>
                 </tr>
@@ -1260,30 +1318,30 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.debtK}
-                      onChange={(e) =>
-                        updateField('debtK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('debtK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('debtK')}
+                      onChange={(e) => updateField('debtK', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reDebt}
-                      onChange={(e) =>
-                        updateField('reDebt', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reDebt')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reDebt')}
+                      onChange={(e) => updateField('reDebt', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpDebt}
-                      onChange={(e) =>
-                        updateField('rpDebt', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpDebt')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpDebt')}
+                      onChange={(e) => updateField('rpDebt', e.target.value)}
                     />
                   </td>
                 </tr>
@@ -1313,20 +1371,20 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rePvSave}
-                      onChange={(e) =>
-                        updateField('rePvSave', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rePvSave')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rePvSave')}
+                      onChange={(e) => updateField('rePvSave', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpPvSave}
-                      onChange={(e) =>
-                        updateField('rpPvSave', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpPvSave')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpPvSave')}
+                      onChange={(e) => updateField('rpPvSave', e.target.value)}
                     />
                   </td>
                 </tr>
@@ -1356,20 +1414,20 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rePvPens}
-                      onChange={(e) =>
-                        updateField('rePvPens', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rePvPens')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rePvPens')}
+                      onChange={(e) => updateField('rePvPens', e.target.value)}
                     />
                   </td>
                   <td>
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpPvPens}
-                      onChange={(e) =>
-                        updateField('rpPvPens', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpPvPens')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpPvPens')}
+                      onChange={(e) => updateField('rpPvPens', e.target.value)}
                     />
                   </td>
                 </tr>
@@ -1396,10 +1454,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.bankK}
-                      onChange={(e) =>
-                        updateField('bankK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('bankK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('bankK')}
+                      onChange={(e) => updateField('bankK', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1409,10 +1467,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reBank}
-                      onChange={(e) =>
-                        updateField('reBank', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reBank')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reBank')}
+                      onChange={(e) => updateField('reBank', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1422,10 +1480,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpBank}
-                      onChange={(e) =>
-                        updateField('rpBank', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpBank')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpBank')}
+                      onChange={(e) => updateField('rpBank', e.target.value)}
                     />
                   </MobileWealthField>
                 </MobileWealthFields>
@@ -1449,9 +1507,11 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.pensionAssetK}
+                      value={getDisplayValue('pensionAssetK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('pensionAssetK')}
                       onChange={(e) =>
-                        updateField('pensionAssetK', Number(e.target.value))
+                        updateField('pensionAssetK', e.target.value)
                       }
                     />
                   </MobileWealthField>
@@ -1462,9 +1522,11 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rePensionAsset}
+                      value={getDisplayValue('rePensionAsset')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rePensionAsset')}
                       onChange={(e) =>
-                        updateField('rePensionAsset', Number(e.target.value))
+                        updateField('rePensionAsset', e.target.value)
                       }
                     />
                   </MobileWealthField>
@@ -1475,9 +1537,11 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpPensionAsset}
+                      value={getDisplayValue('rpPensionAsset')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpPensionAsset')}
                       onChange={(e) =>
-                        updateField('rpPensionAsset', Number(e.target.value))
+                        updateField('rpPensionAsset', e.target.value)
                       }
                     />
                   </MobileWealthField>
@@ -1500,10 +1564,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.secK}
-                      onChange={(e) =>
-                        updateField('secK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('secK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('secK')}
+                      onChange={(e) => updateField('secK', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1513,10 +1577,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reSec}
-                      onChange={(e) =>
-                        updateField('reSec', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reSec')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reSec')}
+                      onChange={(e) => updateField('reSec', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1526,10 +1590,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpSec}
-                      onChange={(e) =>
-                        updateField('rpSec', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpSec')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpSec')}
+                      onChange={(e) => updateField('rpSec', e.target.value)}
                     />
                   </MobileWealthField>
                 </MobileWealthFields>
@@ -1553,10 +1617,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.immoK}
-                      onChange={(e) =>
-                        updateField('immoK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('immoK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('immoK')}
+                      onChange={(e) => updateField('immoK', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1566,10 +1630,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reImmo}
-                      onChange={(e) =>
-                        updateField('reImmo', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reImmo')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reImmo')}
+                      onChange={(e) => updateField('reImmo', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1579,10 +1643,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpImmo}
-                      onChange={(e) =>
-                        updateField('rpImmo', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpImmo')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpImmo')}
+                      onChange={(e) => updateField('rpImmo', e.target.value)}
                     />
                   </MobileWealthField>
                 </MobileWealthFields>
@@ -1603,10 +1667,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='5'
-                      value={state.debtK}
-                      onChange={(e) =>
-                        updateField('debtK', Number(e.target.value))
-                      }
+                      value={getDisplayValue('debtK')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('debtK')}
+                      onChange={(e) => updateField('debtK', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1616,10 +1680,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.reDebt}
-                      onChange={(e) =>
-                        updateField('reDebt', Number(e.target.value))
-                      }
+                      value={getDisplayValue('reDebt')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('reDebt')}
+                      onChange={(e) => updateField('reDebt', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1629,10 +1693,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpDebt}
-                      onChange={(e) =>
-                        updateField('rpDebt', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpDebt')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpDebt')}
+                      onChange={(e) => updateField('rpDebt', e.target.value)}
                     />
                   </MobileWealthField>
                 </MobileWealthFields>
@@ -1667,10 +1731,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rePvSave}
-                      onChange={(e) =>
-                        updateField('rePvSave', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rePvSave')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rePvSave')}
+                      onChange={(e) => updateField('rePvSave', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1680,10 +1744,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpPvSave}
-                      onChange={(e) =>
-                        updateField('rpPvSave', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpPvSave')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpPvSave')}
+                      onChange={(e) => updateField('rpPvSave', e.target.value)}
                     />
                   </MobileWealthField>
                 </MobileWealthFields>
@@ -1720,10 +1784,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rePvPens}
-                      onChange={(e) =>
-                        updateField('rePvPens', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rePvPens')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rePvPens')}
+                      onChange={(e) => updateField('rePvPens', e.target.value)}
                     />
                   </MobileWealthField>
                   <MobileWealthField>
@@ -1733,10 +1797,10 @@ export default function RentenprognosePage() {
                     <TableInput
                       type='number'
                       step='0.5'
-                      value={state.rpPvPens}
-                      onChange={(e) =>
-                        updateField('rpPvPens', Number(e.target.value))
-                      }
+                      value={getDisplayValue('rpPvPens')}
+                      onFocus={handleFocus}
+                      onBlur={() => handleBlur('rpPvPens')}
+                      onChange={(e) => updateField('rpPvPens', e.target.value)}
                     />
                   </MobileWealthField>
                 </MobileWealthFields>

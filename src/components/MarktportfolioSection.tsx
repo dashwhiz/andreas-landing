@@ -2,38 +2,46 @@
 
 import styled from 'styled-components';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import PageLayout from '@/components/PageLayout';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 
 const MOBILE_BREAKPOINT = 768;
 
-const PageTitle = styled.h1`
-  font-size: ${AppFontSizes['4xl']};
+const Section = styled.section`
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: ${AppFontSizes['2xl']};
   font-weight: 700;
   color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
+  text-align: center;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    font-size: ${AppFontSizes['3xl']};
+    font-size: ${AppFontSizes.xl};
   }
 `;
 
-const PageDescription = styled.p`
-  font-size: ${AppFontSizes.md};
-  color: ${AppColors.brand.neutral[20]};
+const SectionDescription = styled.p`
+  font-size: ${AppFontSizes.base};
+  color: ${AppColors.brand.neutral[30]};
   line-height: 1.6;
-  margin: 0 0 48px 0;
-  max-width: 700px;
+  margin: 0 0 32px 0;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const ChartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
-  margin-bottom: 40px;
+  gap: 32px;
 
   @media (min-width: ${MOBILE_BREAKPOINT}px) {
     flex-direction: row;
@@ -43,56 +51,56 @@ const ChartContainer = styled.div`
 `;
 
 const ChartWrapper = styled.div`
-  width: 400px;
-  height: 400px;
+  width: 280px;
+  height: 280px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    width: 300px;
-    height: 300px;
+    width: 240px;
+    height: 240px;
   }
 `;
 
 const Legend = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 `;
 
 const LegendItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 16px;
-  background: ${AppColors.brand.neutral[100]};
-  border-radius: 12px;
-  min-width: 240px;
+  gap: 12px;
+  padding: 10px 14px;
+  background: ${AppColors.white};
+  border-radius: 10px;
+  min-width: 200px;
 `;
 
 const LegendColor = styled.div<{ $color: string }>`
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 4px;
   background-color: ${props => props.$color};
   flex-shrink: 0;
 `;
 
 const LegendLabel = styled.span`
-  font-size: ${AppFontSizes.base};
+  font-size: ${AppFontSizes.sm};
   color: ${AppColors.brand.neutral[10]};
   flex: 1;
 `;
 
 const LegendValue = styled.span`
-  font-size: ${AppFontSizes.base};
+  font-size: ${AppFontSizes.sm};
   font-weight: 700;
   color: ${AppColors.brand.neutral.neutralBlack};
 `;
 
 const SourceText = styled.p`
-  font-size: ${AppFontSizes.sm};
-  color: ${AppColors.brand.neutral[40]};
+  font-size: ${AppFontSizes.xs};
+  color: ${AppColors.brand.neutral[50]};
   text-align: center;
-  margin-top: 32px;
+  margin-top: 24px;
   font-style: italic;
 `;
 
@@ -123,20 +131,20 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<
     return (
       <div style={{
         background: AppColors.white,
-        padding: '12px 16px',
+        padding: '10px 14px',
         borderRadius: '8px',
         boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
         border: `1px solid ${AppColors.brand.neutral[80]}`,
       }}>
-        <p style={{ margin: 0, fontWeight: 600 }}>{payload[0].name}</p>
-        <p style={{ margin: '4px 0 0 0', color: AppColors.brand.neutral[40] }}>{payload[0].value}%</p>
+        <p style={{ margin: 0, fontWeight: 600, fontSize: '14px' }}>{payload[0].name}</p>
+        <p style={{ margin: '4px 0 0 0', color: AppColors.brand.neutral[40], fontSize: '14px' }}>{payload[0].value}%</p>
       </div>
     );
   }
   return null;
 };
 
-export default function MarktportfolioPage() {
+export default function MarktportfolioSection() {
   const { t } = useTranslations();
 
   const translatedData = chartData.map(item => ({
@@ -145,9 +153,9 @@ export default function MarktportfolioPage() {
   }));
 
   return (
-    <PageLayout>
-      <PageTitle>{t('marktportfolio.title')}</PageTitle>
-      <PageDescription>{t('marktportfolio.description')}</PageDescription>
+    <Section>
+      <SectionTitle>{t('marktportfolio.title')}</SectionTitle>
+      <SectionDescription>{t('marktportfolio.description')}</SectionDescription>
 
       <ChartContainer>
         <ChartWrapper>
@@ -157,8 +165,8 @@ export default function MarktportfolioPage() {
                 data={translatedData}
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={120}
+                innerRadius={50}
+                outerRadius={100}
                 paddingAngle={2}
                 dataKey="value"
                 strokeWidth={0}
@@ -184,6 +192,6 @@ export default function MarktportfolioPage() {
       </ChartContainer>
 
       <SourceText>{t('marktportfolio.source')}</SourceText>
-    </PageLayout>
+    </Section>
   );
 }

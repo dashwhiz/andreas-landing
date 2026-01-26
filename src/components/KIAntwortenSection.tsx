@@ -2,51 +2,61 @@
 
 import { useState } from 'react';
 import styled from 'styled-components';
-import PageLayout from '@/components/PageLayout';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 
 const MOBILE_BREAKPOINT = 768;
 
-const PageTitle = styled.h1`
-  font-size: ${AppFontSizes['4xl']};
+const Section = styled.section`
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: ${AppFontSizes['2xl']};
   font-weight: 700;
   color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
+  text-align: center;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    font-size: ${AppFontSizes['3xl']};
+    font-size: ${AppFontSizes.xl};
   }
 `;
 
-const PageDescription = styled.p`
-  font-size: ${AppFontSizes.md};
-  color: ${AppColors.brand.neutral[20]};
+const SectionDescription = styled.p`
+  font-size: ${AppFontSizes.base};
+  color: ${AppColors.brand.neutral[30]};
   line-height: 1.6;
-  margin: 0 0 48px 0;
-  max-width: 700px;
+  margin: 0 0 32px 0;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const QASection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 `;
 
 const QuestionCard = styled.div`
   background: ${AppColors.white};
   border: 1px solid ${AppColors.brand.neutral[80]};
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
 `;
 
 const QuestionHeader = styled.button`
   width: 100%;
-  padding: 20px 24px;
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   background: ${AppColors.white};
   border: none;
   cursor: pointer;
@@ -54,33 +64,53 @@ const QuestionHeader = styled.button`
 `;
 
 const QuestionText = styled.span`
-  font-size: ${AppFontSizes.lg};
+  font-size: ${AppFontSizes.base};
   font-weight: 600;
   color: ${AppColors.brand.neutral.neutralBlack};
   text-align: left;
+  flex: 1;
 `;
 
-const ChevronIcon = styled.span<{ $isOpen: boolean }>`
-  font-size: 20px;
-  color: ${AppColors.brand.neutral[40]};
+const ChevronIcon = styled.div<{ $isOpen: boolean }>`
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease;
   transform: rotate(${(props) => (props.$isOpen ? '180deg' : '0deg')});
+  flex-shrink: 0;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: ${AppColors.brand.neutral[40]};
+  }
 `;
 
 const AnswersContainer = styled.div<{ $isOpen: boolean }>`
-  display: ${(props) => (props.$isOpen ? 'block' : 'none')};
-  padding: 0 24px 24px 24px;
+  display: grid;
+  grid-template-rows: ${(props) => (props.$isOpen ? '1fr' : '0fr')};
+  transition: grid-template-rows 0.3s ease;
+`;
+
+const AnswersInner = styled.div`
+  overflow: hidden;
+`;
+
+const AnswersContent = styled.div`
+  padding: 0 20px 20px 20px;
 `;
 
 const ProviderTabs = styled.div`
   display: flex;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 `;
 
 const ProviderTab = styled.button<{ $isActive: boolean; $color: string }>`
-  padding: 10px 16px;
+  padding: 8px 14px;
   border-radius: 8px;
   border: 1px solid
     ${(props) => (props.$isActive ? props.$color : AppColors.brand.neutral[70])};
@@ -99,12 +129,12 @@ const ProviderTab = styled.button<{ $isActive: boolean; $color: string }>`
 
 const AnswerContent = styled.div`
   background: ${AppColors.brand.neutral[100]};
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 16px;
 `;
 
 const AnswerText = styled.p`
-  font-size: ${AppFontSizes.base};
+  font-size: ${AppFontSizes.sm};
   color: ${AppColors.brand.neutral[10]};
   line-height: 1.7;
   margin: 0;
@@ -129,14 +159,10 @@ const providerColors: Record<Provider, string> = {
   perplexity: AppColors.brand.violet[30],
 };
 
-export default function KIAntwortenPage() {
+export default function KIAntwortenSection() {
   const { t, tObject } = useTranslations();
-  const [openQuestions, setOpenQuestions] = useState<Record<string, boolean>>(
-    {},
-  );
-  const [selectedProviders, setSelectedProviders] = useState<
-    Record<string, Provider>
-  >({});
+  const [openQuestions, setOpenQuestions] = useState<Record<string, boolean>>({});
+  const [selectedProviders, setSelectedProviders] = useState<Record<string, Provider>>({});
 
   const questions = tObject<Question[]>('ki_antworten.questions');
   const providers: Provider[] = ['chatgpt', 'gemini', 'perplexity'];
@@ -162,9 +188,9 @@ export default function KIAntwortenPage() {
   };
 
   return (
-    <PageLayout>
-      <PageTitle>{t('ki_antworten.title')}</PageTitle>
-      <PageDescription>{t('ki_antworten.description')}</PageDescription>
+    <Section>
+      <SectionTitle>{t('ki_antworten.title')}</SectionTitle>
+      <SectionDescription>{t('ki_antworten.description')}</SectionDescription>
 
       <QASection>
         {questions.map((q) => {
@@ -178,31 +204,39 @@ export default function KIAntwortenPage() {
                 aria-expanded={isOpen}
               >
                 <QuestionText>{q.question}</QuestionText>
-                <ChevronIcon $isOpen={isOpen}>▼</ChevronIcon>
+                <ChevronIcon $isOpen={isOpen}>
+                  <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </ChevronIcon>
               </QuestionHeader>
 
               <AnswersContainer $isOpen={isOpen}>
-                <ProviderTabs>
-                  {providers.map((provider) => (
-                    <ProviderTab
-                      key={provider}
-                      $isActive={selectedProvider === provider}
-                      $color={providerColors[provider]}
-                      onClick={() => selectProvider(q.id, provider)}
-                    >
-                      {t(`ki_antworten.providers.${provider}`)}
-                    </ProviderTab>
-                  ))}
-                </ProviderTabs>
+                <AnswersInner>
+                  <AnswersContent>
+                    <ProviderTabs>
+                      {providers.map((provider) => (
+                        <ProviderTab
+                          key={provider}
+                          $isActive={selectedProvider === provider}
+                          $color={providerColors[provider]}
+                          onClick={() => selectProvider(q.id, provider)}
+                        >
+                          {t(`ki_antworten.providers.${provider}`)}
+                        </ProviderTab>
+                      ))}
+                    </ProviderTabs>
 
-                <AnswerContent>
-                  <AnswerText>{q.answers[selectedProvider]}</AnswerText>
-                </AnswerContent>
+                    <AnswerContent>
+                      <AnswerText>{q.answers[selectedProvider]}</AnswerText>
+                    </AnswerContent>
+                  </AnswersContent>
+                </AnswersInner>
               </AnswersContainer>
             </QuestionCard>
           );
         })}
       </QASection>
-    </PageLayout>
+    </Section>
   );
 }

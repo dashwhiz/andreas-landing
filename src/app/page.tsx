@@ -3,7 +3,8 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
-import NavigationChip from '@/components/NavigationChip';
+import MarktportfolioSection from '@/components/MarktportfolioSection';
+import KIAntwortenSection from '@/components/KIAntwortenSection';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
@@ -15,18 +16,37 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 64px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    gap: 48px;
+  }
 `;
 
 const HeroSection = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
-  margin-bottom: 80px;
-  max-width: 700px;
+  justify-content: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 900px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    margin-bottom: 60px;
+    flex-direction: column-reverse;
+    gap: 32px;
+    text-align: center;
+  }
+`;
+
+const HeroContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    align-items: center;
   }
 `;
 
@@ -38,15 +58,14 @@ const BookCoverPlaceholder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   color: ${AppColors.brand.neutral[40]};
   font-size: ${AppFontSizes.sm};
+  flex-shrink: 0;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     width: 180px;
     height: 260px;
-    margin-bottom: 24px;
   }
 `;
 
@@ -100,26 +119,15 @@ const AmazonButton = styled.a`
   }
 `;
 
-const NavigationSection = styled.section`
+const ColoredSection = styled.div<{ $bgColor: string }>`
   width: 100%;
-  max-width: 800px;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: ${AppFontSizes['2xl']};
-  font-weight: 700;
-  color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 32px 0;
-  text-align: center;
-`;
-
-const ChipsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  background: ${(props) => props.$bgColor};
+  border-radius: 24px;
+  padding: 48px 40px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    grid-template-columns: 1fr;
+    padding: 32px 20px;
+    border-radius: 20px;
   }
 `;
 
@@ -130,47 +138,29 @@ export default function Home() {
     <PageLayout>
       <ContentWrapper>
         <HeroSection>
+          <HeroContent>
+            <BookTitle>{t('home.welcome.title')}</BookTitle>
+            <BookDescription>{t('home.welcome.description')}</BookDescription>
+            <AmazonButton href="#" target="_blank" rel="noopener noreferrer">
+              <Image
+                src={amazonLogo}
+                alt="Amazon"
+                width={28}
+                height={28}
+              />
+              {t('home.book.cta_button')}
+            </AmazonButton>
+          </HeroContent>
           <BookCoverPlaceholder>
             {t('home.book.alt_text')}
           </BookCoverPlaceholder>
-          <BookTitle>{t('home.welcome.title')}</BookTitle>
-          <BookDescription>{t('home.welcome.description')}</BookDescription>
-          <AmazonButton href="#" target="_blank" rel="noopener noreferrer">
-            <Image
-              src={amazonLogo}
-              alt="Amazon"
-              width={28}
-              height={28}
-            />
-            {t('home.book.cta_button')}
-          </AmazonButton>
         </HeroSection>
 
-        <NavigationSection>
-          <SectionTitle>{t('home.navigation.title')}</SectionTitle>
-          <ChipsGrid>
-            <NavigationChip
-              href="/marktportfolio"
-              label={t('home.navigation.marktportfolio')}
-              variant="blue"
-            />
-            <NavigationChip
-              href="/ki-antworten"
-              label={t('home.navigation.ki_antworten')}
-              variant="violet"
-            />
-            <NavigationChip
-              href="/zinseszins"
-              label={t('home.navigation.zinseszins')}
-              variant="green"
-            />
-            <NavigationChip
-              href="/rentenprognose"
-              label={t('home.navigation.rentenprognose')}
-              variant="orange"
-            />
-          </ChipsGrid>
-        </NavigationSection>
+        <ColoredSection $bgColor={AppColors.brand.blue[90]}>
+          <MarktportfolioSection />
+        </ColoredSection>
+
+        <KIAntwortenSection />
       </ContentWrapper>
     </PageLayout>
   );

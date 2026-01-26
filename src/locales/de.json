@@ -3,7 +3,11 @@
     "learn_more": "Mehr erfahren"
   },
   "header": {
-    "logo_text": "Buch-Companion"
+    "logo_text": "Buch-Companion",
+    "navigation": {
+      "zinseszins": "Zinseszins",
+      "rentenprognose": "Rentenprognose"
+    }
   },
   "footer": {
     "copyright": "Alle Rechte vorbehalten."
