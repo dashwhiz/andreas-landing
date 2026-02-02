@@ -72,26 +72,48 @@
     ]
   },
   "zinseszins": {
-    "title": "Zinseszinsrechner",
-    "description": "Lorem ipsum dolor sit amet. Berechnen Sie den Zinseszins-Effekt für Ihre Investitionen.",
+    "title": "Renditerechner",
+    "description": "Finde heraus, was heutige Zahlungen zukünftig wert sind und andersherum. Beispiele: Wie entwickelt sich ein Sparbetrag über 5 Jahre (I)? Was ist eine Schenkung in 10 Jahren heute wert (II)? Was kommt bei einem ETF-Sparplan nach 20 Jahren heraus (III)? Was muss ich für meine Ziele monatlich zur Seite legen (IV)? Wieviel kostet mich ein Kredit pro Monat (V)? Beachte, dass die Werte von den Näherungswerten in den Buch-Tabellen abweichen können.",
     "explanation_title": "Erklärung",
-    "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Der Zinseszins-Effekt beschreibt, wie Zinsen auf bereits erhaltene Zinsen berechnet werden, was zu exponentiellem Wachstum führt.",
-    "sections": {
-      "inputs": "Eingaben",
-      "results": "Ergebnisse"
+    "explanation": "Diese Rechner verwenden die Zinseszinsformel mit monatlicher Verzinsung. Bei wachsenden Zahlungsreihen wird die Wachstumsrate ebenfalls monatlich angewendet.",
+    "calc1": {
+      "title": "I: Endwert einer Einmalanlage",
+      "pv": "Einmalanlage heute (€)",
+      "rate": "Rendite p.a. (%)",
+      "years": "Anlagedauer (Jahre)",
+      "result": "Endwert"
     },
-    "inputs": {
-      "initial_amount": "Anfangsbetrag (EUR)",
-      "monthly_contribution": "Monatliche Einzahlung (EUR)",
-      "interest_rate": "Jährlicher Zinssatz (%)",
-      "duration": "Anlagedauer (Jahre)"
+    "calc2": {
+      "title": "II: Gegenwartswert einer zukünftigen Zahlung",
+      "fv": "Zukünftige Zahlung (€)",
+      "rate": "Rendite p.a. (%)",
+      "years": "Anlagedauer (Jahre)",
+      "result": "Gegenwartswert"
     },
-    "results": {
-      "final_amount": "Endvermögen",
-      "total_contributions": "Eingezahlte Summe",
-      "total_interest": "Zinsertrag"
+    "calc3": {
+      "title": "III: Endwert einer monatlichen Zahlungsreihe",
+      "pmt": "Monatliche Zahlung zu Beginn (€)",
+      "rate": "Rendite p.a. (%)",
+      "years": "Anlagedauer (Jahre)",
+      "growth": "Anstieg der Zahlung p.a. (%)",
+      "result": "Endwert"
     },
-    "calculate": "Berechnen"
+    "calc4": {
+      "title": "IV: Monatliche Zahlung zur Erreichung eines Endwertes",
+      "fv": "Endwert (€)",
+      "rate": "Rendite p.a. (%)",
+      "years": "Anlagedauer (Jahre)",
+      "growth": "Anstieg der Zahlung p.a. (%)",
+      "result": "Monatliche Zahlung zu Beginn"
+    },
+    "calc5": {
+      "title": "V: Gegenwartswert einer monatlichen Zahlungsreihe",
+      "pmt": "Monatliche Zahlung zu Beginn (€)",
+      "rate": "Rendite p.a. (%)",
+      "years": "Anlagedauer (Jahre)",
+      "growth": "Anstieg der Zahlung p.a. (%)",
+      "result": "Gegenwartswert"
+    }
   },
   "rentenprognose": {
     "title": "Renten- & Vermögensrechner",
@@ -132,14 +154,16 @@
       "risk_premium": "RP (%)"
     },
     "results_labels": {
-      "total_wealth": "Gesamtvermögen heute (in 000 EUR)",
-      "risk_units": "Risikoeinheiten (RE)",
-      "risk_premium": "Risikoprämie (RP)",
-      "net_mid": "Mittleres Netto (EUR/Monat)",
-      "net_mid_pct": "Mittleres Netto (% Ausgaben heute)",
-      "net_bad": "Schlechtes Netto (EUR/Monat)",
-      "net_bad_pct": "Schlechtes Netto (% Ausgaben heute)",
-      "probability_bad": "Wahrscheinlichkeit schlechtes Szenario"
+      "total_wealth": "Gesamtvermögen"
+    },
+    "results": {
+      "mid_scenario": "Rentenprognose (mittleres Szenario)",
+      "bad_scenario": "Rentenprognose (schlechtes Szenario)",
+      "return_on_wealth": "Rendite auf Vermögen (%)",
+      "monthly_net": "Monatsnetto",
+      "coverage": "Abdeckung heutiger Ausgaben",
+      "return_threshold": "Rendite auf Vermögen (%)",
+      "probability": "Eintrittswahrscheinlichkeit"
     },
     "tooltips": {
       "safe_interest": "Mit diesem Zinssatz werden sichere Zahlungen auf- bzw. abgezinst.",
@@ -151,14 +175,21 @@
       "savings_rate": "Anteil des Nettoeinkommens, der gespart (positiv) oder entspart (negativ) wird.",
       "tax_rate": "Pauschaler Unterschied zwischen Brutto- und Nettoeinkommen in der Rente.",
       "pension_forecast": "Rentenauszahlung gemäß letztem Rentenbescheid bei 1% Rentenanpassungsfaktor.",
-      "z_value": "Wahrscheinlichkeit = NORM.S.DIST(Z; WAHR). Kumulative Standardnormalverteilung.",
-      "bank_accounts": "Kontostand.",
-      "pension_assets": "Aktueller Wert von privaten und betrieblichen Altersvorsorgeverträgen.",
-      "securities": "Aktuelle Depotwerte.",
-      "real_estate": "Aktueller Schätzwert.",
-      "debt": "Restschuld (bitte mit Minus-Zeichen).",
-      "future_savings": "Gegenwartswert der künftigen Sparbeiträge (automatisch berechnet).",
-      "statutory_pension": "Heutiger Wert Ihrer Ansprüche (automatisch berechnet)."
+      "bank_accounts": "Summe aller Kontostände bei Banken.",
+      "pension_assets": "Aktueller Wert von privaten und betrieblichen Altersvorsorgeverträgen bzw. -zusagen.",
+      "securities": "Summe aller Depotbestände.",
+      "real_estate": "Summe aller aktuellen Schätzwerte.",
+      "debt": "Summe aller Restschuld (bitte mit Minus-Zeichen eingeben).",
+      "future_savings": "Gegenwartswert der zukünftigen Sparaktivitäten – wird automatisch berechnet. RE und RP können angepasst werden.",
+      "statutory_pension": "Gegenwartswert bestehender und zukünftig erworbener Rentenansprüche – wird automatisch berechnet. RE und RP können angepasst werden.",
+      "mid_scenario": "Dieses Szenario basiert auf der erwarteten Rendite des Gesamtvermögens (sicherer Zins + gewichtete Risikoprämie). Es beschreibt den mittleren, langfristig erwarteten Verlauf ohne extreme Abweichungen.",
+      "bad_scenario": "Das schlechte Szenario beschreibt ein ungünstiges, aber realistisches Ergebnis. Die Eintrittswahrscheinlichkeit wird aus erwarteter Rendite, Gesamtrisiko und Anlagehorizont berechnet.",
+      "return_mid": "Erwartete jährliche Rendite des Gesamtvermögens im mittleren Szenario (sicherer Zins + gewichtete Risikoprämie).",
+      "return_bad": "Schwellenrendite (schlechtes Szenario). Die Eintrittswahrscheinlichkeit bezieht sich auf Rendite kleiner gleich Schwellenrendite.",
+      "net_mid": "Monatliches Netto-Einkommen in der Rente in heutigen Preisen. Berechnet aus dem prognostizierten Vermögen zum Renteneintritt und gleichmäßiger Auszahlung über die Rentenphase.",
+      "net_bad": "Monatliches Netto-Einkommen in der Rente, wenn sich das Vermögen bis zum Renteneintritt mit der angegebenen Schwellenrendite entwickelt.",
+      "coverage": "Verhältnis von Renten-Monatsnetto zu heutigen monatlichen Ausgaben (heutiges Nettoeinkommen minus Sparbeitrag). Beispiel: 60% bedeutet, dass ca. 60% der heutigen Ausgaben durch das Renten-Einkommen abgedeckt werden.",
+      "probability": "Wahrscheinlichkeit, dass die realisierte Rendite des Gesamtvermögens unter der definierten Schwellenrendite liegt. Berechnung basiert auf einem stochastischen Renditemodell unter Berücksichtigung von Risiko und Anlagehorizont."
     },
     "profiles": {
       "load": "Beispiel laden...",

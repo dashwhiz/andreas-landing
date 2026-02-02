@@ -154,9 +154,9 @@ interface Question {
 type Provider = 'chatgpt' | 'gemini' | 'perplexity';
 
 const providerColors: Record<Provider, string> = {
-  chatgpt: AppColors.brand.green[30],
-  gemini: AppColors.brand.blue[30],
-  perplexity: AppColors.brand.violet[30],
+  chatgpt: '#10a37f', // OpenAI green
+  gemini: '#4285f4', // Google blue
+  perplexity: '#1fb8cd', // Perplexity teal
 };
 
 export default function KIAntwortenSection() {

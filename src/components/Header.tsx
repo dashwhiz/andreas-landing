@@ -21,6 +21,9 @@ const HeaderWrapper = styled.header`
   top: 0;
   z-index: 1000;
   background: ${AppColors.white};
+  border-bottom: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 `;
 
 const NavWithSubMenu = styled.div`

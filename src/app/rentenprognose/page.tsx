@@ -37,13 +37,15 @@ const TopBar = styled.div`
 `;
 
 const Select = styled.select`
-  padding: 10px 32px 10px 12px;
-  border-radius: 12px;
+  padding: 12px 36px 12px 14px;
+  border-radius: 14px;
   border: 1px solid ${AppColors.brand.neutral[70]};
   background: ${AppColors.white};
   color: ${AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.sm};
+  font-weight: 800;
   cursor: pointer;
+  min-width: 200px;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -56,28 +58,33 @@ const Select = styled.select`
 `;
 
 const ResetButton = styled.button`
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid ${AppColors.brand.blue[70]};
-  background: ${AppColors.brand.blue[90]};
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid ${AppColors.brand.neutral[70]};
+  background: ${AppColors.white};
   color: ${AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.sm};
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.2s ease;
 
   &:hover {
-    background: ${AppColors.brand.blue[80]};
+    background: ${AppColors.brand.neutral[100]};
+  }
+
+  &:focus {
+    outline: none;
+    border-color: ${AppColors.brand.blue[50]};
   }
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 24px;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 16px;
 
-  @media (max-width: 940px) {
+  @media (max-width: 980px) {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 `;
 
@@ -85,38 +92,38 @@ const Card = styled.div`
   background: ${AppColors.white};
   border: 1px solid ${AppColors.brand.neutral[80]};
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    padding: 12px;
+  }
 `;
 
 const SectionTitle = styled.h2`
   font-size: ${AppFontSizes.base};
   font-weight: 700;
   color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 16px 0;
+  margin: 0 0 10px 0;
 `;
 
 const SubTitle = styled.h3`
-  font-size: ${AppFontSizes.sm};
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 900;
   color: ${AppColors.brand.neutral[40]};
-  margin: 20px 0 12px 0;
+  margin: 14px 0 10px 0;
   letter-spacing: 0.2px;
 `;
 
 const TwoCol = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px 16px;
+  gap: 12px;
+  margin-bottom: 16px;
   align-items: end;
-  margin-bottom: 20px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 720px) {
+  @media (max-width: 760px) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 10px;
     align-items: stretch;
   }
 `;
@@ -125,28 +132,23 @@ const Field = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-
-  /* Standalone fields (not inside TwoCol) need margin */
-  & + & {
-    margin-top: 20px;
-  }
 `;
 
-const StandaloneField = styled(Field)`
-  margin-bottom: 20px;
+const FieldRow = styled.div`
+  margin-bottom: 16px;
 `;
 
 const LabelRow = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
 `;
 
 const Label = styled.label`
-  font-size: ${AppFontSizes.sm};
+  font-size: 13px;
   color: ${AppColors.brand.neutral[40]};
-  line-height: 1.3;
+  line-height: 1.2;
   flex: 1;
 `;
 
@@ -163,13 +165,13 @@ const Input = styled.input<{ $disabled?: boolean }>`
       : AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.base};
   transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
 
   &:focus {
     outline: none;
-    border-color: ${AppColors.brand.blue[50]};
-    box-shadow: 0 0 0 4px ${AppColors.brand.blue[90]};
+    border-color: rgba(59, 130, 246, 0.55);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
   }
 
   &::-webkit-outer-spin-button,
@@ -184,14 +186,14 @@ const InfoButton = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
   border: 1px solid ${AppColors.brand.neutral[70]};
   background: ${AppColors.white};
   color: ${AppColors.brand.neutral[40]};
-  font-weight: 700;
-  font-size: 11px;
+  font-weight: 900;
+  font-size: 12px;
   cursor: help;
   flex-shrink: 0;
 
@@ -206,8 +208,8 @@ const InfoButton = styled.span`
 const Tooltip = styled.span`
   position: absolute;
   top: calc(100% + 8px);
-
-  width: 280px;
+  right: 0;
+  width: 260px;
   max-height: 200px;
   overflow: auto;
   padding: 10px 12px;
@@ -215,39 +217,50 @@ const Tooltip = styled.span`
   border: 1px solid ${AppColors.brand.neutral[80]};
   background: ${AppColors.white};
   color: ${AppColors.brand.neutral[10]};
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.16);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.45;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease;
-  z-index: 100;
+  z-index: 9999;
   white-space: normal;
 
   @media (max-width: 720px) {
-    left: auto;
-    right: 0;
-    width: calc(100vw - 48px);
-    max-width: 280px;
+    width: 220px;
+    right: -10px;
   }
 `;
 
 const Callout = styled.div`
-  background: ${AppColors.brand.blue[90]};
-  border: 2px solid ${AppColors.brand.blue[80]};
-  border-radius: 20px;
+  background: #def1ff;
+  border: 2px solid #bfe6ff;
+  border-radius: 22px;
   padding: 16px;
   margin-top: 16px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    padding: 12px;
+    border-radius: 16px;
+  }
+`;
+
+const TableWrap = styled.div`
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: ${AppColors.white};
+  overflow: visible;
 `;
 
 const Table = styled.table`
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  overflow: hidden;
+  table-layout: fixed;
+  background: transparent;
+  border: none;
   border-radius: 14px;
-  border: 1px solid ${AppColors.brand.neutral[80]};
-  background: ${AppColors.white};
 
   @media (max-width: 720px) {
     display: none;
@@ -260,21 +273,47 @@ const Thead = styled.thead`
     font-size: 12px;
     color: ${AppColors.brand.neutral[40]};
     padding: 10px 12px;
-    background: ${AppColors.brand.neutral[100]};
-    border-bottom: 1px solid ${AppColors.brand.neutral[80]};
-    font-weight: 700;
+    background: rgba(13, 15, 22, 0.02);
+    border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+    font-weight: 900;
+    vertical-align: middle;
+  }
+
+  th:first-child {
+    border-top-left-radius: 14px;
+  }
+
+  th:last-child {
+    border-top-right-radius: 14px;
   }
 `;
 
 const Tbody = styled.tbody`
   td {
     padding: 10px 12px;
-    border-bottom: 1px solid ${AppColors.brand.neutral[90]};
+    border-bottom: 1px solid rgba(17, 24, 39, 0.06);
     vertical-align: middle;
+    background: ${AppColors.white};
   }
 
   tr:last-child td {
     border-bottom: none;
+  }
+`;
+
+const TotalRow = styled.tr`
+  td {
+    border-top: 2px solid rgba(17, 24, 39, 0.14);
+    background: rgba(13, 15, 22, 0.01);
+    font-weight: 900;
+  }
+
+  td:first-child {
+    border-bottom-left-radius: 14px;
+  }
+
+  td:last-child {
+    border-bottom-right-radius: 14px;
   }
 `;
 
@@ -283,9 +322,38 @@ const RowTitle = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 13px;
-  color: ${AppColors.brand.neutral[10]};
+  color: rgba(13, 15, 22, 0.88);
+  width: 100%;
+`;
+
+const TableInput = styled.input<{ $disabled?: boolean }>`
+  display: block;
+  width: 100%;
+  max-width: 120px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 9px 10px;
+  border-radius: 14px;
+  border: 1px solid ${AppColors.brand.neutral[70]};
+  background: ${(props) =>
+    props.$disabled ? 'rgba(17,24,39,.04)' : AppColors.white};
+  color: ${(props) =>
+    props.$disabled ? 'rgba(17,24,39,.70)' : AppColors.brand.neutral.neutralBlack};
+  font-size: ${AppFontSizes.sm};
+
+  &:focus {
+    outline: none;
+    border-color: rgba(59, 130, 246, 0.55);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 // Mobile card layout for wealth items
@@ -295,7 +363,7 @@ const MobileWealthCards = styled.div`
   @media (max-width: 720px) {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 `;
 
@@ -303,7 +371,7 @@ const MobileWealthCard = styled.div`
   background: ${AppColors.white};
   border: 1px solid ${AppColors.brand.neutral[80]};
   border-radius: 12px;
-  padding: 16px;
+  padding: 12px;
 `;
 
 const MobileWealthHeader = styled.div`
@@ -340,78 +408,118 @@ const MobileFieldLabel = styled.span`
   line-height: 1.2;
 `;
 
-const TableInput = styled.input<{ $disabled?: boolean }>`
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid ${AppColors.brand.neutral[70]};
+const ResultsCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+const ResultBlock = styled.div<{ $variant?: 'expect' | 'worst' }>`
+  border-radius: 16px;
+  border: 2px solid
+    ${(props) =>
+      props.$variant === 'expect'
+        ? '#bfead5'
+        : props.$variant === 'worst'
+          ? '#ffc9c9'
+          : 'rgba(17,24,39,.10)'};
+  padding: 14px;
+  box-shadow: 0 18px 45px rgba(17, 24, 39, 0.1);
   background: ${(props) =>
-    props.$disabled ? AppColors.brand.neutral[100] : AppColors.white};
-  color: ${(props) =>
-    props.$disabled
-      ? AppColors.brand.neutral[40]
-      : AppColors.brand.neutral.neutralBlack};
-  font-size: ${AppFontSizes.sm};
+    props.$variant === 'expect'
+      ? '#e9fbf2'
+      : props.$variant === 'worst'
+        ? '#ffecec'
+        : AppColors.white};
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    padding: 12px;
+  }
+`;
+
+const BlockHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-weight: 900;
+`;
+
+const BlockTitle = styled.div`
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const MiniKpi = styled.div`
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  background: rgba(255, 255, 255, 0.65);
+  padding: 10px 12px;
+  margin-top: 10px;
+`;
+
+const KpiLabel = styled.div`
+  font-size: 12px;
+  color: ${AppColors.brand.neutral[40]};
+  display: flex;
+  align-items: center;
+  gap: 6px;
+`;
+
+const KpiValue = styled.div`
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 900;
+`;
+
+const MiniField = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+`;
+
+const MiniInput = styled.input`
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid ${AppColors.brand.neutral[70]};
+  background: ${AppColors.white};
+  font-size: ${AppFontSizes.base};
 
   &:focus {
     outline: none;
-    border-color: ${AppColors.brand.blue[50]};
+    border-color: rgba(59, 130, 246, 0.55);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
   }
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-`;
-
-const KPI = styled.div`
-  border-radius: 14px;
-  border: 1px solid ${AppColors.brand.neutral[80]};
-  background: ${AppColors.white};
-  padding: 14px;
-  margin-bottom: 12px;
-`;
-
-const KPILabel = styled.div`
-  font-size: 12px;
-  color: ${AppColors.brand.neutral[40]};
-`;
-
-const KPIValue = styled.div`
-  margin-top: 6px;
-  font-size: ${AppFontSizes.xl};
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  color: ${AppColors.brand.neutral.neutralBlack};
 `;
 
 const StatusLine = styled.div<{ $isError?: boolean }>`
-  margin-top: 16px;
-  padding: 12px 14px;
+  margin-top: 10px;
+  padding: 10px 12px;
   border-radius: 12px;
-  border: 1px solid ${AppColors.brand.neutral[80]};
-  background: ${AppColors.brand.neutral[100]};
-  color: ${(props) =>
-    props.$isError
-      ? AppColors.semantic.error[60]
-      : AppColors.semantic.success[40]};
-  font-size: ${AppFontSizes.sm};
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  background: rgba(13, 15, 22, 0.031);
+  color: ${(props) => (props.$isError ? '#b91c1c' : 'rgba(13,15,22,.70)')};
+  font-size: 12px;
   line-height: 1.45;
 `;
 
-const ExplanationSection = styled.section`
-  margin-top: 40px;
-  padding: 24px;
+const ExplanationCard = styled.section`
+  margin-top: 60px;
+  padding: 32px;
   background: ${AppColors.brand.neutral[100]};
   border-radius: 16px;
 `;
 
 const ExplanationTitle = styled.h2`
-  font-size: ${AppFontSizes.lg};
+  font-size: ${AppFontSizes.xl};
   font-weight: 700;
   color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
 `;
 
 const ExplanationText = styled.p`
@@ -432,7 +540,7 @@ interface State {
   s: number;
   tax: number;
   pensionMonthly: number;
-  zBad: number;
+  badMuPct: number;
   bankK: number;
   pensionAssetK: number;
   secK: number;
@@ -454,87 +562,87 @@ interface State {
   rpPvPens: number;
 }
 
-// Default profiles
+// Default profiles from Bilanz.html
 const USER_DEFAULTS: State = {
   r: 2,
   g: 2,
-  ageNow: 45,
+  ageNow: 40,
   ageRet: 67,
   ageLife: 90,
-  income: 950,
-  s: 10,
-  tax: 25,
+  income: 2200,
+  s: 8,
+  tax: 20,
   pensionMonthly: 1262,
-  zBad: -1.04,
-  bankK: 50,
+  badMuPct: 0,
+  bankK: 15,
   reBank: 0,
   rpBank: 0,
-  pensionAssetK: 0,
-  rePensionAsset: 0,
-  rpPensionAsset: 0,
-  secK: 220,
-  reSec: 3.5,
-  rpSec: 2,
-  immoK: 300,
-  reImmo: 2,
-  rpImmo: 2,
+  pensionAssetK: 10,
+  rePensionAsset: 1,
+  rpPensionAsset: 1,
+  secK: 20,
+  reSec: 3,
+  rpSec: 3,
+  immoK: 0,
+  reImmo: 0,
+  rpImmo: 0,
   debtK: 0,
   reDebt: 0,
   rpDebt: 0,
-  rePvSave: 1,
-  rpPvSave: 0,
+  rePvSave: 2,
+  rpPvSave: 2,
   rePvPens: 1,
-  rpPvPens: 1,
+  rpPvPens: 0.5,
 };
 
 const EXAMPLES: Record<string, State> = {
   user: USER_DEFAULTS,
-  frida: { ...USER_DEFAULTS, ageRet: 70, s: -100 },
-  jana: {
-    r: 2,
-    g: 3,
-    ageNow: 35,
-    ageRet: 67,
-    ageLife: 95,
-    income: 2800,
-    s: 10,
-    tax: 20,
-    pensionMonthly: 2200,
-    zBad: -1.555,
-    bankK: 15,
-    reBank: 0,
-    rpBank: 0,
-    pensionAssetK: 25,
-    rePensionAsset: 2,
-    rpPensionAsset: 1,
-    secK: 20,
-    reSec: 4,
-    rpSec: 4,
-    immoK: 0,
-    reImmo: 0,
-    rpImmo: 0,
-    debtK: -10,
-    reDebt: 0,
-    rpDebt: 1,
-    rePvSave: 1,
-    rpPvSave: 4,
+  frida: {
+    ...USER_DEFAULTS,
+    ageNow: 45,
+    ageRet: 70,
+    income: 950,
+    s: -100,
+    bankK: 50,
+    pensionAssetK: 0,
+    secK: 220,
+    reSec: 3.5,
+    rpSec: 2,
+    immoK: 300,
+    reImmo: 2,
+    rpImmo: 2,
+    rePvSave: 0,
+    rpPvSave: 0,
     rePvPens: 1,
     rpPvPens: 1,
   },
+  jana: {
+    ...USER_DEFAULTS,
+    g: 3,
+    ageNow: 35,
+    ageLife: 95,
+    income: 2800,
+    s: 10,
+    pensionMonthly: 2200,
+    bankK: 15,
+    pensionAssetK: 25,
+    rePensionAsset: 2,
+    secK: 20,
+    reSec: 4,
+    rpSec: 4,
+    debtK: -10,
+    rePvSave: 1,
+    rpPvSave: 4,
+  },
   fred: {
-    r: 2,
-    g: 2,
+    ...USER_DEFAULTS,
     ageNow: 50,
     ageRet: 70,
-    ageLife: 90,
     income: 3800,
     s: 10,
     tax: 30,
     pensionMonthly: 1562,
-    zBad: -0.739,
     bankK: 90,
-    reBank: 0,
-    rpBank: 0,
     pensionAssetK: 120,
     rePensionAsset: 2,
     rpPensionAsset: 2,
@@ -545,92 +653,54 @@ const EXAMPLES: Record<string, State> = {
     reImmo: 3,
     rpImmo: 2,
     debtK: -150,
-    reDebt: 0,
     rpDebt: 3,
     rePvSave: 3,
     rpPvSave: 3,
-    rePvPens: 1,
-    rpPvPens: 1,
   },
   karin: {
-    r: 2,
-    g: 2,
+    ...USER_DEFAULTS,
     ageNow: 30,
-    ageRet: 67,
     ageLife: 95,
     income: 1800,
     s: 5,
-    tax: 20,
     pensionMonthly: 1908,
-    zBad: -1.645,
     bankK: 5,
-    reBank: 0,
-    rpBank: 0,
     pensionAssetK: 0,
     rePensionAsset: 0,
     rpPensionAsset: 0,
     secK: 0,
     reSec: 0,
     rpSec: 0,
-    immoK: 0,
-    reImmo: 0,
-    rpImmo: 0,
-    debtK: 0,
-    reDebt: 0,
-    rpDebt: 0,
     rePvSave: 1,
     rpPvSave: 2,
-    rePvPens: 1,
-    rpPvPens: 1,
   },
   armin: {
-    r: 2,
-    g: 2,
-    ageNow: 40,
-    ageRet: 67,
-    ageLife: 90,
+    ...USER_DEFAULTS,
     income: 6400,
     s: 25,
     tax: 35,
     pensionMonthly: 3925,
-    zBad: -1.405,
     bankK: 125,
-    reBank: 0,
-    rpBank: 0,
     pensionAssetK: 40,
     rePensionAsset: 2,
-    rpPensionAsset: 1,
     secK: 140,
     reSec: 4,
     rpSec: 3.5,
-    immoK: 0,
-    reImmo: 0,
-    rpImmo: 0,
-    debtK: 0,
-    reDebt: 0,
-    rpDebt: 0,
     rePvSave: 2,
     rpPvSave: 3.5,
     rePvPens: 1.5,
-    rpPvPens: 1,
   },
   benno: {
-    r: 2,
-    g: 2,
+    ...USER_DEFAULTS,
     ageNow: 55,
     ageRet: 64,
-    ageLife: 90,
     income: 58333.3333,
     s: 30,
     tax: 40,
     pensionMonthly: 3150,
-    zBad: -0.706,
     bankK: 200,
-    reBank: 0,
-    rpBank: 0,
     pensionAssetK: 220,
     rePensionAsset: 2,
-    rpPensionAsset: 1,
     secK: 2500,
     reSec: 7,
     rpSec: 4,
@@ -638,39 +708,24 @@ const EXAMPLES: Record<string, State> = {
     reImmo: 2.5,
     rpImmo: 3,
     debtK: -2000,
-    reDebt: 0,
     rpDebt: 1.5,
     rePvSave: 1,
     rpPvSave: 4,
-    rePvPens: 1,
-    rpPvPens: 1,
   },
   frank: {
-    r: 2,
-    g: 2,
+    ...USER_DEFAULTS,
     ageNow: 60,
-    ageRet: 67,
-    ageLife: 90,
     income: 6200,
     s: 12,
     tax: 35,
     pensionMonthly: 8309,
-    zBad: -0.706,
     bankK: 210,
-    reBank: 0,
-    rpBank: 0,
     pensionAssetK: 0,
     rePensionAsset: 0,
     rpPensionAsset: 0,
     secK: 0,
     reSec: 0,
     rpSec: 0,
-    immoK: 0,
-    reImmo: 0,
-    rpImmo: 0,
-    debtK: 0,
-    reDebt: 0,
-    rpDebt: 0,
     rePvSave: 0.5,
     rpPvSave: 0,
     rePvPens: 0.5,
@@ -698,6 +753,26 @@ function normSDist(z: number): number {
   return 0.5 * (1 + erf(z / Math.SQRT2));
 }
 
+function sigmaFromRE(re: number): number {
+  const sig = Math.max(0, re) / 27;
+  return Math.min(0.6, sig);
+}
+
+function probPoorScenario(
+  mu: number,
+  sigma: number,
+  rf: number,
+  tYears: number,
+): number {
+  const t = Math.max(1e-9, tYears);
+  const sig = Math.max(0, sigma);
+  if (sig < 1e-12) {
+    return rf >= mu ? 1 : 0;
+  }
+  const z = (rf - mu) / (sig / Math.sqrt(t));
+  return normSDist(z);
+}
+
 function formatEuro(x: number): string {
   if (!isFinite(x)) return '—';
   return new Intl.NumberFormat('de-DE', {
@@ -714,28 +789,33 @@ function formatInt(x: number): string {
 
 function formatOneDec(x: number): string {
   if (!isFinite(x)) return '—';
-  return x.toFixed(1);
+  return new Intl.NumberFormat('de-DE', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(x);
+}
+
+function formatTwoDec(x: number): string {
+  if (!isFinite(x)) return '—';
+  return new Intl.NumberFormat('de-DE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(x);
 }
 
 export default function RentenprognosePage() {
   const { t } = useTranslations();
   const [state, setState] = useState<State>(USER_DEFAULTS);
-  // Track which fields are being edited (to allow empty display)
-  const [editingFields, setEditingFields] = useState<Record<string, string>>(
-    {},
-  );
+  const [editingFields, setEditingFields] = useState<Record<string, string>>({});
 
   const updateField = (field: keyof State, rawValue: string) => {
-    // Store raw value for display during editing
     setEditingFields((prev) => ({ ...prev, [field]: rawValue }));
-    // Parse for calculations (empty = 0)
     const value = rawValue === '' ? 0 : parseFloat(rawValue);
     if (!isNaN(value)) {
       setState((prev) => ({ ...prev, [field]: value }));
     }
   };
 
-  // Get display value - show editing value if active, otherwise numeric state
   const getDisplayValue = (field: keyof State) => {
     if (field in editingFields) {
       return editingFields[field];
@@ -743,7 +823,6 @@ export default function RentenprognosePage() {
     return state[field];
   };
 
-  // On blur, clear editing state to show formatted number
   const handleBlur = (field: keyof State) => {
     setEditingFields((prev) => {
       const next = { ...prev };
@@ -752,7 +831,6 @@ export default function RentenprognosePage() {
     });
   };
 
-  // Auto-select input content on focus for better UX
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.select();
   };
@@ -764,10 +842,8 @@ export default function RentenprognosePage() {
     const newErrors: string[] = [];
     if (nWork <= 0) newErrors.push(t('rentenprognose.status.error_age'));
     if (nRet <= 0) newErrors.push(t('rentenprognose.status.error_life'));
-    if (!isFinite(state.tax / 100) || state.tax < 0 || state.tax > 100)
+    if (!isFinite(state.tax) || state.tax < 0 || state.tax > 100)
       newErrors.push(t('rentenprognose.status.error_tax'));
-    if (!isFinite(state.zBad))
-      newErrors.push(t('rentenprognose.status.error_z'));
 
     if (newErrors.length > 0) {
       return { results: null, errors: newErrors };
@@ -833,21 +909,28 @@ export default function RentenprognosePage() {
           totalToday
         : 0;
 
-    // Wealth at retirement
-    const wealthAtRet = totalToday * Math.pow(1 + r + rpWeighted, nWork);
-    const grossRetMonthly = 1000 * (wealthAtRet / (nRet * 12));
+    // Expected return
+    const muMid = r + rpWeighted;
 
-    // Net calculations
-    const netMid = ((1 - tax) * grossRetMonthly) / Math.pow(1 + r, nWork);
-    const netBad = 1000 * (1 - tax) * (totalToday / nRet / 12);
+    // Wealth at retirement (mid scenario)
+    const wealthAtRetMid = totalToday * Math.pow(1 + muMid, nWork);
+    const grossMidMonthly = 1000 * (wealthAtRetMid / (nRet * 12));
+    const netMid = ((1 - tax) * grossMidMonthly) / Math.pow(1 + r, nWork);
 
+    // Bad scenario
+    const rfBad = state.badMuPct / 100;
+    const wealthAtRetBad = totalToday * Math.pow(1 + rfBad, nWork);
+    const grossBadMonthly = 1000 * (wealthAtRetBad / (nRet * 12));
+    const netBad = ((1 - tax) * grossBadMonthly) / Math.pow(1 + r, nWork);
+
+    // Coverage
     const expensesToday = state.income * (1 - s);
-    const netMidPct =
-      expensesToday !== 0 ? (netMid / expensesToday) * 100 : NaN;
-    const netBadPct =
-      expensesToday !== 0 ? (netBad / expensesToday) * 100 : NaN;
+    const coverMid = expensesToday !== 0 ? (netMid / expensesToday) * 100 : NaN;
+    const coverBad = expensesToday !== 0 ? (netBad / expensesToday) * 100 : NaN;
 
-    const probBad = normSDist(state.zBad) * 100;
+    // Probability of bad scenario
+    const sigma = sigmaFromRE(reToday);
+    const probBad = probPoorScenario(muMid, sigma, rfBad, nWork) * 100;
 
     return {
       results: {
@@ -856,10 +939,11 @@ export default function RentenprognosePage() {
         totalToday,
         reToday,
         rpWeighted: rpWeighted * 100,
+        muMid: muMid * 100,
         netMid,
-        netMidPct,
+        coverMid,
         netBad,
-        netBadPct,
+        coverBad,
         probBad,
       },
       errors: [],
@@ -883,6 +967,15 @@ export default function RentenprognosePage() {
     setEditingFields({});
   };
 
+  // Wealth items for rendering
+  const wealthItems = [
+    { key: 'bank', label: 'bank_accounts', kField: 'bankK', reField: 'reBank', rpField: 'rpBank' },
+    { key: 'pension', label: 'pension_assets', kField: 'pensionAssetK', reField: 'rePensionAsset', rpField: 'rpPensionAsset' },
+    { key: 'sec', label: 'securities', kField: 'secK', reField: 'reSec', rpField: 'rpSec' },
+    { key: 'immo', label: 'real_estate', kField: 'immoK', reField: 'reImmo', rpField: 'rpImmo' },
+    { key: 'debt', label: 'debt', kField: 'debtK', reField: 'reDebt', rpField: 'rpDebt' },
+  ] as const;
+
   return (
     <PageLayout>
       <PageTitle>{t('rentenprognose.title')}</PageTitle>
@@ -890,14 +983,14 @@ export default function RentenprognosePage() {
 
       <TopBar>
         <Select value={selectedProfile} onChange={handleProfileChange}>
-          <option value=''>{t('rentenprognose.profiles.load')}</option>
-          <option value='frida'>Frida</option>
-          <option value='jana'>Jana</option>
-          <option value='fred'>Fred</option>
-          <option value='karin'>Karin</option>
-          <option value='armin'>Armin</option>
-          <option value='benno'>Benno</option>
-          <option value='frank'>Frank</option>
+          <option value="">{t('rentenprognose.profiles.load')}</option>
+          <option value="frida">Frida</option>
+          <option value="jana">Jana</option>
+          <option value="fred">Fred</option>
+          <option value="karin">Karin</option>
+          <option value="armin">Armin</option>
+          <option value="benno">Benno</option>
+          <option value="frank">Frank</option>
         </Select>
         <ResetButton onClick={handleReset}>
           {t('rentenprognose.profiles.reset')}
@@ -914,15 +1007,12 @@ export default function RentenprognosePage() {
               <LabelRow>
                 <Label>{t('rentenprognose.inputs.safe_interest')}</Label>
                 <InfoButton>
-                  i
-                  <Tooltip>
-                    {t('rentenprognose.tooltips.safe_interest')}
-                  </Tooltip>
+                  i<Tooltip>{t('rentenprognose.tooltips.safe_interest')}</Tooltip>
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='0.5'
+                type="number"
+                step="0.1"
                 value={getDisplayValue('r')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('r')}
@@ -933,15 +1023,12 @@ export default function RentenprognosePage() {
               <LabelRow>
                 <Label>{t('rentenprognose.inputs.income_growth')}</Label>
                 <InfoButton>
-                  i
-                  <Tooltip>
-                    {t('rentenprognose.tooltips.income_growth')}
-                  </Tooltip>
+                  i<Tooltip>{t('rentenprognose.tooltips.income_growth')}</Tooltip>
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='0.5'
+                type="number"
+                step="0.1"
                 value={getDisplayValue('g')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('g')}
@@ -959,8 +1046,8 @@ export default function RentenprognosePage() {
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='1'
+                type="number"
+                step="1"
                 value={getDisplayValue('ageNow')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('ageNow')}
@@ -971,15 +1058,12 @@ export default function RentenprognosePage() {
               <LabelRow>
                 <Label>{t('rentenprognose.inputs.age_retirement')}</Label>
                 <InfoButton>
-                  i
-                  <Tooltip>
-                    {t('rentenprognose.tooltips.age_retirement')}
-                  </Tooltip>
+                  i<Tooltip>{t('rentenprognose.tooltips.age_retirement')}</Tooltip>
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='1'
+                type="number"
+                step="1"
                 value={getDisplayValue('ageRet')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('ageRet')}
@@ -988,25 +1072,24 @@ export default function RentenprognosePage() {
             </Field>
           </TwoCol>
 
-          <StandaloneField>
-            <LabelRow>
-              <Label>{t('rentenprognose.inputs.life_expectancy')}</Label>
-              <InfoButton>
-                i
-                <Tooltip>
-                  {t('rentenprognose.tooltips.life_expectancy')}
-                </Tooltip>
-              </InfoButton>
-            </LabelRow>
-            <Input
-              type='number'
-              step='1'
-              value={getDisplayValue('ageLife')}
-              onFocus={handleFocus}
-              onBlur={() => handleBlur('ageLife')}
-              onChange={(e) => updateField('ageLife', e.target.value)}
-            />
-          </StandaloneField>
+          <FieldRow>
+            <Field>
+              <LabelRow>
+                <Label>{t('rentenprognose.inputs.life_expectancy')}</Label>
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.life_expectancy')}</Tooltip>
+                </InfoButton>
+              </LabelRow>
+              <Input
+                type="number"
+                step="1"
+                value={getDisplayValue('ageLife')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('ageLife')}
+                onChange={(e) => updateField('ageLife', e.target.value)}
+              />
+            </Field>
+          </FieldRow>
 
           <TwoCol>
             <Field>
@@ -1017,8 +1100,8 @@ export default function RentenprognosePage() {
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='50'
+                type="number"
+                step="50"
                 value={getDisplayValue('income')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('income')}
@@ -1029,13 +1112,12 @@ export default function RentenprognosePage() {
               <LabelRow>
                 <Label>{t('rentenprognose.inputs.savings_rate')}</Label>
                 <InfoButton>
-                  i
-                  <Tooltip>{t('rentenprognose.tooltips.savings_rate')}</Tooltip>
+                  i<Tooltip>{t('rentenprognose.tooltips.savings_rate')}</Tooltip>
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='0.5'
+                type="number"
+                step="0.5"
                 value={getDisplayValue('s')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('s')}
@@ -1053,8 +1135,8 @@ export default function RentenprognosePage() {
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='0.5'
+                type="number"
+                step="0.5"
                 value={getDisplayValue('tax')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('tax')}
@@ -1065,15 +1147,12 @@ export default function RentenprognosePage() {
               <LabelRow>
                 <Label>{t('rentenprognose.inputs.pension_forecast')}</Label>
                 <InfoButton>
-                  i
-                  <Tooltip>
-                    {t('rentenprognose.tooltips.pension_forecast')}
-                  </Tooltip>
+                  i<Tooltip>{t('rentenprognose.tooltips.pension_forecast')}</Tooltip>
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='50'
+                type="number"
+                step="50"
                 value={getDisplayValue('pensionMonthly')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('pensionMonthly')}
@@ -1082,655 +1161,238 @@ export default function RentenprognosePage() {
             </Field>
           </TwoCol>
 
-          <TwoCol>
-            <Field>
-              <LabelRow>
-                <Label>{t('rentenprognose.inputs.z_value')}</Label>
-                <InfoButton>
-                  i<Tooltip>{t('rentenprognose.tooltips.z_value')}</Tooltip>
-                </InfoButton>
-              </LabelRow>
-              <Input
-                type='number'
-                step='0.01'
-                value={getDisplayValue('zBad')}
-                onFocus={handleFocus}
-                onBlur={() => handleBlur('zBad')}
-                onChange={(e) => updateField('zBad', e.target.value)}
-              />
-            </Field>
-          </TwoCol>
-
           <SubTitle>{t('rentenprognose.sections.wealth_overview')}</SubTitle>
           <Callout>
-            <Table>
-              <Thead>
-                <tr>
-                  <th style={{ width: '40%' }}>
-                    {t('rentenprognose.columns.position')}
-                  </th>
-                  <th style={{ width: '20%' }}>
-                    {t('rentenprognose.columns.amount')}
-                  </th>
-                  <th style={{ width: '20%' }}>
-                    {t('rentenprognose.columns.risk_units')}
-                  </th>
-                  <th style={{ width: '20%' }}>
-                    {t('rentenprognose.columns.risk_premium')}
-                  </th>
-                </tr>
-              </Thead>
-              <Tbody>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>
-                        {t('rentenprognose.wealth_items.bank_accounts')}
-                      </span>
-                      <InfoButton>
-                        i
-                        <Tooltip>
-                          {t('rentenprognose.tooltips.bank_accounts')}
-                        </Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('bankK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('bankK')}
-                      onChange={(e) => updateField('bankK', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reBank')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reBank')}
-                      onChange={(e) => updateField('reBank', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpBank')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpBank')}
-                      onChange={(e) => updateField('rpBank', e.target.value)}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>
-                        {t('rentenprognose.wealth_items.pension_assets')}
-                      </span>
-                      <InfoButton>
-                        i
-                        <Tooltip>
-                          {t('rentenprognose.tooltips.pension_assets')}
-                        </Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('pensionAssetK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('pensionAssetK')}
-                      onChange={(e) =>
-                        updateField('pensionAssetK', e.target.value)
-                      }
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rePensionAsset')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rePensionAsset')}
-                      onChange={(e) =>
-                        updateField('rePensionAsset', e.target.value)
-                      }
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpPensionAsset')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpPensionAsset')}
-                      onChange={(e) =>
-                        updateField('rpPensionAsset', e.target.value)
-                      }
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>{t('rentenprognose.wealth_items.securities')}</span>
-                      <InfoButton>
-                        i
-                        <Tooltip>
-                          {t('rentenprognose.tooltips.securities')}
-                        </Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('secK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('secK')}
-                      onChange={(e) => updateField('secK', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reSec')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reSec')}
-                      onChange={(e) => updateField('reSec', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpSec')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpSec')}
-                      onChange={(e) => updateField('rpSec', e.target.value)}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>
-                        {t('rentenprognose.wealth_items.real_estate')}
-                      </span>
-                      <InfoButton>
-                        i
-                        <Tooltip>
-                          {t('rentenprognose.tooltips.real_estate')}
-                        </Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('immoK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('immoK')}
-                      onChange={(e) => updateField('immoK', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reImmo')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reImmo')}
-                      onChange={(e) => updateField('reImmo', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpImmo')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpImmo')}
-                      onChange={(e) => updateField('rpImmo', e.target.value)}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>{t('rentenprognose.wealth_items.debt')}</span>
-                      <InfoButton>
-                        i<Tooltip>{t('rentenprognose.tooltips.debt')}</Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('debtK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('debtK')}
-                      onChange={(e) => updateField('debtK', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reDebt')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reDebt')}
-                      onChange={(e) => updateField('reDebt', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpDebt')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpDebt')}
-                      onChange={(e) => updateField('rpDebt', e.target.value)}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>
-                        {t('rentenprognose.wealth_items.future_savings')}
-                      </span>
-                      <InfoButton>
-                        i
-                        <Tooltip>
-                          {t('rentenprognose.tooltips.future_savings')}
-                        </Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      value={results ? formatInt(results.pvSave) : '0'}
-                      disabled
-                      $disabled
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rePvSave')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rePvSave')}
-                      onChange={(e) => updateField('rePvSave', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpPvSave')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpPvSave')}
-                      onChange={(e) => updateField('rpPvSave', e.target.value)}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <RowTitle>
-                      <span>
-                        {t('rentenprognose.wealth_items.statutory_pension')}
-                      </span>
-                      <InfoButton>
-                        i
-                        <Tooltip>
-                          {t('rentenprognose.tooltips.statutory_pension')}
-                        </Tooltip>
-                      </InfoButton>
-                    </RowTitle>
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      value={results ? formatInt(results.pvPens) : '0'}
-                      disabled
-                      $disabled
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rePvPens')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rePvPens')}
-                      onChange={(e) => updateField('rePvPens', e.target.value)}
-                    />
-                  </td>
-                  <td>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpPvPens')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpPvPens')}
-                      onChange={(e) => updateField('rpPvPens', e.target.value)}
-                    />
-                  </td>
-                </tr>
-              </Tbody>
-            </Table>
+            <TableWrap>
+              <Table>
+                <Thead>
+                  <tr>
+                    <th style={{ width: '44%' }}>{t('rentenprognose.columns.position')}</th>
+                    <th style={{ width: '18%' }}>{t('rentenprognose.columns.amount')}</th>
+                    <th style={{ width: '18%' }}>{t('rentenprognose.columns.risk_units')}</th>
+                    <th style={{ width: '20%' }}>{t('rentenprognose.columns.risk_premium')}</th>
+                  </tr>
+                </Thead>
+                <Tbody>
+                  {wealthItems.map((item) => (
+                    <tr key={item.key}>
+                      <td>
+                        <RowTitle>
+                          <span>{t(`rentenprognose.wealth_items.${item.label}`)}</span>
+                          <InfoButton>
+                            i<Tooltip>{t(`rentenprognose.tooltips.${item.label}`)}</Tooltip>
+                          </InfoButton>
+                        </RowTitle>
+                      </td>
+                      <td>
+                        <TableInput
+                          type="number"
+                          step="5"
+                          value={getDisplayValue(item.kField)}
+                          onFocus={handleFocus}
+                          onBlur={() => handleBlur(item.kField)}
+                          onChange={(e) => updateField(item.kField, e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <TableInput
+                          type="number"
+                          step="0.5"
+                          value={getDisplayValue(item.reField)}
+                          onFocus={handleFocus}
+                          onBlur={() => handleBlur(item.reField)}
+                          onChange={(e) => updateField(item.reField, e.target.value)}
+                        />
+                      </td>
+                      <td>
+                        <TableInput
+                          type="number"
+                          step="0.5"
+                          value={getDisplayValue(item.rpField)}
+                          onFocus={handleFocus}
+                          onBlur={() => handleBlur(item.rpField)}
+                          onChange={(e) => updateField(item.rpField, e.target.value)}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td>
+                      <RowTitle>
+                        <span>{t('rentenprognose.wealth_items.future_savings')}</span>
+                        <InfoButton>
+                          i<Tooltip>{t('rentenprognose.tooltips.future_savings')}</Tooltip>
+                        </InfoButton>
+                      </RowTitle>
+                    </td>
+                    <td>
+                      <TableInput
+                        type="text"
+                        value={results ? formatInt(results.pvSave) : '0'}
+                        disabled
+                        $disabled
+                      />
+                    </td>
+                    <td>
+                      <TableInput
+                        type="number"
+                        step="0.5"
+                        value={getDisplayValue('rePvSave')}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur('rePvSave')}
+                        onChange={(e) => updateField('rePvSave', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <TableInput
+                        type="number"
+                        step="0.5"
+                        value={getDisplayValue('rpPvSave')}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur('rpPvSave')}
+                        onChange={(e) => updateField('rpPvSave', e.target.value)}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <RowTitle>
+                        <span>{t('rentenprognose.wealth_items.statutory_pension')}</span>
+                        <InfoButton>
+                          i<Tooltip>{t('rentenprognose.tooltips.statutory_pension')}</Tooltip>
+                        </InfoButton>
+                      </RowTitle>
+                    </td>
+                    <td>
+                      <TableInput
+                        type="text"
+                        value={results ? formatInt(results.pvPens) : '0'}
+                        disabled
+                        $disabled
+                      />
+                    </td>
+                    <td>
+                      <TableInput
+                        type="number"
+                        step="0.5"
+                        value={getDisplayValue('rePvPens')}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur('rePvPens')}
+                        onChange={(e) => updateField('rePvPens', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <TableInput
+                        type="number"
+                        step="0.5"
+                        value={getDisplayValue('rpPvPens')}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur('rpPvPens')}
+                        onChange={(e) => updateField('rpPvPens', e.target.value)}
+                      />
+                    </td>
+                  </tr>
+                  <TotalRow>
+                    <td>{t('rentenprognose.results_labels.total_wealth')}</td>
+                    <td>
+                      <TableInput
+                        type="text"
+                        value={results ? formatInt(results.totalToday) : '—'}
+                        disabled
+                        $disabled
+                      />
+                    </td>
+                    <td>
+                      <TableInput
+                        type="text"
+                        value={results ? formatOneDec(results.reToday) : '—'}
+                        disabled
+                        $disabled
+                      />
+                    </td>
+                    <td>
+                      <TableInput
+                        type="text"
+                        value={results ? formatOneDec(results.rpWeighted) : '—'}
+                        disabled
+                        $disabled
+                      />
+                    </td>
+                  </TotalRow>
+                </Tbody>
+              </Table>
+            </TableWrap>
 
             {/* Mobile card layout */}
             <MobileWealthCards>
-              <MobileWealthCard>
-                <MobileWealthHeader>
-                  <span>{t('rentenprognose.wealth_items.bank_accounts')}</span>
-                  <InfoButton>
-                    i
-                    <Tooltip>
-                      {t('rentenprognose.tooltips.bank_accounts')}
-                    </Tooltip>
-                  </InfoButton>
-                </MobileWealthHeader>
-                <MobileWealthFields>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('bankK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('bankK')}
-                      onChange={(e) => updateField('bankK', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reBank')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reBank')}
-                      onChange={(e) => updateField('reBank', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpBank')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpBank')}
-                      onChange={(e) => updateField('rpBank', e.target.value)}
-                    />
-                  </MobileWealthField>
-                </MobileWealthFields>
-              </MobileWealthCard>
-
-              <MobileWealthCard>
-                <MobileWealthHeader>
-                  <span>{t('rentenprognose.wealth_items.pension_assets')}</span>
-                  <InfoButton>
-                    i
-                    <Tooltip>
-                      {t('rentenprognose.tooltips.pension_assets')}
-                    </Tooltip>
-                  </InfoButton>
-                </MobileWealthHeader>
-                <MobileWealthFields>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('pensionAssetK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('pensionAssetK')}
-                      onChange={(e) =>
-                        updateField('pensionAssetK', e.target.value)
-                      }
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rePensionAsset')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rePensionAsset')}
-                      onChange={(e) =>
-                        updateField('rePensionAsset', e.target.value)
-                      }
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpPensionAsset')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpPensionAsset')}
-                      onChange={(e) =>
-                        updateField('rpPensionAsset', e.target.value)
-                      }
-                    />
-                  </MobileWealthField>
-                </MobileWealthFields>
-              </MobileWealthCard>
-
-              <MobileWealthCard>
-                <MobileWealthHeader>
-                  <span>{t('rentenprognose.wealth_items.securities')}</span>
-                  <InfoButton>
-                    i
-                    <Tooltip>{t('rentenprognose.tooltips.securities')}</Tooltip>
-                  </InfoButton>
-                </MobileWealthHeader>
-                <MobileWealthFields>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('secK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('secK')}
-                      onChange={(e) => updateField('secK', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reSec')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reSec')}
-                      onChange={(e) => updateField('reSec', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpSec')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpSec')}
-                      onChange={(e) => updateField('rpSec', e.target.value)}
-                    />
-                  </MobileWealthField>
-                </MobileWealthFields>
-              </MobileWealthCard>
-
-              <MobileWealthCard>
-                <MobileWealthHeader>
-                  <span>{t('rentenprognose.wealth_items.real_estate')}</span>
-                  <InfoButton>
-                    i
-                    <Tooltip>
-                      {t('rentenprognose.tooltips.real_estate')}
-                    </Tooltip>
-                  </InfoButton>
-                </MobileWealthHeader>
-                <MobileWealthFields>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('immoK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('immoK')}
-                      onChange={(e) => updateField('immoK', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reImmo')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reImmo')}
-                      onChange={(e) => updateField('reImmo', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpImmo')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpImmo')}
-                      onChange={(e) => updateField('rpImmo', e.target.value)}
-                    />
-                  </MobileWealthField>
-                </MobileWealthFields>
-              </MobileWealthCard>
-
-              <MobileWealthCard>
-                <MobileWealthHeader>
-                  <span>{t('rentenprognose.wealth_items.debt')}</span>
-                  <InfoButton>
-                    i<Tooltip>{t('rentenprognose.tooltips.debt')}</Tooltip>
-                  </InfoButton>
-                </MobileWealthHeader>
-                <MobileWealthFields>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='5'
-                      value={getDisplayValue('debtK')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('debtK')}
-                      onChange={(e) => updateField('debtK', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('reDebt')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('reDebt')}
-                      onChange={(e) => updateField('reDebt', e.target.value)}
-                    />
-                  </MobileWealthField>
-                  <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
-                    <TableInput
-                      type='number'
-                      step='0.5'
-                      value={getDisplayValue('rpDebt')}
-                      onFocus={handleFocus}
-                      onBlur={() => handleBlur('rpDebt')}
-                      onChange={(e) => updateField('rpDebt', e.target.value)}
-                    />
-                  </MobileWealthField>
-                </MobileWealthFields>
-              </MobileWealthCard>
+              {wealthItems.map((item) => (
+                <MobileWealthCard key={item.key}>
+                  <MobileWealthHeader>
+                    <span>{t(`rentenprognose.wealth_items.${item.label}`)}</span>
+                    <InfoButton>
+                      i<Tooltip>{t(`rentenprognose.tooltips.${item.label}`)}</Tooltip>
+                    </InfoButton>
+                  </MobileWealthHeader>
+                  <MobileWealthFields>
+                    <MobileWealthField>
+                      <MobileFieldLabel>{t('rentenprognose.columns.amount')}</MobileFieldLabel>
+                      <TableInput
+                        type="number"
+                        step="5"
+                        value={getDisplayValue(item.kField)}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur(item.kField)}
+                        onChange={(e) => updateField(item.kField, e.target.value)}
+                      />
+                    </MobileWealthField>
+                    <MobileWealthField>
+                      <MobileFieldLabel>{t('rentenprognose.columns.risk_units')}</MobileFieldLabel>
+                      <TableInput
+                        type="number"
+                        step="0.5"
+                        value={getDisplayValue(item.reField)}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur(item.reField)}
+                        onChange={(e) => updateField(item.reField, e.target.value)}
+                      />
+                    </MobileWealthField>
+                    <MobileWealthField>
+                      <MobileFieldLabel>{t('rentenprognose.columns.risk_premium')}</MobileFieldLabel>
+                      <TableInput
+                        type="number"
+                        step="0.5"
+                        value={getDisplayValue(item.rpField)}
+                        onFocus={handleFocus}
+                        onBlur={() => handleBlur(item.rpField)}
+                        onChange={(e) => updateField(item.rpField, e.target.value)}
+                      />
+                    </MobileWealthField>
+                  </MobileWealthFields>
+                </MobileWealthCard>
+              ))}
 
               <MobileWealthCard>
                 <MobileWealthHeader>
                   <span>{t('rentenprognose.wealth_items.future_savings')}</span>
                   <InfoButton>
-                    i
-                    <Tooltip>
-                      {t('rentenprognose.tooltips.future_savings')}
-                    </Tooltip>
+                    i<Tooltip>{t('rentenprognose.tooltips.future_savings')}</Tooltip>
                   </InfoButton>
                 </MobileWealthHeader>
                 <MobileWealthFields>
                   <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
+                    <MobileFieldLabel>{t('rentenprognose.columns.amount')}</MobileFieldLabel>
                     <TableInput
-                      type='number'
+                      type="text"
                       value={results ? formatInt(results.pvSave) : '0'}
                       disabled
                       $disabled
                     />
                   </MobileWealthField>
                   <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
+                    <MobileFieldLabel>{t('rentenprognose.columns.risk_units')}</MobileFieldLabel>
                     <TableInput
-                      type='number'
-                      step='0.5'
+                      type="number"
+                      step="0.5"
                       value={getDisplayValue('rePvSave')}
                       onFocus={handleFocus}
                       onBlur={() => handleBlur('rePvSave')}
@@ -1738,12 +1400,10 @@ export default function RentenprognosePage() {
                     />
                   </MobileWealthField>
                   <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
+                    <MobileFieldLabel>{t('rentenprognose.columns.risk_premium')}</MobileFieldLabel>
                     <TableInput
-                      type='number'
-                      step='0.5'
+                      type="number"
+                      step="0.5"
                       value={getDisplayValue('rpPvSave')}
                       onFocus={handleFocus}
                       onBlur={() => handleBlur('rpPvSave')}
@@ -1755,35 +1415,26 @@ export default function RentenprognosePage() {
 
               <MobileWealthCard>
                 <MobileWealthHeader>
-                  <span>
-                    {t('rentenprognose.wealth_items.statutory_pension')}
-                  </span>
+                  <span>{t('rentenprognose.wealth_items.statutory_pension')}</span>
                   <InfoButton>
-                    i
-                    <Tooltip>
-                      {t('rentenprognose.tooltips.statutory_pension')}
-                    </Tooltip>
+                    i<Tooltip>{t('rentenprognose.tooltips.statutory_pension')}</Tooltip>
                   </InfoButton>
                 </MobileWealthHeader>
                 <MobileWealthFields>
                   <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.amount')}
-                    </MobileFieldLabel>
+                    <MobileFieldLabel>{t('rentenprognose.columns.amount')}</MobileFieldLabel>
                     <TableInput
-                      type='number'
+                      type="text"
                       value={results ? formatInt(results.pvPens) : '0'}
                       disabled
                       $disabled
                     />
                   </MobileWealthField>
                   <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_units')}
-                    </MobileFieldLabel>
+                    <MobileFieldLabel>{t('rentenprognose.columns.risk_units')}</MobileFieldLabel>
                     <TableInput
-                      type='number'
-                      step='0.5'
+                      type="number"
+                      step="0.5"
                       value={getDisplayValue('rePvPens')}
                       onFocus={handleFocus}
                       onBlur={() => handleBlur('rePvPens')}
@@ -1791,12 +1442,10 @@ export default function RentenprognosePage() {
                     />
                   </MobileWealthField>
                   <MobileWealthField>
-                    <MobileFieldLabel>
-                      {t('rentenprognose.columns.risk_premium')}
-                    </MobileFieldLabel>
+                    <MobileFieldLabel>{t('rentenprognose.columns.risk_premium')}</MobileFieldLabel>
                     <TableInput
-                      type='number'
-                      step='0.5'
+                      type="number"
+                      step="0.5"
                       value={getDisplayValue('rpPvPens')}
                       onFocus={handleFocus}
                       onBlur={() => handleBlur('rpPvPens')}
@@ -1809,85 +1458,132 @@ export default function RentenprognosePage() {
           </Callout>
 
           <StatusLine $isError={errors.length > 0}>
-            {errors.length > 0
-              ? errors.join(' ')
-              : t('rentenprognose.status.ok')}
+            {errors.length > 0 ? errors.join(' ') : t('rentenprognose.status.ok')}
           </StatusLine>
         </Card>
 
-        <Card>
-          <SectionTitle>{t('rentenprognose.sections.results')}</SectionTitle>
+        <ResultsCol>
+          {/* Expected Scenario */}
+          <ResultBlock $variant="expect">
+            <BlockHeader>
+              <BlockTitle>
+                {t('rentenprognose.results.mid_scenario')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.mid_scenario')}</Tooltip>
+                </InfoButton>
+              </BlockTitle>
+            </BlockHeader>
 
-          <KPI>
-            <KPILabel>
-              {t('rentenprognose.results_labels.total_wealth')}
-            </KPILabel>
-            <KPIValue>{results ? formatInt(results.totalToday) : '—'}</KPIValue>
-          </KPI>
+            <MiniKpi>
+              <KpiLabel>
+                {t('rentenprognose.results.return_on_wealth')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.return_mid')}</Tooltip>
+                </InfoButton>
+              </KpiLabel>
+              <KpiValue>
+                {results ? `${formatTwoDec(results.muMid)} %` : '—'}
+              </KpiValue>
+            </MiniKpi>
 
-          <KPI>
-            <KPILabel>{t('rentenprognose.results_labels.risk_units')}</KPILabel>
-            <KPIValue>{results ? formatOneDec(results.reToday) : '—'}</KPIValue>
-          </KPI>
+            <MiniKpi>
+              <KpiLabel>
+                {t('rentenprognose.results.monthly_net')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.net_mid')}</Tooltip>
+                </InfoButton>
+              </KpiLabel>
+              <KpiValue>{results ? formatEuro(results.netMid) : '—'}</KpiValue>
+            </MiniKpi>
 
-          <KPI>
-            <KPILabel>
-              {t('rentenprognose.results_labels.risk_premium')}
-            </KPILabel>
-            <KPIValue>
-              {results ? `${formatOneDec(results.rpWeighted)} %` : '—'}
-            </KPIValue>
-          </KPI>
+            <MiniKpi>
+              <KpiLabel>
+                {t('rentenprognose.results.coverage')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.coverage')}</Tooltip>
+                </InfoButton>
+              </KpiLabel>
+              <KpiValue>
+                {results && isFinite(results.coverMid)
+                  ? `${formatInt(results.coverMid)} %`
+                  : '—'}
+              </KpiValue>
+            </MiniKpi>
+          </ResultBlock>
 
-          <KPI>
-            <KPILabel>{t('rentenprognose.results_labels.net_mid')}</KPILabel>
-            <KPIValue>{results ? formatEuro(results.netMid) : '—'}</KPIValue>
-          </KPI>
+          {/* Bad Scenario */}
+          <ResultBlock $variant="worst">
+            <BlockHeader>
+              <BlockTitle>
+                {t('rentenprognose.results.bad_scenario')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.bad_scenario')}</Tooltip>
+                </InfoButton>
+              </BlockTitle>
+            </BlockHeader>
 
-          <KPI>
-            <KPILabel>
-              {t('rentenprognose.results_labels.net_mid_pct')}
-            </KPILabel>
-            <KPIValue>
-              {results && isFinite(results.netMidPct)
-                ? `${formatOneDec(results.netMidPct)} %`
-                : '—'}
-            </KPIValue>
-          </KPI>
+            <MiniField>
+              <LabelRow>
+                <Label>
+                  {t('rentenprognose.results.return_threshold')}
+                </Label>
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.return_bad')}</Tooltip>
+                </InfoButton>
+              </LabelRow>
+              <MiniInput
+                type="number"
+                step="0.01"
+                value={getDisplayValue('badMuPct')}
+                onFocus={handleFocus}
+                onBlur={() => handleBlur('badMuPct')}
+                onChange={(e) => updateField('badMuPct', e.target.value)}
+              />
+            </MiniField>
 
-          <KPI>
-            <KPILabel>{t('rentenprognose.results_labels.net_bad')}</KPILabel>
-            <KPIValue>{results ? formatEuro(results.netBad) : '—'}</KPIValue>
-          </KPI>
+            <MiniKpi>
+              <KpiLabel>
+                {t('rentenprognose.results.probability')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.probability')}</Tooltip>
+                </InfoButton>
+              </KpiLabel>
+              <KpiValue>
+                {results ? `${formatInt(results.probBad)} %` : '—'}
+              </KpiValue>
+            </MiniKpi>
 
-          <KPI>
-            <KPILabel>
-              {t('rentenprognose.results_labels.net_bad_pct')}
-            </KPILabel>
-            <KPIValue>
-              {results && isFinite(results.netBadPct)
-                ? `${formatOneDec(results.netBadPct)} %`
-                : '—'}
-            </KPIValue>
-          </KPI>
+            <MiniKpi>
+              <KpiLabel>
+                {t('rentenprognose.results.monthly_net')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.net_bad')}</Tooltip>
+                </InfoButton>
+              </KpiLabel>
+              <KpiValue>{results ? formatEuro(results.netBad) : '—'}</KpiValue>
+            </MiniKpi>
 
-          <KPI>
-            <KPILabel>
-              {t('rentenprognose.results_labels.probability_bad')}
-            </KPILabel>
-            <KPIValue>
-              {results ? `${formatOneDec(results.probBad)} %` : '—'}
-            </KPIValue>
-          </KPI>
-        </Card>
+            <MiniKpi>
+              <KpiLabel>
+                {t('rentenprognose.results.coverage')}
+                <InfoButton>
+                  i<Tooltip>{t('rentenprognose.tooltips.coverage')}</Tooltip>
+                </InfoButton>
+              </KpiLabel>
+              <KpiValue>
+                {results && isFinite(results.coverBad)
+                  ? `${formatInt(results.coverBad)} %`
+                  : '—'}
+              </KpiValue>
+            </MiniKpi>
+          </ResultBlock>
+        </ResultsCol>
       </Grid>
 
-      <ExplanationSection>
-        <ExplanationTitle>
-          {t('rentenprognose.explanation_title')}
-        </ExplanationTitle>
+      <ExplanationCard>
+        <ExplanationTitle>{t('rentenprognose.explanation_title')}</ExplanationTitle>
         <ExplanationText>{t('rentenprognose.explanation')}</ExplanationText>
-      </ExplanationSection>
+      </ExplanationCard>
     </PageLayout>
   );
 }

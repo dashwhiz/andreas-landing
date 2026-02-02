@@ -9,6 +9,7 @@ import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import amazonLogo from '../../public/amazon-logo.png';
+import bookCover from '../../public/book_cover.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -50,22 +51,22 @@ const HeroContent = styled.div`
   }
 `;
 
-const BookCoverPlaceholder = styled.div`
-  width: 220px;
-  height: 320px;
-  background: linear-gradient(145deg, ${AppColors.brand.blue[80]}, ${AppColors.brand.blue[90]});
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-  color: ${AppColors.brand.neutral[40]};
-  font-size: ${AppFontSizes.sm};
+const BookCoverWrapper = styled.div`
   flex-shrink: 0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 220px;
+    height: auto;
+  }
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    width: 180px;
-    height: 260px;
+    img {
+      width: 180px;
+    }
   }
 `;
 
@@ -151,9 +152,15 @@ export default function Home() {
               {t('home.book.cta_button')}
             </AmazonButton>
           </HeroContent>
-          <BookCoverPlaceholder>
-            {t('home.book.alt_text')}
-          </BookCoverPlaceholder>
+          <BookCoverWrapper>
+            <Image
+              src={bookCover}
+              alt={t('home.book.alt_text')}
+              width={220}
+              height={320}
+              priority
+            />
+          </BookCoverWrapper>
         </HeroSection>
 
         <ColoredSection $bgColor={AppColors.brand.blue[90]}>
