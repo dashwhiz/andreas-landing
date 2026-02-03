@@ -105,13 +105,13 @@ const ResultBox = styled.div`
   margin-top: 12px;
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid ${AppColors.brand.neutral[80]};
-  background: ${AppColors.brand.neutral[100]};
+  border: 1px solid ${AppColors.brand.blue[80]};
+  background: ${AppColors.brand.blue[90]};
   font-size: ${AppFontSizes.sm};
-  color: ${AppColors.brand.neutral[20]};
+  color: ${AppColors.brand.blue[10]};
 
   strong {
-    color: ${AppColors.brand.neutral.neutralBlack};
+    color: ${AppColors.brand.blue[0]};
   }
 `;
 
