@@ -65,17 +65,10 @@ const BookCoverWrapper = styled.div`
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   overflow: hidden;
-
-  img {
-    display: block;
-    width: 280px;
-    height: auto;
-  }
+  width: 280px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    img {
-      width: 220px;
-    }
+    width: 220px;
   }
 `;
 
@@ -267,7 +260,7 @@ const ScrollFade = styled.div<{ $visible: boolean }>`
   position: absolute;
   top: 0;
   right: 0;
-  width: 60px;
+  width: 40px;
   height: 100%;
   background: linear-gradient(to right, transparent, ${AppColors.white});
   pointer-events: none;
@@ -442,7 +435,7 @@ export default function Home() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <Image src={seasnLogo} alt='Seasn' width={115} height={30} />
+                <Image src={seasnLogo} alt='Seasn' width={115} height={30} unoptimized style={{ width: '115px', height: 'auto' }} />
               </SeasnButton>
             </ButtonRow>
           </HeroContent>
@@ -453,7 +446,7 @@ export default function Home() {
               width={280}
               height={400}
               priority
-              style={{ width: '280px', height: 'auto' }}
+              style={{ width: '100%', height: 'auto' }}
             />
           </BookCoverWrapper>
         </HeroSection>

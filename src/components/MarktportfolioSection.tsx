@@ -52,11 +52,9 @@ const ChartContainer = styled.div`
 
 const ChartWrapper = styled.div`
   width: 280px;
-  height: 280px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     width: 240px;
-    height: 240px;
   }
 `;
 
@@ -159,7 +157,7 @@ export default function MarktportfolioSection() {
 
       <ChartContainer>
         <ChartWrapper>
-          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+          <ResponsiveContainer width="100%" aspect={1}>
             <PieChart>
               <Pie
                 data={translatedData}

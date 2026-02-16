@@ -55,6 +55,7 @@ const PhotoWrapper = styled.div`
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     img {
       width: 240px;
+      height: auto;
     }
   }
 `;
