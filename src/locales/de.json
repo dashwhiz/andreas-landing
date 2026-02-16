@@ -28,6 +28,10 @@
       "description": "Laden Sie das Inhaltsverzeichnis und die Einleitung als PDF herunter und verschaffen Sie sich einen ersten Überblick.",
       "download_button": "PDF herunterladen"
     },
+    "teaser": {
+      "title": "Ein Blick ins Buch",
+      "description": "Entdecken Sie die fünf Codes für Ihren persönlichen Financial Lifestyle."
+    },
     "navigation": {
       "title": "Inhalte entdecken",
       "marktportfolio": "Globales Marktportfolio",

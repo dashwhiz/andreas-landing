@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AppColors from '@/constants/AppColors';
 import { useTranslations } from '@/contexts/TranslationProvider';
-import amazonLogo from '../../public/amazon-logo.png';
+import amazonLogo from '../../public/images/amazon-logo.png';
 
 const slideDown = keyframes`
   from {

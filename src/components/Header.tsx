@@ -8,7 +8,7 @@ import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import MobileNavigation from './MobileNavigation';
-import amazonLogo from '../../public/amazon-logo.png';
+import amazonLogo from '../../public/images/amazon-logo.png';
 
 const MOBILE_BREAKPOINT = 900;
 

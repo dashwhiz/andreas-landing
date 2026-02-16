@@ -6,7 +6,7 @@ import PageLayout from '@/components/PageLayout';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
-import authorPhoto from '../../../public/andreas_hackethal.jpeg';
+import authorPhoto from '../../../public/images/andreas_hackethal.jpeg';
 
 const MOBILE_BREAKPOINT = 768;
 
