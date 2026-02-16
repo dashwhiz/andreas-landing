@@ -247,17 +247,16 @@ const CopyButtonLarge = styled(CopyButton)`
   font-size: ${AppFontSizes.sm};
 `;
 
-type Provider = 'chatgpt' | 'gemini' | 'perplexity';
+type Provider = 'chatgpt' | 'gemini';
 
 const providerColors: Record<Provider, string> = {
   chatgpt: '#10a37f',
   gemini: '#4285f4',
-  perplexity: '#1fb8cd',
 };
 
 const QUIZ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11'] as const;
 const COPY_KEYS = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'] as const;
-const PROVIDERS: Provider[] = ['chatgpt', 'gemini', 'perplexity'];
+const PROVIDERS: Provider[] = ['chatgpt', 'gemini'];
 
 // Section theme colors
 const quizTheme = {
@@ -380,10 +379,11 @@ export default function KiPage() {
         </SectionHeaderRow>
         <CardList>
           {COPY_KEYS.map((key, index) => {
-            const isOpen = openCards[`copy_${key}`] || false;
+            const copyId = `copy_${key}`;
+            const isOpen = openCards[copyId] || false;
+            const provider = selectedProviders[copyId] || 'chatgpt';
             const title = t(`ki_page.copy_prompts.${key}.title`);
             const prompt = t(`ki_page.copy_prompts.${key}.prompt`);
-            const copyId = `copy_${key}`;
 
             return (
               <Card key={key}>
@@ -402,13 +402,32 @@ export default function KiPage() {
                 <ContentContainer $isOpen={isOpen}>
                   <ContentInner>
                     <ContentBody>
-                      <PromptText>{prompt}</PromptText>
-                      <CopyButtonLarge
-                        $copied={copiedId === copyId}
-                        onClick={() => handleCopy(prompt, copyId)}
-                      >
-                        {copiedId === copyId ? t('ki_page.copied') : t('ki_page.copy_button')}
-                      </CopyButtonLarge>
+                      <QuestionText>{prompt}</QuestionText>
+                      <ProviderRow>
+                        <ProviderTabs>
+                          {PROVIDERS.map((p) => (
+                            <ProviderTab
+                              key={p}
+                              $isActive={provider === p}
+                              $color={providerColors[p]}
+                              onClick={() => selectProvider(copyId, p)}
+                            >
+                              {t(`ki_page.providers.${p}`)}
+                            </ProviderTab>
+                          ))}
+                        </ProviderTabs>
+                        <CopyButton
+                          $copied={copiedId === copyId}
+                          onClick={() => handleCopy(prompt, copyId)}
+                        >
+                          {copiedId === copyId ? t('ki_page.copied') : t('ki_page.copy_button')}
+                        </CopyButton>
+                      </ProviderRow>
+                      <AnswerContent>
+                        <AnswerText>
+                          {t(`ki_page.copy_prompts.${key}.answers.${provider}`)}
+                        </AnswerText>
+                      </AnswerContent>
                     </ContentBody>
                   </ContentInner>
                 </ContentContainer>

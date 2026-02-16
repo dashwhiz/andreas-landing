@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect, useRef } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import CelebrityQuotesSection from '@/components/CelebrityQuotesSection';
@@ -171,8 +171,9 @@ const DownloadLink = styled.a`
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  border: 1px solid ${AppColors.brand.neutral[70]};
+  border: none;
   border-radius: 12px;
+  background: ${AppColors.brand.green[55]};
   color: ${AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.sm};
   font-weight: 600;
@@ -180,7 +181,7 @@ const DownloadLink = styled.a`
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: ${AppColors.brand.neutral[40]};
+    background: ${AppColors.brand.green[70]};
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
@@ -233,16 +234,37 @@ const TeaserScroll = styled.div`
   }
 `;
 
-const ScrollFade = styled.div<{ $visible: boolean }>`
+const bounceRight = keyframes`
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+`;
+
+const ScrollArrow = styled.button<{ $visible: boolean }>`
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 100%;
-  background: linear-gradient(to right, transparent, ${AppColors.white});
-  pointer-events: none;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: ${AppColors.brand.neutral.neutralBlack};
+  color: ${AppColors.white};
+  cursor: pointer;
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  pointer-events: ${({ $visible }) => ($visible ? 'auto' : 'none')};
   transition: opacity 0.3s ease;
+  animation: ${bounceRight} 1.5s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 const TeaserTrack = styled.div`
@@ -445,28 +467,31 @@ const AuthorBio = styled.p`
 const LinkedInLink = styled.a`
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  gap: 8px;
+  padding: 12px 24px;
   background: #0A66C2;
   color: ${AppColors.white};
-  font-size: ${AppFontSizes.xs};
+  font-size: ${AppFontSizes.sm};
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 12px;
   text-decoration: none;
   transition: all 0.2s ease;
   width: fit-content;
 
   &:hover {
     background: #004182;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   svg {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
   }
 `;
+
+const AMAZON_URL = 'https://amzn.eu/d/01rqUUpb';
 
 const teaserImages = [
   { src: teaserStart, alt: 'Start' },
@@ -475,7 +500,7 @@ const teaserImages = [
   { src: teaserCode3, alt: 'Code III' },
   { src: teaserCode4, alt: 'Code IV' },
   { src: teaserCode5, alt: 'Code V' },
-  { src: teaserBuch, alt: 'Buch' },
+  { src: teaserBuch, alt: 'Buch', link: AMAZON_URL },
 ];
 
 const SWIPE_THRESHOLD = 50;
@@ -577,13 +602,29 @@ export default function Home() {
             <TeaserScroll ref={scrollRef}>
               <TeaserTrack>
                 {teaserImages.map((img, index) => (
-                  <TeaserCard key={img.alt} onClick={() => setLightboxIndex(index)}>
+                  <TeaserCard key={img.alt} onClick={() => {
+                    if (img.link) {
+                      window.open(img.link, '_blank', 'noopener,noreferrer');
+                    } else {
+                      setLightboxIndex(index);
+                    }
+                  }}>
                     <Image src={img.src} alt={img.alt} width={400} height={400} style={{ width: '100%', height: 'auto' }} />
                   </TeaserCard>
                 ))}
               </TeaserTrack>
             </TeaserScroll>
-            <ScrollFade $visible={showScrollFade} />
+            <ScrollArrow
+              $visible={showScrollFade}
+              onClick={() => {
+                scrollRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
+              }}
+              aria-label="Scroll right"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </ScrollArrow>
           </TeaserScrollWrapper>
           <LeseprobeFooter>
             <LeseprobeText>
@@ -650,7 +691,13 @@ export default function Home() {
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </LightboxArrow>
-          <LightboxImage onClick={(e) => e.stopPropagation()}>
+          <LightboxImage onClick={(e) => {
+            e.stopPropagation();
+            const currentImg = teaserImages[lightboxIndex];
+            if (currentImg.link) {
+              window.open(currentImg.link, '_blank', 'noopener,noreferrer');
+            }
+          }} style={{ cursor: teaserImages[lightboxIndex].link ? 'pointer' : 'default' }}>
             <Image
               src={teaserImages[lightboxIndex].src}
               alt={teaserImages[lightboxIndex].alt}

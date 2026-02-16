@@ -75,35 +75,76 @@ const ContentBody = styled.div`
   padding: 0 20px 20px 20px;
 `;
 
-const PromptText = styled.div`
+const QuestionText = styled.p`
+  font-size: ${AppFontSizes.sm};
+  color: ${AppColors.brand.neutral[10]};
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+  font-weight: 500;
+`;
+
+const ProviderRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+`;
+
+const ProviderTabs = styled.div`
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+`;
+
+const ProviderTab = styled.button<{ $isActive: boolean; $color: string }>`
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid
+    ${(props) => (props.$isActive ? props.$color : AppColors.brand.neutral[70])};
+  background: ${(props) => (props.$isActive ? props.$color : AppColors.white)};
+  color: ${(props) =>
+    props.$isActive ? AppColors.white : AppColors.brand.neutral[20]};
+  font-size: ${AppFontSizes.sm};
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: ${(props) => props.$color};
+  }
+`;
+
+const AnswerContent = styled.div`
+  background: ${AppColors.brand.neutral[100]};
+  border-radius: 10px;
+  padding: 16px;
+`;
+
+const AnswerText = styled.p`
   font-size: ${AppFontSizes.sm};
   color: ${AppColors.brand.neutral[10]};
   line-height: 1.7;
-  background: ${AppColors.brand.neutral[100]};
-  border-radius: 12px;
-  padding: 16px;
+  margin: 0;
   white-space: pre-wrap;
-  user-select: text;
 `;
 
 const CopyButton = styled.button<{ $copied: boolean }>`
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  padding: 8px 16px;
-  border-radius: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: 1px solid ${(props) =>
     props.$copied ? AppColors.brand.green[50] : AppColors.brand.neutral[70]};
   background: ${(props) =>
     props.$copied ? AppColors.brand.green[90] : AppColors.white};
   color: ${(props) =>
-    props.$copied ? AppColors.brand.green[30] : AppColors.brand.neutral[20]};
-  font-size: ${AppFontSizes.sm};
+    props.$copied ? AppColors.brand.green[30] : AppColors.brand.neutral[30]};
+  font-size: ${AppFontSizes.xs};
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 
   &:hover {
     background: ${(props) =>
@@ -111,9 +152,19 @@ const CopyButton = styled.button<{ $copied: boolean }>`
   }
 `;
 
+type Provider = 'chatgpt' | 'gemini';
+
+const providerColors: Record<Provider, string> = {
+  chatgpt: '#10a37f',
+  gemini: '#4285f4',
+};
+
+const PROVIDERS: Provider[] = ['chatgpt', 'gemini'];
+
 export default function GmpPage() {
   const { t } = useTranslations();
   const [isOpen, setIsOpen] = useState(false);
+  const [provider, setProvider] = useState<Provider>('chatgpt');
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -140,10 +191,29 @@ export default function GmpPage() {
           <ContentContainer $isOpen={isOpen}>
             <ContentInner>
               <ContentBody>
-                <PromptText>{t('gmp_page.prompt_text')}</PromptText>
-                <CopyButton $copied={copied} onClick={handleCopy}>
-                  {copied ? t('gmp_page.copied') : t('gmp_page.copy_button')}
-                </CopyButton>
+                <QuestionText>{t('gmp_page.prompt_text')}</QuestionText>
+                <ProviderRow>
+                  <ProviderTabs>
+                    {PROVIDERS.map((p) => (
+                      <ProviderTab
+                        key={p}
+                        $isActive={provider === p}
+                        $color={providerColors[p]}
+                        onClick={() => setProvider(p)}
+                      >
+                        {p === 'chatgpt' ? 'ChatGPT' : 'Gemini'}
+                      </ProviderTab>
+                    ))}
+                  </ProviderTabs>
+                  <CopyButton $copied={copied} onClick={handleCopy}>
+                    {copied ? t('gmp_page.copied') : t('gmp_page.copy_button')}
+                  </CopyButton>
+                </ProviderRow>
+                <AnswerContent>
+                  <AnswerText>
+                    {t(`gmp_page.answers.${provider}`)}
+                  </AnswerText>
+                </AnswerContent>
               </ContentBody>
             </ContentInner>
           </ContentContainer>

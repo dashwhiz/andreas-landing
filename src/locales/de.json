@@ -82,6 +82,10 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visualisierung der globalen Vermögensaufteilung und die optimale Zusammenstellung mit ETFs.",
     "prompt_title": "KI-Prompt: GMP zusammenstellen",
     "prompt_text": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
+    "answers": {
+      "chatgpt": "Platzhalter: ChatGPT-Antwort für GMP zusammenstellen.",
+      "gemini": "Platzhalter: Gemini-Antwort für GMP zusammenstellen."
+    },
     "copy_button": "Kopieren",
     "copied": "Kopiert!"
   },
@@ -190,43 +194,83 @@
     "copy_prompts": {
       "p1": {
         "title": "Globales Marktportfolio zusammenstellen",
-        "prompt": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße."
+        "prompt": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Globales Marktportfolio zusammenstellen.",
+          "gemini": "Platzhalter: Gemini-Antwort für Globales Marktportfolio zusammenstellen."
+        }
       },
       "p2": {
         "title": "Lorem ipsum dolor sit amet",
-        "prompt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        "prompt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 2.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 2."
+        }
       },
       "p3": {
         "title": "Ut enim ad minim veniam",
-        "prompt": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "prompt": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 3.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 3."
+        }
       },
       "p4": {
         "title": "Duis aute irure dolor",
-        "prompt": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        "prompt": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 4.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 4."
+        }
       },
       "p5": {
         "title": "Excepteur sint occaecat",
-        "prompt": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        "prompt": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 5.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 5."
+        }
       },
       "p6": {
         "title": "Sed ut perspiciatis unde omnis",
-        "prompt": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        "prompt": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 6.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 6."
+        }
       },
       "p7": {
         "title": "Nemo enim ipsam voluptatem",
-        "prompt": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."
+        "prompt": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 7.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 7."
+        }
       },
       "p8": {
         "title": "Neque porro quisquam est",
-        "prompt": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."
+        "prompt": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 8.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 8."
+        }
       },
       "p9": {
         "title": "At vero eos et accusamus",
-        "prompt": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti."
+        "prompt": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 9.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 9."
+        }
       },
       "p10": {
         "title": "Nam libero tempore",
-        "prompt": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus."
+        "prompt": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 10.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 10."
+        }
       }
     }
   },
