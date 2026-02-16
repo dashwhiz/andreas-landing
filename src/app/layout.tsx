@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
 import { TranslationProvider } from "@/contexts/TranslationProvider";
+import { Analytics } from "@vercel/analytics/react";
 import { ppObjectSans } from "./fonts";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
           <TranslationProvider>
             {children}
           </TranslationProvider>
+          <Analytics />
         </StyledComponentsRegistry>
       </body>
     </html>
