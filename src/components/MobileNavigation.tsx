@@ -6,6 +6,7 @@ import Image from 'next/image';
 import AppColors from '@/constants/AppColors';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import amazonLogo from '../../public/images/amazon-logo.png';
+import seasnIcon from '../../public/images/seasn-icon.svg';
 
 const slideDown = keyframes`
   from {
@@ -131,6 +132,16 @@ export default function MobileNavigation({ isOpen, closeMenu }: MobileNavigation
               height={24}
             />
             {t('home.book.cta_button')}
+          </AmazonLink>
+          <AmazonLink href="https://seasn.de" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
+            <Image
+              src={seasnIcon}
+              alt="Seasn"
+              width={24}
+              height={24}
+              unoptimized
+            />
+            Seasn
           </AmazonLink>
         </MobileButtonWrapper>
       </AnimatedList>
