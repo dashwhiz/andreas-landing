@@ -468,6 +468,7 @@ const LinkedInLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-top: 8px;
   padding: 12px 24px;
   background: #0A66C2;
   color: ${AppColors.white};
