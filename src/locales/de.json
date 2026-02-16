@@ -23,6 +23,11 @@
       "cta_button": "Auf amazon anschauen",
       "alt_text": "Buchcover"
     },
+    "leseprobe": {
+      "title": "Inhaltsverzeichnis & Einleitung",
+      "description": "Laden Sie das Inhaltsverzeichnis und die Einleitung als PDF herunter und verschaffen Sie sich einen ersten Überblick.",
+      "download_button": "PDF herunterladen"
+    },
     "navigation": {
       "title": "Inhalte entdecken",
       "marktportfolio": "Globales Marktportfolio",
@@ -210,7 +215,9 @@
   "autor": {
     "title": "Prof. Dr. Andreas Hackethal",
     "subtitle": "Autor",
-    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "bio": "Prof. Dr. Andreas Hackethal lehrt und forscht an der Goethe-Universität Frankfurt und am Leibniz-Institut SAFE. Für seine praxisnahe und engagierte Wissensvermittlung erhielt er zahlreiche Lehrpreise und wurde als Deutschlands Professor des Jahres ausgezeichnet. Er ist gefragter Experte in den Medien und berät Politik und Finanzaufsicht.",
+    "linkedin_label": "Mehr erfahren",
+    "linkedin_url": "https://www.linkedin.com/in/andreashackethal/",
     "alt_text": "Andreas Hackethal"
   },
   "ki_prompts": {

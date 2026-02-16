@@ -1,6 +1,11 @@
 'use client';
 
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import {
+  fetchTranslationsFromLokalise,
+  getCachedTranslations,
+  cacheTranslations,
+} from '@/utils/lokalise';
 import de from '@/locales/de.json';
 
 type TranslationValue = string | Record<string, unknown> | unknown[];
@@ -27,8 +32,33 @@ function getNestedValue(obj: Record<string, unknown>, path: string): Translation
 }
 
 export function TranslationProvider({ children }: { children: ReactNode }) {
+  const [translations, setTranslations] = useState<Record<string, unknown>>(
+    de as Record<string, unknown>
+  );
+
+  useEffect(() => {
+    const load = async () => {
+      // Try cache first
+      const cached = getCachedTranslations('de');
+      if (cached) {
+        setTranslations(cached);
+        return;
+      }
+
+      // Fetch from Lokalise
+      const fresh = await fetchTranslationsFromLokalise('de');
+      if (fresh) {
+        setTranslations(fresh as Record<string, unknown>);
+        cacheTranslations('de', fresh as Record<string, unknown>);
+      }
+      // If fetch fails, we already have the local de.json as initial state
+    };
+
+    load();
+  }, []);
+
   const t = (key: string): string => {
-    const value = getNestedValue(de as Record<string, unknown>, key);
+    const value = getNestedValue(translations, key);
     if (typeof value === 'string') {
       return value;
     }
@@ -37,7 +67,7 @@ export function TranslationProvider({ children }: { children: ReactNode }) {
   };
 
   const tObject = <T = unknown>(key: string): T => {
-    const value = getNestedValue(de as Record<string, unknown>, key);
+    const value = getNestedValue(translations, key);
     return value as T;
   };
 

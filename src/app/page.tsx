@@ -10,6 +10,7 @@ import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import amazonLogo from '../../public/amazon-logo.png';
 import bookCover from '../../public/book_cover.png';
+import seasnLogo from '../../public/seasn-logo.svg';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -93,6 +94,17 @@ const BookDescription = styled.p`
   }
 `;
 
+const ButtonRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    justify-content: center;
+  }
+`;
+
 const AmazonButton = styled.a`
   display: inline-flex;
   align-items: center;
@@ -120,6 +132,109 @@ const AmazonButton = styled.a`
   }
 `;
 
+const SeasnButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border: 1px solid ${AppColors.brand.neutral[70]};
+  background: ${AppColors.white};
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: ${AppColors.brand.neutral[50]};
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    padding: 12px 24px;
+  }
+`;
+
+const LeseprobeCard = styled.section`
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 32px;
+  background: ${AppColors.brand.neutral[100]};
+  border-radius: 16px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+`;
+
+const LeseprobeIcon = styled.div`
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: ${AppColors.white};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    stroke: ${AppColors.brand.neutral[30]};
+  }
+`;
+
+const LeseprobeContent = styled.div`
+  flex: 1;
+`;
+
+const LeseprobeTitle = styled.h3`
+  font-size: ${AppFontSizes.base};
+  font-weight: 700;
+  color: ${AppColors.brand.neutral.neutralBlack};
+  margin: 0 0 4px 0;
+`;
+
+const LeseprobeDescription = styled.p`
+  font-size: ${AppFontSizes.sm};
+  color: ${AppColors.brand.neutral[30]};
+  line-height: 1.5;
+  margin: 0;
+`;
+
+const DownloadButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: ${AppColors.white};
+  border: 1px solid ${AppColors.brand.neutral[70]};
+  border-radius: 12px;
+  color: ${AppColors.brand.neutral.neutralBlack};
+  font-size: ${AppFontSizes.sm};
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: ${AppColors.brand.neutral[50]};
+    background: ${AppColors.brand.neutral[90]};
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+  }
+`;
+
 const ColoredSection = styled.div<{ $bgColor: string }>`
   width: 100%;
   background: ${(props) => props.$bgColor};
@@ -142,15 +257,23 @@ export default function Home() {
           <HeroContent>
             <BookTitle>{t('home.welcome.title')}</BookTitle>
             <BookDescription>{t('home.welcome.description')}</BookDescription>
-            <AmazonButton href="https://amzn.eu/d/01rqUUpb" target="_blank" rel="noopener noreferrer">
-              <Image
-                src={amazonLogo}
-                alt="Amazon"
-                width={28}
-                height={28}
-              />
-              {t('home.book.cta_button')}
-            </AmazonButton>
+            <ButtonRow>
+              <AmazonButton
+                href='https://amzn.eu/d/01rqUUpb'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Image src={amazonLogo} alt='Amazon' width={28} height={28} />
+                {t('home.book.cta_button')}
+              </AmazonButton>
+              <SeasnButton
+                href='https://seasn.de'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Image src={seasnLogo} alt='Seasn' width={115} height={30} />
+              </SeasnButton>
+            </ButtonRow>
           </HeroContent>
           <BookCoverWrapper>
             <Image
@@ -163,6 +286,33 @@ export default function Home() {
             />
           </BookCoverWrapper>
         </HeroSection>
+
+        <LeseprobeCard>
+          <LeseprobeIcon>
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </LeseprobeIcon>
+          <LeseprobeContent>
+            <LeseprobeTitle>{t('home.leseprobe.title')}</LeseprobeTitle>
+            <LeseprobeDescription>{t('home.leseprobe.description')}</LeseprobeDescription>
+          </LeseprobeContent>
+          <DownloadButton
+            href="/Hackethal,_52062_Dein_Financial_Lifestyle_Code_Einleitung.pdf"
+            download
+          >
+            <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            {t('home.leseprobe.download_button')}
+          </DownloadButton>
+        </LeseprobeCard>
 
         <ColoredSection $bgColor={AppColors.brand.blue[90]}>
           <MarktportfolioSection />
