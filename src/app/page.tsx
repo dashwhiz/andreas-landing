@@ -1,7 +1,8 @@
 'use client';
 
+import { useState, useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import MarktportfolioSection from '@/components/MarktportfolioSection';
 import KIAntwortenSection from '@/components/KIAntwortenSection';
@@ -67,13 +68,13 @@ const BookCoverWrapper = styled.div`
 
   img {
     display: block;
-    width: 220px;
+    width: 280px;
     height: auto;
   }
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     img {
-      width: 180px;
+      width: 220px;
     }
   }
 `;
@@ -161,10 +162,14 @@ const SeasnButton = styled.a`
   }
 `;
 
-const LeseprobeInner = styled.div`
+const LeseprobeFooter = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid ${AppColors.brand.neutral[80]};
+  width: 100%;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     flex-direction: column;
@@ -173,24 +178,7 @@ const LeseprobeInner = styled.div`
   }
 `;
 
-const LeseprobeIcon = styled.div`
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: ${AppColors.white};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  svg {
-    width: 28px;
-    height: 28px;
-    stroke: ${AppColors.brand.green[20]};
-  }
-`;
-
-const LeseprobeContent = styled.div`
+const LeseprobeText = styled.div`
   flex: 1;
 `;
 
@@ -203,41 +191,42 @@ const LeseprobeTitle = styled.h3`
 
 const LeseprobeDescription = styled.p`
   font-size: ${AppFontSizes.sm};
-  color: ${AppColors.brand.neutral[20]};
+  color: ${AppColors.brand.neutral[30]};
   line-height: 1.5;
   margin: 0;
 `;
 
-const DownloadButton = styled.a`
+const DownloadLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
-  background: ${AppColors.white};
+  padding: 12px 24px;
   border: 1px solid ${AppColors.brand.neutral[70]};
   border-radius: 12px;
   color: ${AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.sm};
   font-weight: 600;
   text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: ${AppColors.brand.neutral[50]};
-    background: ${AppColors.brand.neutral[90]};
+    border-color: ${AppColors.brand.neutral[40]};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     stroke: currentColor;
   }
 `;
 
 const TeaserSection = styled.section`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const TeaserSectionTitle = styled.h2`
@@ -256,36 +245,124 @@ const TeaserSectionDescription = styled.p`
   line-height: 1.5;
 `;
 
-const TeaserGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+const TeaserScrollWrapper = styled.div`
+  width: 100%;
+  position: relative;
+`;
 
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+const TeaserScroll = styled.div`
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
+`;
+
+const ScrollFade = styled.div<{ $visible: boolean }>`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, ${AppColors.white});
+  pointer-events: none;
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
+  transition: opacity 0.3s ease;
+`;
+
+const TeaserTrack = styled.div`
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 8px 0;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 `;
 
 const TeaserCard = styled.div`
+  width: 220px;
+  flex-shrink: 0;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   img {
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    width: 180px;
+  }
+`;
+
+const LightboxOverlay = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: pointer;
+  animation: fadeIn 0.2s ease;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+`;
+
+const LightboxImage = styled.div`
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+
+  img {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+`;
+
+const LightboxClose = styled.button`
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 10000;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
   }
 `;
 
@@ -301,8 +378,48 @@ const ColoredSection = styled.div<{ $bgColor: string }>`
   }
 `;
 
+const teaserImages = [
+  { src: teaserStart, alt: 'Start' },
+  { src: teaserCode1, alt: 'Code I' },
+  { src: teaserCode2, alt: 'Code II' },
+  { src: teaserCode3, alt: 'Code III' },
+  { src: teaserCode4, alt: 'Code IV' },
+  { src: teaserCode5, alt: 'Code V' },
+  { src: teaserBuch, alt: 'Buch' },
+];
+
 export default function Home() {
   const { t } = useTranslations();
+  const [lightboxImage, setLightboxImage] = useState<{ src: StaticImageData; alt: string } | null>(null);
+  const [showScrollFade, setShowScrollFade] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const closeLightbox = useCallback(() => setLightboxImage(null), []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const handleScroll = () => {
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 10;
+      setShowScrollFade(!atEnd);
+    };
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKey);
+    };
+  }, [lightboxImage, closeLightbox]);
 
   return (
     <PageLayout>
@@ -333,30 +450,35 @@ export default function Home() {
             <Image
               src={bookCover}
               alt={t('home.book.alt_text')}
-              width={220}
-              height={320}
+              width={280}
+              height={400}
               priority
-              style={{ width: '220px', height: 'auto' }}
+              style={{ width: '280px', height: 'auto' }}
             />
           </BookCoverWrapper>
         </HeroSection>
 
-        <ColoredSection $bgColor={AppColors.brand.green[90]}>
-          <LeseprobeInner>
-            <LeseprobeIcon>
-              <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-                <polyline points="10 9 9 9 8 9" />
-              </svg>
-            </LeseprobeIcon>
-            <LeseprobeContent>
+        <TeaserSection>
+          <TeaserSectionTitle>{t('home.teaser.title')}</TeaserSectionTitle>
+          <TeaserSectionDescription>{t('home.teaser.description')}</TeaserSectionDescription>
+          <TeaserScrollWrapper>
+            <TeaserScroll ref={scrollRef}>
+              <TeaserTrack>
+                {teaserImages.map((img) => (
+                  <TeaserCard key={img.alt} onClick={() => setLightboxImage(img)}>
+                    <Image src={img.src} alt={img.alt} width={400} height={400} style={{ width: '100%', height: 'auto' }} />
+                  </TeaserCard>
+                ))}
+              </TeaserTrack>
+            </TeaserScroll>
+            <ScrollFade $visible={showScrollFade} />
+          </TeaserScrollWrapper>
+          <LeseprobeFooter>
+            <LeseprobeText>
               <LeseprobeTitle>{t('home.leseprobe.title')}</LeseprobeTitle>
               <LeseprobeDescription>{t('home.leseprobe.description')}</LeseprobeDescription>
-            </LeseprobeContent>
-            <DownloadButton
+            </LeseprobeText>
+            <DownloadLink
               href="/Hackethal,_52062_Dein_Financial_Lifestyle_Code_Einleitung.pdf"
               download
             >
@@ -366,36 +488,8 @@ export default function Home() {
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               {t('home.leseprobe.download_button')}
-            </DownloadButton>
-          </LeseprobeInner>
-        </ColoredSection>
-
-        <TeaserSection>
-          <TeaserSectionTitle>{t('home.teaser.title')}</TeaserSectionTitle>
-          <TeaserSectionDescription>{t('home.teaser.description')}</TeaserSectionDescription>
-          <TeaserGrid>
-            <TeaserCard>
-              <Image src={teaserStart} alt="Start" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-            <TeaserCard>
-              <Image src={teaserCode1} alt="Code I" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-            <TeaserCard>
-              <Image src={teaserCode2} alt="Code II" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-            <TeaserCard>
-              <Image src={teaserCode3} alt="Code III" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-            <TeaserCard>
-              <Image src={teaserCode4} alt="Code IV" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-            <TeaserCard>
-              <Image src={teaserCode5} alt="Code V" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-            <TeaserCard>
-              <Image src={teaserBuch} alt="Buch" width={400} height={400} style={{ width: '100%', height: 'auto' }} />
-            </TeaserCard>
-          </TeaserGrid>
+            </DownloadLink>
+          </LeseprobeFooter>
         </TeaserSection>
 
         <ColoredSection $bgColor={AppColors.brand.blue[90]}>
@@ -404,6 +498,26 @@ export default function Home() {
 
         <KIAntwortenSection />
       </ContentWrapper>
+
+      {lightboxImage && (
+        <LightboxOverlay onClick={closeLightbox}>
+          <LightboxClose onClick={closeLightbox} aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </LightboxClose>
+          <LightboxImage onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={lightboxImage.src}
+              alt={lightboxImage.alt}
+              width={1200}
+              height={1200}
+              style={{ width: 'auto', height: 'auto', maxWidth: '90vw', maxHeight: '90vh' }}
+            />
+          </LightboxImage>
+        </LightboxOverlay>
+      )}
     </PageLayout>
   );
 }
