@@ -113,8 +113,13 @@ export default function MobileNavigation({ isOpen, closeMenu }: MobileNavigation
             {t('header.navigation.rentenprognose')}
           </Link>
         </MobilePrimaryItem>
+        <MobilePrimaryItem>
+          <Link href="/autor" onClick={handleLinkClick}>
+            {t('header.navigation.autor')}
+          </Link>
+        </MobilePrimaryItem>
         <MobileButtonWrapper>
-          <AmazonLink href="#" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
+          <AmazonLink href="https://amzn.eu/d/01rqUUpb" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
             <Image
               src={amazonLogo}
               alt="Amazon"

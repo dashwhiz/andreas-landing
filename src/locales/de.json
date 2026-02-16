@@ -3,10 +3,11 @@
     "learn_more": "Mehr erfahren"
   },
   "header": {
-    "logo_text": "Buch-Companion",
+    "logo_text": "Financial Lifestyle Code",
     "navigation": {
       "zinseszins": "Zinseszins",
-      "rentenprognose": "Rentenprognose"
+      "rentenprognose": "Rentenprognose",
+      "autor": "Autor"
     }
   },
   "footer": {
@@ -19,7 +20,7 @@
     },
     "book": {
       "title": "Das Buch",
-      "cta_button": "Auf Amazon kaufen",
+      "cta_button": "Auf amazon anschauen",
       "alt_text": "Buchcover"
     },
     "navigation": {
@@ -45,6 +46,9 @@
   "ki_antworten": {
     "title": "KI-Antworten",
     "description": "Lorem ipsum dolor sit amet. Hier finden Sie Antworten von verschiedenen KI-Systemen auf ausgewählte Fragen.",
+    "see_more": "Alle KI-Prompts anzeigen",
+    "copy_prompt": "Prompt kopieren",
+    "copied": "Kopiert!",
     "providers": {
       "chatgpt": "ChatGPT",
       "gemini": "Gemini",
@@ -202,5 +206,24 @@
       "error_tax": "Abgabensatz prüfen (0-100%).",
       "error_z": "Z-Wert prüfen."
     }
+  },
+  "autor": {
+    "title": "Prof. Dr. Andreas Hackethal",
+    "subtitle": "Autor",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "alt_text": "Andreas Hackethal"
+  },
+  "ki_prompts": {
+    "title": "KI-Prompts",
+    "description": "Diese Prompts stammen aus dem Buch und dienen als Vorlagen zum Selbstausprobieren. Kopieren Sie einen Prompt und fügen Sie ihn in Ihr bevorzugtes KI-Tool ein.",
+    "copy_button": "Kopieren",
+    "copied": "Kopiert!",
+    "prompts": [
+      {
+        "id": "p1",
+        "title": "Globales Marktportfolio zusammenstellen",
+        "prompt": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße."
+      }
+    ]
   }
 }

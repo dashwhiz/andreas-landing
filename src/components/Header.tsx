@@ -198,6 +198,11 @@ export default function Header() {
                 {t('header.navigation.rentenprognose')}
               </Link>
             </NavItem>
+            <NavItem>
+              <Link href='/autor'>
+                {t('header.navigation.autor')}
+              </Link>
+            </NavItem>
           </NavLinks>
 
           <Hamburger
@@ -212,7 +217,7 @@ export default function Header() {
 
           <RightArea>
             <AmazonButton
-              href='#'
+              href='https://amzn.eu/d/01rqUUpb'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Buy on Amazon'

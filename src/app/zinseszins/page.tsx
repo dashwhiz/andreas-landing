@@ -145,6 +145,21 @@ function formatCurrency(value: number): string {
   }).format(Math.round(value));
 }
 
+function formatThousands(value: number): string {
+  if (!isFinite(value)) return '—';
+  return new Intl.NumberFormat('de-DE', {
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
+function parseDeNumber(raw: string): number {
+  const cleaned = raw.replace(/\./g, '').replace(',', '.');
+  return cleaned === '' ? 0 : parseFloat(cleaned);
+}
+
+// Fields that should display with thousand separators
+const EURO_FIELDS = new Set(['pv', 'fv', 'pmt']);
+
 // Effective monthly rate from annual percentage
 function effMonthlyRate(annualPct: number): number {
   const i = annualPct / 100;
@@ -176,7 +191,7 @@ export default function ZinseszinsPage() {
   ) => {
     const key = `ci${calcNum}.${field}`;
     setEditingFields((prev) => ({ ...prev, [key]: rawValue }));
-    const value = rawValue === '' ? 0 : parseFloat(rawValue);
+    const value = EURO_FIELDS.has(field) ? parseDeNumber(rawValue) : (rawValue === '' ? 0 : parseFloat(rawValue));
     if (!isNaN(value)) {
       if (calcNum === 1) setCi1((prev) => ({ ...prev, [field]: value }));
       if (calcNum === 2) setCi2((prev) => ({ ...prev, [field]: value }));
@@ -195,6 +210,9 @@ export default function ZinseszinsPage() {
     const key = `ci${calcNum}.${field}`;
     if (key in editingFields) {
       return editingFields[key];
+    }
+    if (EURO_FIELDS.has(field)) {
+      return formatThousands(numericValue);
     }
     return numericValue;
   };
@@ -285,13 +303,12 @@ export default function ZinseszinsPage() {
             <InputGroup>
               <Label>{t('zinseszins.calc1.pv')}</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={getDisplayValue(1, 'pv', ci1.pv)}
                 onChange={(e) => updateCalc(1, 'pv', e.target.value)}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur(1, 'pv')}
-                min={0}
-                step={1000}
               />
             </InputGroup>
             <InputGroup>
@@ -332,13 +349,12 @@ export default function ZinseszinsPage() {
             <InputGroup>
               <Label>{t('zinseszins.calc2.fv')}</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={getDisplayValue(2, 'fv', ci2.fv)}
                 onChange={(e) => updateCalc(2, 'fv', e.target.value)}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur(2, 'fv')}
-                min={0}
-                step={1000}
               />
             </InputGroup>
             <InputGroup>
@@ -379,13 +395,12 @@ export default function ZinseszinsPage() {
             <InputGroup>
               <Label>{t('zinseszins.calc3.pmt')}</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={getDisplayValue(3, 'pmt', ci3.pmt)}
                 onChange={(e) => updateCalc(3, 'pmt', e.target.value)}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur(3, 'pmt')}
-                min={0}
-                step={50}
               />
             </InputGroup>
             <InputGroup>
@@ -440,13 +455,12 @@ export default function ZinseszinsPage() {
             <InputGroup>
               <Label>{t('zinseszins.calc4.fv')}</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={getDisplayValue(4, 'fv', ci4.fv)}
                 onChange={(e) => updateCalc(4, 'fv', e.target.value)}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur(4, 'fv')}
-                min={0}
-                step={1000}
               />
             </InputGroup>
             <InputGroup>
@@ -501,13 +515,12 @@ export default function ZinseszinsPage() {
             <InputGroup>
               <Label>{t('zinseszins.calc5.pmt')}</Label>
               <Input
-                type="number"
+                type="text"
+                inputMode="decimal"
                 value={getDisplayValue(5, 'pmt', ci5.pmt)}
                 onChange={(e) => updateCalc(5, 'pmt', e.target.value)}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur(5, 'pmt')}
-                min={0}
-                step={50}
               />
             </InputGroup>
             <InputGroup>

@@ -5,7 +5,7 @@ import { TranslationProvider } from "@/contexts/TranslationProvider";
 import { ppObjectSans } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "Buch-Companion",
+  title: "Financial Lifestyle Code",
   description: "Companion Website für das Buch",
 };
 

@@ -90,6 +90,7 @@ export default function Footer() {
         <FooterLinks>
           <FooterLink href="/zinseszins">{t('home.navigation.zinseszins')}</FooterLink>
           <FooterLink href="/rentenprognose">{t('home.navigation.rentenprognose')}</FooterLink>
+          <FooterLink href="/autor">{t('header.navigation.autor')}</FooterLink>
         </FooterLinks>
         <Divider />
         <Copyright>

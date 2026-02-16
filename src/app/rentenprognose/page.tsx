@@ -166,7 +166,9 @@ const Input = styled.input<{ $disabled?: boolean }>`
       ? AppColors.brand.neutral[40]
       : AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.base};
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 
   &:focus {
     outline: none;

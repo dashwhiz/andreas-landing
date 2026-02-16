@@ -142,7 +142,7 @@ export default function Home() {
           <HeroContent>
             <BookTitle>{t('home.welcome.title')}</BookTitle>
             <BookDescription>{t('home.welcome.description')}</BookDescription>
-            <AmazonButton href="#" target="_blank" rel="noopener noreferrer">
+            <AmazonButton href="https://amzn.eu/d/01rqUUpb" target="_blank" rel="noopener noreferrer">
               <Image
                 src={amazonLogo}
                 alt="Amazon"
@@ -159,6 +159,7 @@ export default function Home() {
               width={220}
               height={320}
               priority
+              style={{ width: '220px', height: 'auto' }}
             />
           </BookCoverWrapper>
         </HeroSection>
