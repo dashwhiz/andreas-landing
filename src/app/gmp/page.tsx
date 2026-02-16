@@ -3,38 +3,20 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import PageLayout from '@/components/PageLayout';
+import MarktportfolioSection from '@/components/MarktportfolioSection';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 
-const MOBILE_BREAKPOINT = 768;
-
-const PageTitle = styled.h1`
-  font-size: ${AppFontSizes['4xl']};
-  font-weight: 700;
-  color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 16px 0;
-
-  @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    font-size: ${AppFontSizes['3xl']};
-  }
-`;
-
-const PageDescription = styled.p`
-  font-size: ${AppFontSizes.md};
-  color: ${AppColors.brand.neutral[20]};
-  line-height: 1.6;
-  margin: 0 0 40px 0;
-  max-width: 900px;
-`;
-
-const PromptList = styled.div`
+const CenteredWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 48px;
 `;
 
 const PromptCard = styled.div`
+  width: 100%;
   background: ${AppColors.white};
   border: 1px solid ${AppColors.brand.neutral[80]};
   border-radius: 14px;
@@ -129,74 +111,44 @@ const CopyButton = styled.button<{ $copied: boolean }>`
   }
 `;
 
-interface Prompt {
-  id: string;
-  title: string;
-  prompt: string;
-}
+export default function GmpPage() {
+  const { t } = useTranslations();
+  const [isOpen, setIsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-export default function KIPromptsPage() {
-  const { t, tObject } = useTranslations();
-  const [openPrompts, setOpenPrompts] = useState<Record<string, boolean>>({});
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-
-  const prompts = tObject<Prompt[]>('ki_prompts.prompts');
-
-  const togglePrompt = (id: string) => {
-    setOpenPrompts((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
-  const handleCopy = async (text: string, id: string) => {
-    await navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(t('gmp_page.prompt_text'));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <PageLayout>
-      <PageTitle>{t('ki_prompts.title')}</PageTitle>
-      <PageDescription>{t('ki_prompts.description')}</PageDescription>
+      <CenteredWrapper>
+        <MarktportfolioSection />
 
-      <PromptList>
-        {prompts.map((item) => {
-          const isOpen = openPrompts[item.id] || false;
+        <PromptCard>
+          <PromptHeader onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
+            <PromptTitle>{t('gmp_page.prompt_title')}</PromptTitle>
+            <ChevronIcon $isOpen={isOpen}>
+              <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </ChevronIcon>
+          </PromptHeader>
 
-          return (
-            <PromptCard key={item.id}>
-              <PromptHeader
-                onClick={() => togglePrompt(item.id)}
-                aria-expanded={isOpen}
-              >
-                <PromptTitle>{item.title}</PromptTitle>
-                <ChevronIcon $isOpen={isOpen}>
-                  <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </ChevronIcon>
-              </PromptHeader>
-
-              <ContentContainer $isOpen={isOpen}>
-                <ContentInner>
-                  <ContentBody>
-                    <PromptText>{item.prompt}</PromptText>
-                    <CopyButton
-                      $copied={copiedId === item.id}
-                      onClick={() => handleCopy(item.prompt, item.id)}
-                    >
-                      {copiedId === item.id
-                        ? t('ki_prompts.copied')
-                        : t('ki_prompts.copy_button')}
-                    </CopyButton>
-                  </ContentBody>
-                </ContentInner>
-              </ContentContainer>
-            </PromptCard>
-          );
-        })}
-      </PromptList>
+          <ContentContainer $isOpen={isOpen}>
+            <ContentInner>
+              <ContentBody>
+                <PromptText>{t('gmp_page.prompt_text')}</PromptText>
+                <CopyButton $copied={copied} onClick={handleCopy}>
+                  {copied ? t('gmp_page.copied') : t('gmp_page.copy_button')}
+                </CopyButton>
+              </ContentBody>
+            </ContentInner>
+          </ContentContainer>
+        </PromptCard>
+      </CenteredWrapper>
     </PageLayout>
   );
 }

@@ -9,6 +9,7 @@ import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import MobileNavigation from './MobileNavigation';
 import amazonLogo from '../../public/images/amazon-logo.png';
+import seasnIcon from '../../public/images/seasn-icon.svg';
 
 const MOBILE_BREAKPOINT = 900;
 
@@ -190,17 +191,22 @@ export default function Header() {
           <NavLinks>
             <NavItem>
               <Link href='/zinseszins'>
-                {t('header.navigation.zinseszins')}
+                {t('header.navigation.rendite')}
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link href='/gmp'>
+                {t('header.navigation.gmp')}
               </Link>
             </NavItem>
             <NavItem>
               <Link href='/rentenprognose'>
-                {t('header.navigation.rentenprognose')}
+                {t('header.navigation.vermoegen')}
               </Link>
             </NavItem>
             <NavItem>
-              <Link href='/autor'>
-                {t('header.navigation.autor')}
+              <Link href='/ki'>
+                {t('header.navigation.ki')}
               </Link>
             </NavItem>
           </NavLinks>
@@ -227,6 +233,20 @@ export default function Header() {
                 alt='Buy on Amazon'
                 width={28}
                 height={28}
+              />
+            </AmazonButton>
+            <AmazonButton
+              href='https://seasn.de'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='Seasn'
+            >
+              <Image
+                src={seasnIcon}
+                alt='Seasn'
+                width={28}
+                height={28}
+                unoptimized
               />
             </AmazonButton>
           </RightArea>

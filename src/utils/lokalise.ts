@@ -1,5 +1,5 @@
 const CACHE_MAX_AGE = 3600000; // 1 hour
-const CACHE_VERSION = '1.0';
+const CACHE_VERSION = '2.0';
 
 export async function fetchTranslationsFromLokalise(locale = 'de') {
   try {

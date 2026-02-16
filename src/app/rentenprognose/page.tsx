@@ -6,8 +6,11 @@ import PageLayout from '@/components/PageLayout';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
+import { formatThousands, parseDeNumber } from '@/utils/formatting';
 
 const MOBILE_BREAKPOINT = 768;
+
+const EUR_FIELDS = new Set<string>(['income', 'pensionMonthly']);
 
 const PageTitle = styled.h1`
   font-size: ${AppFontSizes['4xl']};
@@ -483,11 +486,18 @@ const MiniInput = styled.input`
   border: 1px solid ${AppColors.brand.neutral[70]};
   background: ${AppColors.white};
   font-size: ${AppFontSizes.base};
+  -moz-appearance: textfield;
 
   &:focus {
     outline: none;
     border-color: ${AppColors.brand.blue[50]};
     box-shadow: 0 0 0 4px ${AppColors.brand.blue[90]};
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 
@@ -792,7 +802,9 @@ export default function RentenprognosePage() {
 
   const updateField = (field: keyof State, rawValue: string) => {
     setEditingFields((prev) => ({ ...prev, [field]: rawValue }));
-    const value = rawValue === '' ? 0 : parseFloat(rawValue);
+    const value = EUR_FIELDS.has(field)
+      ? parseDeNumber(rawValue)
+      : rawValue === '' ? 0 : parseFloat(rawValue);
     if (!isNaN(value)) {
       setState((prev) => ({ ...prev, [field]: value }));
     }
@@ -801,6 +813,9 @@ export default function RentenprognosePage() {
   const getDisplayValue = (field: keyof State) => {
     if (field in editingFields) {
       return editingFields[field];
+    }
+    if (EUR_FIELDS.has(field)) {
+      return formatThousands(state[field]);
     }
     return state[field];
   };
@@ -1124,8 +1139,8 @@ export default function RentenprognosePage() {
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='50'
+                type='text'
+                inputMode='decimal'
                 value={getDisplayValue('income')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('income')}
@@ -1179,8 +1194,8 @@ export default function RentenprognosePage() {
                 </InfoButton>
               </LabelRow>
               <Input
-                type='number'
-                step='50'
+                type='text'
+                inputMode='decimal'
                 value={getDisplayValue('pensionMonthly')}
                 onFocus={handleFocus}
                 onBlur={() => handleBlur('pensionMonthly')}

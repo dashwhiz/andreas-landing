@@ -6,6 +6,7 @@ import PageLayout from '@/components/PageLayout';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
+import { formatThousands, parseDeNumber } from '@/utils/formatting';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -143,18 +144,6 @@ function formatCurrency(value: number): string {
     currency: 'EUR',
     maximumFractionDigits: 0,
   }).format(Math.round(value));
-}
-
-function formatThousands(value: number): string {
-  if (!isFinite(value)) return '—';
-  return new Intl.NumberFormat('de-DE', {
-    maximumFractionDigits: 2,
-  }).format(value);
-}
-
-function parseDeNumber(raw: string): number {
-  const cleaned = raw.replace(/\./g, '').replace(',', '.');
-  return cleaned === '' ? 0 : parseFloat(cleaned);
 }
 
 // Fields that should display with thousand separators

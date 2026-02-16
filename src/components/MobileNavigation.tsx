@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -105,17 +104,22 @@ export default function MobileNavigation({ isOpen, closeMenu }: MobileNavigation
       <AnimatedList>
         <MobilePrimaryItem>
           <Link href="/zinseszins" onClick={handleLinkClick}>
-            {t('header.navigation.zinseszins')}
+            {t('header.navigation.rendite')}
+          </Link>
+        </MobilePrimaryItem>
+        <MobilePrimaryItem>
+          <Link href="/gmp" onClick={handleLinkClick}>
+            {t('header.navigation.gmp')}
           </Link>
         </MobilePrimaryItem>
         <MobilePrimaryItem>
           <Link href="/rentenprognose" onClick={handleLinkClick}>
-            {t('header.navigation.rentenprognose')}
+            {t('header.navigation.vermoegen')}
           </Link>
         </MobilePrimaryItem>
         <MobilePrimaryItem>
-          <Link href="/autor" onClick={handleLinkClick}>
-            {t('header.navigation.autor')}
+          <Link href="/ki" onClick={handleLinkClick}>
+            {t('header.navigation.ki')}
           </Link>
         </MobilePrimaryItem>
         <MobileButtonWrapper>

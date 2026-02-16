@@ -31,24 +31,47 @@ function getNestedValue(obj: Record<string, unknown>, path: string): Translation
   return current as TranslationValue;
 }
 
+function deepMerge(base: Record<string, unknown>, overlay: Record<string, unknown>): Record<string, unknown> {
+  const result = { ...base };
+  for (const key of Object.keys(overlay)) {
+    if (
+      overlay[key] &&
+      typeof overlay[key] === 'object' &&
+      !Array.isArray(overlay[key]) &&
+      base[key] &&
+      typeof base[key] === 'object' &&
+      !Array.isArray(base[key])
+    ) {
+      result[key] = deepMerge(
+        base[key] as Record<string, unknown>,
+        overlay[key] as Record<string, unknown>
+      );
+    } else {
+      result[key] = overlay[key];
+    }
+  }
+  return result;
+}
+
+const localDe = de as Record<string, unknown>;
+
 export function TranslationProvider({ children }: { children: ReactNode }) {
-  const [translations, setTranslations] = useState<Record<string, unknown>>(
-    de as Record<string, unknown>
-  );
+  const [translations, setTranslations] = useState<Record<string, unknown>>(localDe);
 
   useEffect(() => {
     const load = async () => {
       // Try cache first
       const cached = getCachedTranslations('de');
       if (cached) {
-        setTranslations(cached);
+        setTranslations(deepMerge(localDe, cached));
         return;
       }
 
       // Fetch from Lokalise
       const fresh = await fetchTranslationsFromLokalise('de');
       if (fresh) {
-        setTranslations(fresh as Record<string, unknown>);
+        const merged = deepMerge(localDe, fresh as Record<string, unknown>);
+        setTranslations(merged);
         cacheTranslations('de', fresh as Record<string, unknown>);
       }
       // If fetch fails, we already have the local de.json as initial state

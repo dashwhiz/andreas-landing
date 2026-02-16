@@ -2,16 +2,15 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
-import MarktportfolioSection from '@/components/MarktportfolioSection';
-import KIAntwortenSection from '@/components/KIAntwortenSection';
+import CelebrityQuotesSection from '@/components/CelebrityQuotesSection';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import amazonLogo from '../../public/images/amazon-logo.png';
 import bookCover from '../../public/images/book_cover.png';
-import seasnLogo from '../../public/images/seasn-logo.svg';
+import authorPhoto from '../../public/images/andreas_hackethal.jpeg';
 import teaserStart from '../../public/images/teaser-start.jpeg';
 import teaserCode1 from '../../public/images/teaser-code1.jpeg';
 import teaserCode2 from '../../public/images/teaser-code2.jpeg';
@@ -130,28 +129,6 @@ const AmazonButton = styled.a`
     padding: 12px 24px;
     gap: 10px;
     font-size: ${AppFontSizes.sm};
-  }
-`;
-
-const SeasnButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  border: 1px solid ${AppColors.brand.neutral[70]};
-  background: ${AppColors.white};
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-
-  &:hover {
-    border-color: ${AppColors.brand.neutral[50]};
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  }
-
-  @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    padding: 12px 24px;
   }
 `;
 
@@ -311,7 +288,6 @@ const LightboxOverlay = styled.div`
   align-items: center;
   justify-content: center;
   padding: 24px;
-  cursor: pointer;
   animation: fadeIn 0.2s ease;
 
   @keyframes fadeIn {
@@ -359,15 +335,136 @@ const LightboxClose = styled.button`
   }
 `;
 
-const ColoredSection = styled.div<{ $bgColor: string }>`
+const LightboxArrow = styled.button<{ $direction: 'left' | 'right' }>`
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  ${({ $direction }) => ($direction === 'left' ? 'left: 16px;' : 'right: 16px;')}
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+  z-index: 10000;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const LightboxDots = styled.div`
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10000;
+`;
+
+const Dot = styled.button<{ $active: boolean }>`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: ${({ $active }) => ($active ? 'white' : 'rgba(255, 255, 255, 0.4)')};
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+`;
+
+const AuthorSection = styled.section`
   width: 100%;
-  background: ${(props) => props.$bgColor};
-  border-radius: 24px;
-  padding: 48px 40px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  background: transparent;
+  border-radius: 20px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    padding: 32px 20px;
-    border-radius: 20px;
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+    gap: 20px;
+  }
+`;
+
+const AuthorPhoto = styled.div`
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 160px;
+
+  img {
+    display: block;
+    width: 160px;
+    height: auto;
+  }
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    width: 140px;
+
+    img {
+      width: 140px;
+    }
+  }
+`;
+
+const AuthorInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    align-items: center;
+  }
+`;
+
+const AuthorName = styled.h3`
+  font-size: ${AppFontSizes.lg};
+  font-weight: 700;
+  color: ${AppColors.brand.neutral.neutralBlack};
+  margin: 0;
+`;
+
+const AuthorBio = styled.p`
+  font-size: ${AppFontSizes.sm};
+  color: ${AppColors.brand.neutral[20]};
+  line-height: 1.6;
+  margin: 0;
+`;
+
+const LinkedInLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #0A66C2;
+  color: ${AppColors.white};
+  font-size: ${AppFontSizes.xs};
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+
+  &:hover {
+    background: #004182;
+    transform: translateY(-1px);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
   }
 `;
 
@@ -381,13 +478,28 @@ const teaserImages = [
   { src: teaserBuch, alt: 'Buch' },
 ];
 
+const SWIPE_THRESHOLD = 50;
+
 export default function Home() {
   const { t } = useTranslations();
-  const [lightboxImage, setLightboxImage] = useState<{ src: StaticImageData; alt: string } | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showScrollFade, setShowScrollFade] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number>(0);
 
-  const closeLightbox = useCallback(() => setLightboxImage(null), []);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+
+  const goNext = useCallback(() => {
+    setLightboxIndex((prev) =>
+      prev !== null ? (prev + 1) % teaserImages.length : null
+    );
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setLightboxIndex((prev) =>
+      prev !== null ? (prev - 1 + teaserImages.length) % teaserImages.length : null
+    );
+  }, []);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -402,9 +514,11 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (!lightboxImage) return;
+    if (lightboxIndex === null) return;
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
     };
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKey);
@@ -412,7 +526,19 @@ export default function Home() {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKey);
     };
-  }, [lightboxImage, closeLightbox]);
+  }, [lightboxIndex, closeLightbox, goNext, goPrev]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > SWIPE_THRESHOLD) {
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+  };
 
   return (
     <PageLayout>
@@ -430,13 +556,6 @@ export default function Home() {
                 <Image src={amazonLogo} alt='Amazon' width={28} height={28} />
                 {t('home.book.cta_button')}
               </AmazonButton>
-              <SeasnButton
-                href='https://seasn.de'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <Image src={seasnLogo} alt='Seasn' width={115} height={30} unoptimized style={{ width: '115px', height: 'auto' }} />
-              </SeasnButton>
             </ButtonRow>
           </HeroContent>
           <BookCoverWrapper>
@@ -457,8 +576,8 @@ export default function Home() {
           <TeaserScrollWrapper>
             <TeaserScroll ref={scrollRef}>
               <TeaserTrack>
-                {teaserImages.map((img) => (
-                  <TeaserCard key={img.alt} onClick={() => setLightboxImage(img)}>
+                {teaserImages.map((img, index) => (
+                  <TeaserCard key={img.alt} onClick={() => setLightboxIndex(index)}>
                     <Image src={img.src} alt={img.alt} width={400} height={400} style={{ width: '100%', height: 'auto' }} />
                   </TeaserCard>
                 ))}
@@ -485,30 +604,75 @@ export default function Home() {
           </LeseprobeFooter>
         </TeaserSection>
 
-        <ColoredSection $bgColor={AppColors.brand.blue[90]}>
-          <MarktportfolioSection />
-        </ColoredSection>
+        <CelebrityQuotesSection />
 
-        <KIAntwortenSection />
+        <AuthorSection>
+          <AuthorPhoto>
+            <Image
+              src={authorPhoto}
+              alt={t('autor.alt_text')}
+              width={160}
+              height={213}
+              style={{ width: '160px', height: 'auto' }}
+            />
+          </AuthorPhoto>
+          <AuthorInfo>
+            <AuthorName>{t('autor.title')}</AuthorName>
+            <AuthorBio>{t('autor.bio')}</AuthorBio>
+            <LinkedInLink
+              href={t('autor.linkedin_url')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              {t('autor.linkedin_label')}
+            </LinkedInLink>
+          </AuthorInfo>
+        </AuthorSection>
       </ContentWrapper>
 
-      {lightboxImage && (
-        <LightboxOverlay onClick={closeLightbox}>
+      {lightboxIndex !== null && (
+        <LightboxOverlay
+          onClick={closeLightbox}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <LightboxClose onClick={closeLightbox} aria-label="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </LightboxClose>
+          <LightboxArrow $direction="left" onClick={(e) => { e.stopPropagation(); goPrev(); }} aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </LightboxArrow>
           <LightboxImage onClick={(e) => e.stopPropagation()}>
             <Image
-              src={lightboxImage.src}
-              alt={lightboxImage.alt}
+              src={teaserImages[lightboxIndex].src}
+              alt={teaserImages[lightboxIndex].alt}
               width={1200}
               height={1200}
               style={{ width: 'auto', height: 'auto', maxWidth: '90vw', maxHeight: '90vh' }}
             />
           </LightboxImage>
+          <LightboxArrow $direction="right" onClick={(e) => { e.stopPropagation(); goNext(); }} aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </LightboxArrow>
+          <LightboxDots>
+            {teaserImages.map((_, i) => (
+              <Dot
+                key={i}
+                $active={i === lightboxIndex}
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
+              />
+            ))}
+          </LightboxDots>
         </LightboxOverlay>
       )}
     </PageLayout>
