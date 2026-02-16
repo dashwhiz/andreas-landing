@@ -11,7 +11,9 @@
     }
   },
   "footer": {
-    "copyright": "Alle Rechte vorbehalten."
+    "copyright": "Alle Rechte vorbehalten.",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
   },
   "home": {
     "welcome": {
@@ -236,5 +238,31 @@
         "prompt": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße."
       }
     ]
+  },
+  "impressum": {
+    "title": "Impressum",
+    "responsible_title": "Angaben gemäß § 5 TMG",
+    "responsible_text": "Prof. Dr. Andreas Hackethal\n[Adresse bitte ergänzen]\n[PLZ Ort]",
+    "contact_title": "Kontakt",
+    "contact_text": "E-Mail: [E-Mail-Adresse bitte ergänzen]",
+    "disclaimer_title": "Haftungsausschluss",
+    "disclaimer_text": "Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Die Website dient ausschließlich Informationszwecken und stellt keine Anlageberatung dar."
+  },
+  "datenschutz": {
+    "title": "Datenschutzerklärung",
+    "responsible_title": "Verantwortlicher",
+    "responsible_text": "Prof. Dr. Andreas Hackethal\n[Adresse bitte ergänzen]\n[PLZ Ort]\nE-Mail: [E-Mail-Adresse bitte ergänzen]",
+    "overview_title": "Allgemeines zur Datenverarbeitung",
+    "overview_text": "Diese Website erhebt und verarbeitet so wenig personenbezogene Daten wie möglich. Es werden keine Cookies gesetzt und keine personenbezogenen Daten an Dritte weitergegeben.",
+    "hosting_title": "Hosting",
+    "hosting_text": "Diese Website wird bei Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA) gehostet. Beim Aufruf der Website werden automatisch technische Informationen (z. B. IP-Adresse, Browsertyp, Zeitpunkt des Zugriffs) vom Webserver erfasst. Diese Daten sind für den technischen Betrieb erforderlich und werden nicht zur Identifizierung einzelner Nutzer verwendet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am stabilen Betrieb der Website).",
+    "analytics_title": "Webanalyse (Vercel Analytics)",
+    "analytics_text": "Diese Website nutzt Vercel Analytics, einen datenschutzfreundlichen Analysedienst von Vercel Inc. Vercel Analytics verwendet keine Cookies und speichert keine personenbezogenen Daten. Es werden ausschließlich aggregierte, anonymisierte Nutzungsdaten erhoben (z. B. Seitenaufrufe, Herkunftsland, verwendeter Browser). Eine Identifizierung einzelner Nutzer ist nicht möglich. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
+    "local_storage_title": "Lokaler Speicher (LocalStorage)",
+    "local_storage_text": "Diese Website nutzt den LocalStorage Ihres Browsers, um Übersetzungsdaten zwischenzuspeichern. Dies dient der schnelleren Darstellung der Inhalte und ist technisch notwendig. Es werden keine personenbezogenen Daten im LocalStorage gespeichert. Die gespeicherten Daten können jederzeit über die Browsereinstellungen gelöscht werden.",
+    "external_links_title": "Externe Links",
+    "external_links_text": "Diese Website enthält Links zu externen Diensten (Amazon, LinkedIn, Seasn). Beim Anklicken dieser Links werden Sie auf die jeweiligen Websites weitergeleitet, für deren Datenschutz der jeweilige Anbieter verantwortlich ist.",
+    "rights_title": "Ihre Rechte",
+    "rights_text": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit und das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Kontaktieren Sie uns hierzu unter der oben genannten E-Mail-Adresse."
   }
 }

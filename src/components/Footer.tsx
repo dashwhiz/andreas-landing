@@ -92,6 +92,10 @@ export default function Footer() {
           <FooterLink href="/rentenprognose">{t('home.navigation.rentenprognose')}</FooterLink>
           <FooterLink href="/autor">{t('header.navigation.autor')}</FooterLink>
         </FooterLinks>
+        <FooterLinks>
+          <FooterLink href="/impressum">{t('footer.impressum')}</FooterLink>
+          <FooterLink href="/datenschutz">{t('footer.datenschutz')}</FooterLink>
+        </FooterLinks>
         <Divider />
         <Copyright>
           © {currentYear} {t('header.logo_text')}. {t('footer.copyright')}
