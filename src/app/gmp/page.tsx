@@ -122,12 +122,13 @@ const AnswerContent = styled.div`
   padding: 16px;
 `;
 
-const AnswerText = styled.p`
+const AnswerText = styled.div`
   font-size: ${AppFontSizes.sm};
   color: ${AppColors.brand.neutral[10]};
   line-height: 1.7;
-  margin: 0;
   white-space: pre-wrap;
+
+  b, strong { font-weight: 700; }
 `;
 
 const CopyButton = styled.button<{ $copied: boolean }>`
@@ -210,9 +211,7 @@ export default function GmpPage() {
                   </CopyButton>
                 </ProviderRow>
                 <AnswerContent>
-                  <AnswerText>
-                    {t(`gmp_page.answers.${provider}`)}
-                  </AnswerText>
+                  <AnswerText dangerouslySetInnerHTML={{ __html: t(`gmp_page.answers.${provider}`) }} />
                 </AnswerContent>
               </ContentBody>
             </ContentInner>

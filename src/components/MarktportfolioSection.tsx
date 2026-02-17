@@ -110,19 +110,7 @@ const COLORS = [
   AppColors.brand.red[50],
 ];
 
-interface ChartDataItem {
-  name: string;
-  value: number;
-  labelKey: string;
-}
-
-const chartData: ChartDataItem[] = [
-  { name: 'Aktien', value: 53, labelKey: 'chart.aktien' },
-  { name: 'Anleihen', value: 37, labelKey: 'chart.anleihen' },
-  { name: 'Gold', value: 6, labelKey: 'chart.gold' },
-  { name: 'Private Equity', value: 2, labelKey: 'chart.private_equity' },
-  { name: 'Bitcoin', value: 2, labelKey: 'chart.bitcoin' },
-];
+const CHART_KEYS = ['aktien', 'anleihen', 'gold', 'private_equity', 'bitcoin'] as const;
 
 const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<{ name: string; value: number }> }) => {
   if (active && payload && payload.length) {
@@ -145,9 +133,9 @@ const CustomTooltip = ({ active, payload }: { active?: boolean; payload?: Array<
 export default function MarktportfolioSection() {
   const { t } = useTranslations();
 
-  const translatedData = chartData.map(item => ({
-    ...item,
-    name: t(`marktportfolio.${item.labelKey}`),
+  const translatedData = CHART_KEYS.map(key => ({
+    name: t(`marktportfolio.chart.${key}.label`),
+    value: parseInt(t(`marktportfolio.chart.${key}.value`), 10) || 0,
   }));
 
   return (

@@ -192,12 +192,13 @@ const AnswerContent = styled.div`
   padding: 16px;
 `;
 
-const AnswerText = styled.p`
+const AnswerText = styled.div`
   font-size: ${AppFontSizes.sm};
   color: ${AppColors.brand.neutral[10]};
   line-height: 1.7;
-  margin: 0;
   white-space: pre-wrap;
+
+  b, strong { font-weight: 700; }
 `;
 
 const QuestionText = styled.p`
@@ -206,17 +207,6 @@ const QuestionText = styled.p`
   line-height: 1.6;
   margin: 0 0 16px 0;
   font-weight: 500;
-`;
-
-const PromptText = styled.div`
-  font-size: ${AppFontSizes.sm};
-  color: ${AppColors.brand.neutral[10]};
-  line-height: 1.7;
-  background: ${AppColors.brand.neutral[100]};
-  border-radius: 12px;
-  padding: 16px;
-  white-space: pre-wrap;
-  user-select: text;
 `;
 
 const CopyButton = styled.button<{ $copied: boolean }>`
@@ -239,12 +229,6 @@ const CopyButton = styled.button<{ $copied: boolean }>`
     background: ${(props) =>
       props.$copied ? AppColors.brand.green[90] : AppColors.brand.neutral[100]};
   }
-`;
-
-const CopyButtonLarge = styled(CopyButton)`
-  margin-top: 12px;
-  padding: 8px 16px;
-  font-size: ${AppFontSizes.sm};
 `;
 
 type Provider = 'chatgpt' | 'gemini';
@@ -357,9 +341,7 @@ export default function KiPage() {
                         </CopyButton>
                       </ProviderRow>
                       <AnswerContent>
-                        <AnswerText>
-                          {t(`ki_page.quiz_prompts.${key}.answers.${provider}`)}
-                        </AnswerText>
+                        <AnswerText dangerouslySetInnerHTML={{ __html: t(`ki_page.quiz_prompts.${key}.answers.${provider}`) }} />
                       </AnswerContent>
                     </ContentBody>
                   </ContentInner>
@@ -424,9 +406,7 @@ export default function KiPage() {
                         </CopyButton>
                       </ProviderRow>
                       <AnswerContent>
-                        <AnswerText>
-                          {t(`ki_page.copy_prompts.${key}.answers.${provider}`)}
-                        </AnswerText>
+                        <AnswerText dangerouslySetInnerHTML={{ __html: t(`ki_page.copy_prompts.${key}.answers.${provider}`) }} />
                       </AnswerContent>
                     </ContentBody>
                   </ContentInner>

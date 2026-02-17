@@ -69,11 +69,11 @@
     "title": "Globales Marktportfolio",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visualisierung der globalen Vermögensaufteilung.",
     "chart": {
-      "aktien": "Aktien",
-      "anleihen": "Anleihen",
-      "gold": "Gold",
-      "private_equity": "Private Equity",
-      "bitcoin": "Bitcoin"
+      "aktien": { "label": "Aktien", "value": "53" },
+      "anleihen": { "label": "Anleihen", "value": "37" },
+      "gold": { "label": "Gold", "value": "6" },
+      "private_equity": { "label": "Private Equity", "value": "2" },
+      "bitcoin": { "label": "Bitcoin", "value": "2" }
     },
     "source": "Quelle: Lorem ipsum, Stand: Januar 2025"
   },
