@@ -5,10 +5,13 @@
   "header": {
     "logo_text": "Financial Lifestyle Code",
     "navigation": {
+      "zinseszins": "Zinseszins",
+      "rentenprognose": "Rentenprognose",
+      "autor": "Autor",
       "rendite": "Rendite",
       "gmp": "GMP",
       "vermoegen": "Vermögen",
-      "ki": "KI"
+      "ki": "KI-Prompts"
     }
   },
   "footer": {
@@ -18,286 +21,94 @@
   },
   "home": {
     "welcome": {
-      "title": "Lorem ipsum dolor sit amet",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+      "title": "DEIN GELD. DEIN LEBEN. DEIN CODE.",
+      "description": "Andreas Hackethal holt die Wissenschaft aus dem Elfenbeinturm direkt \nin deinen Geldbeutel. Das Buch präsentiert\neine überraschend einfache Formel, die akademische Erkenntnisse \nzu echtem Vermögen macht."
     },
     "book": {
       "title": "Das Buch",
-      "cta_button": "Auf amazon anschauen",
+      "cta_button": "Hier bestellen",
       "alt_text": "Buchcover"
     },
+    "navigation": {
+      "title": "Inhalte entdecken",
+      "marktportfolio": "Globales Marktportfolio",
+      "ki_antworten": "KI-Antworten",
+      "zinseszins": "Zinseszins",
+      "rentenprognose": "Rentenprognose"
+    },
     "leseprobe": {
-      "title": "Inhaltsverzeichnis & Einleitung",
-      "description": "Laden Sie das Inhaltsverzeichnis und die Einleitung als PDF herunter und verschaffen Sie sich einen ersten Überblick.",
+      "title": "Leseprobe",
+      "description": "Hier gibt es das Inhaltsverzeichnis plus Einleitungskapitel.",
       "download_button": "PDF herunterladen"
     },
     "teaser": {
-      "title": "Ein Blick ins Buch",
-      "description": "Entdecken Sie die fünf Codes für Ihren persönlichen Financial Lifestyle."
+      "title": "Blick ins Buch",
+      "description": "Entdecke die fünf Codes für Deinen persönlichen Financial Lifestyle."
     }
-  },
-  "celebrity_quotes": {
-    "title": "Was andere sagen",
-    "quotes": [
-      {
-        "id": "cq1",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "name": "Max Mustermann",
-        "role": "Finanzexperte"
-      },
-      {
-        "id": "cq2",
-        "text": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "name": "Erika Musterfrau",
-        "role": "Wirtschaftsjournalistin"
-      },
-      {
-        "id": "cq3",
-        "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "name": "Hans Beispiel",
-        "role": "Bestseller-Autor"
-      },
-      {
-        "id": "cq4",
-        "text": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "name": "Anna Vorlage",
-        "role": "Professorin für Volkswirtschaft"
-      },
-      {
-        "id": "cq5",
-        "text": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae.",
-        "name": "Klaus Muster",
-        "role": "Vermögensberater"
-      },
-      {
-        "id": "cq6",
-        "text": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur.",
-        "name": "Petra Beispiel",
-        "role": "Finanzjournalistin"
-      }
-    ]
   },
   "marktportfolio": {
     "title": "Globales Marktportfolio",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visualisierung der globalen Vermögensaufteilung.",
+    "description": "Das GMP zeigt, wie das Kapital der Welt auf die wichtigsten Anlageklassen verteilt ist. Das GMP bot historisch ein unschlagbares Rendite-Risiko-Verhältnis.",
+    "source": "Quellen: Bloomberg Indizes für Aktien und Bonds, Prequin für PE, companiesmarketcap.com für Bitcoin und gold.org, Stand: Februar 2026",
     "chart": {
-      "aktien": { "label": "Aktien", "value": "53" },
-      "anleihen": { "label": "Anleihen", "value": "37" },
-      "gold": { "label": "Gold", "value": "6" },
-      "private_equity": { "label": "Private Equity", "value": "2" },
-      "bitcoin": { "label": "Bitcoin", "value": "2" }
-    },
-    "source": "Quelle: Lorem ipsum, Stand: Januar 2025"
+      "aktien": {
+        "label": "Weltaktien",
+        "value": "57"
+      },
+      "anleihen": {
+        "label": "Weltanleihen",
+        "value": "34"
+      },
+      "gold": {
+        "label": "Gold",
+        "value": "6"
+      },
+      "private_equity": {
+        "label": "Private Equity",
+        "value": "2"
+      },
+      "bitcoin": {
+        "label": "Bitcoin",
+        "value": "1"
+      }
+    }
   },
-  "gmp_page": {
-    "title": "Globales Marktportfolio",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Visualisierung der globalen Vermögensaufteilung und die optimale Zusammenstellung mit ETFs.",
-    "prompt_title": "KI-Prompt: GMP zusammenstellen",
-    "prompt_text": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
-    "answers": {
-      "chatgpt": "Platzhalter: ChatGPT-Antwort für GMP zusammenstellen.",
-      "gemini": "Platzhalter: Gemini-Antwort für GMP zusammenstellen."
-    },
-    "copy_button": "Kopieren",
-    "copied": "Kopiert!"
-  },
-  "ki_page": {
-    "title": "KI-Prompts",
-    "description": "Diese Prompts stammen aus dem Buch und dienen als Vorlagen zum Selbstausprobieren. Kopieren Sie einen Prompt und fügen Sie ihn in Ihr bevorzugtes KI-Tool ein.",
-    "quiz_section_title": "Quiz-Prompts",
-    "copy_section_title": "Prompts zum Kopieren",
-    "copy_button": "Kopieren",
+  "ki_antworten": {
+    "title": "KI-Antworten",
+    "description": "Lorem ipsum dolor sit amet. Hier finden Sie Antworten von verschiedenen KI-Systemen auf ausgewählte Fragen.",
+    "see_more": "Alle KI-Prompts anzeigen",
+    "copy_prompt": "Prompt kopieren",
     "copied": "Kopiert!",
     "providers": {
       "chatgpt": "ChatGPT",
       "gemini": "Gemini",
       "perplexity": "Perplexity"
     },
-    "quiz_prompts": {
-      "q1": {
-        "question": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Lorem ipsum dolor sit amet?",
         "answers": {
-          "chatgpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "gemini": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          "perplexity": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          "chatgpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "gemini": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "perplexity": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
       },
-      "q2": {
-        "question": "Sed do eiusmod tempor incididunt ut labore?",
+      {
+        "id": "q2",
+        "question": "Consectetur adipiscing elit?",
         "answers": {
-          "chatgpt": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "gemini": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          "perplexity": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        }
-      },
-      "q3": {
-        "question": "Ut enim ad minim veniam, quis nostrud exercitation?",
-        "answers": {
-          "chatgpt": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-          "gemini": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          "perplexity": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        }
-      },
-      "q4": {
-        "question": "Duis aute irure dolor in reprehenderit in voluptate?",
-        "answers": {
-          "chatgpt": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-          "gemini": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-          "perplexity": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
-        }
-      },
-      "q5": {
-        "question": "Excepteur sint occaecat cupidatat non proident?",
-        "answers": {
-          "chatgpt": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
-          "gemini": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.",
-          "perplexity": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet."
-        }
-      },
-      "q6": {
-        "question": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur?",
-        "answers": {
-          "chatgpt": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
-          "gemini": "Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.",
-          "perplexity": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
-        }
-      },
-      "q7": {
-        "question": "Neque porro quisquam est qui dolorem ipsum?",
-        "answers": {
-          "chatgpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
-          "gemini": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
-          "perplexity": "Nisi ut aliquid ex ea commodi consequatur."
-        }
-      },
-      "q8": {
-        "question": "Quis autem vel eum iure reprehenderit?",
-        "answers": {
-          "chatgpt": "Et harum quidem rerum facilis est et expedita distinctio.",
-          "gemini": "Nam libero tempore, cum soluta nobis est eligendi optio cumque.",
-          "perplexity": "Itaque earum rerum hic tenetur a sapiente delectus."
-        }
-      },
-      "q9": {
-        "question": "At vero eos et accusamus et iusto odio?",
-        "answers": {
-          "chatgpt": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus.",
-          "gemini": "Saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
-          "perplexity": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis."
-        }
-      },
-      "q10": {
-        "question": "Sed ut perspiciatis unde omnis iste natus error?",
-        "answers": {
-          "chatgpt": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-          "gemini": "Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-          "perplexity": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
-        }
-      },
-      "q11": {
-        "question": "Nam libero tempore cum soluta nobis est eligendi?",
-        "answers": {
-          "chatgpt": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis.",
-          "gemini": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.",
-          "perplexity": "At vero eos et accusamus et iusto odio dignissimos ducimus."
+          "chatgpt": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+          "gemini": "Sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "perplexity": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         }
       }
-    },
-    "copy_prompts": {
-      "p1": {
-        "title": "Globales Marktportfolio zusammenstellen",
-        "prompt": "Du bist ETF/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Globales Marktportfolio zusammenstellen.",
-          "gemini": "Platzhalter: Gemini-Antwort für Globales Marktportfolio zusammenstellen."
-        }
-      },
-      "p2": {
-        "title": "Lorem ipsum dolor sit amet",
-        "prompt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 2.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 2."
-        }
-      },
-      "p3": {
-        "title": "Ut enim ad minim veniam",
-        "prompt": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 3.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 3."
-        }
-      },
-      "p4": {
-        "title": "Duis aute irure dolor",
-        "prompt": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 4.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 4."
-        }
-      },
-      "p5": {
-        "title": "Excepteur sint occaecat",
-        "prompt": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 5.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 5."
-        }
-      },
-      "p6": {
-        "title": "Sed ut perspiciatis unde omnis",
-        "prompt": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 6.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 6."
-        }
-      },
-      "p7": {
-        "title": "Nemo enim ipsam voluptatem",
-        "prompt": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 7.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 7."
-        }
-      },
-      "p8": {
-        "title": "Neque porro quisquam est",
-        "prompt": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 8.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 8."
-        }
-      },
-      "p9": {
-        "title": "At vero eos et accusamus",
-        "prompt": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 9.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 9."
-        }
-      },
-      "p10": {
-        "title": "Nam libero tempore",
-        "prompt": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 10.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 10."
-        }
-      },
-      "p11": {
-        "title": "Quis autem vel eum iure",
-        "prompt": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.",
-        "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 11.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 11."
-        }
-      }
-    }
+    ]
   },
   "zinseszins": {
     "title": "Renditerechner",
-    "description": "Finde heraus, was heutige Zahlungen zukünftig wert sind und andersherum. Beispiele: Wie entwickelt sich ein Sparbetrag über 5 Jahre (I)? Was ist eine Schenkung in 10 Jahren heute wert (II)? Was kommt bei einem ETF-Sparplan nach 20 Jahren heraus (III)? Was muss ich für meine Ziele monatlich zur Seite legen (IV)? Wieviel kostet mich ein Kredit pro Monat (V)? Beachte, dass die Werte von den Näherungswerten in den Buch-Tabellen abweichen können.",
-    "explanation_title": "Erklärung",
+    "description": "Finde heraus, was heutige Zahlungen zukünftig wert sind und andersherum. Beispiele: \nI  Wie entwickelt sich eine Einmalanlage über 5 Jahre?\nII  Was ist eine Schenkung in 10 Jahren heute wert?\nIII Was kommt bei einem ETF-Sparplan nach 20 Jahren heraus?\nIV Was muss ich für meine Ziele monatlich zur Seite legen?\nV Wieviel Kredit kann ich aufnehmen?\nDie Werte können von den Näherungswerten in den Buch-Tabellen abweichen.",
+    "explanation_title": "Hinweis",
     "explanation": "Diese Rechner verwenden die Zinseszinsformel mit monatlicher Verzinsung. Bei wachsenden Zahlungsreihen wird die Wachstumsrate ebenfalls monatlich angewendet.",
     "calc1": {
       "title": "I: Endwert einer Einmalanlage",
@@ -339,10 +150,10 @@
     }
   },
   "rentenprognose": {
-    "title": "Renten- & Vermögensrechner",
-    "description": "Dieses Tool erstellt auf Basis Ihrer Eckdaten und Ihrer Kontostände Ihre Vermögensübersicht und Rentenprognose. Es berechnet den Gegenwartswert Ihrer zukünftigen Sparaktivität und der gesetzlichen Rente und ermittelt daraus Gesamtvermögen sowie Gesamtrisiko in Risikoeinheiten (RE).",
-    "explanation_title": "Erklärung",
-    "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aus Vermögen und erwarteten Risikoprämien (RP) wird das Einkommen in der Rente im mittleren und im schlechten Szenario abgeleitet – jeweils in heutigen Preisen und als Prozent heutiger Ausgaben.",
+    "title": "Vermögens- und Rentenrechner",
+    "description": "Das Tool erstellt auf Basis Deiner Eingaben eine Vermögensübersicht und eine Rentenprognose. Zum Vermögen gehören neben Immobilien auch Rentenansprüche und zukünftige Sparaktivitäten. Mögliche Wertschwankungen werden in Risikoeinheiten (RE) ausgedrückt. Die Profile der sieben Bekannten aus dem Buch sind per Menü anwählbar.",
+    "explanation_title": "Hinweise",
+    "explanation": "Das Tool basiert auf den in Teil III des Buches vorgestellten Konzepten und soll dir ein Gespür dafür vermitteln, wie sich verschiedene Stellschrauben auf Vermögen und Renteneinkommen auswirken. Es werden vereinfachende Annahmen getroffen. Auch deshalb wird keine Gewähr für die Richtigkeit der Angaben übernommen.",
     "sections": {
       "inputs": "Eingaben",
       "base_data": "Eckdaten",
@@ -351,14 +162,14 @@
     },
     "inputs": {
       "safe_interest": "Sicherer Zins (% p.a.)",
-      "income_growth": "Prognose Einkommensentwicklung (% p.a.)",
+      "income_growth": "Erwartung Einkommensentwicklung (% p.a.)",
       "age_now": "Alter aktuell",
       "age_retirement": "Alter Renteneintritt",
       "life_expectancy": "Lebenserwartung",
-      "net_income": "Aktuelles Nettoeinkommen (EUR/Monat)",
+      "net_income": "Aktuelles Nettoeinkommen (EUR\/Monat)",
       "savings_rate": "Sparquote (%)",
       "tax_rate": "Abgabensatz auf Renteneinkommen (%)",
-      "pension_forecast": "Prognose gesetzliche Rente (EUR/Monat)",
+      "pension_forecast": "Prognose gesetzliche Rente (EUR\/Monat)",
       "z_value": "Z-Wert schlechtes Szenario"
     },
     "wealth_items": {
@@ -382,10 +193,10 @@
     "results": {
       "mid_scenario": "Rentenprognose (mittleres Szenario)",
       "bad_scenario": "Rentenprognose (schlechtes Szenario)",
-      "return_on_wealth": "Rendite auf Vermögen (%)",
+      "return_on_wealth": "Erwartete Rendite auf Vermögen (%)",
       "monthly_net": "Monatsnetto",
       "coverage": "Abdeckung heutiger Ausgaben",
-      "return_threshold": "Rendite auf Vermögen (%)",
+      "return_threshold": "Alternative Rendite auf Vermögen (%)",
       "probability": "Eintrittswahrscheinlichkeit"
     },
     "tooltips": {
@@ -411,7 +222,7 @@
       "return_bad": "Schwellenrendite (schlechtes Szenario). Die Eintrittswahrscheinlichkeit bezieht sich auf Rendite kleiner gleich Schwellenrendite.",
       "net_mid": "Monatliches Netto-Einkommen in der Rente in heutigen Preisen. Berechnet aus dem prognostizierten Vermögen zum Renteneintritt und gleichmäßiger Auszahlung über die Rentenphase.",
       "net_bad": "Monatliches Netto-Einkommen in der Rente, wenn sich das Vermögen bis zum Renteneintritt mit der angegebenen Schwellenrendite entwickelt.",
-      "coverage": "Verhältnis von Renten-Monatsnetto zu heutigen monatlichen Ausgaben (heutiges Nettoeinkommen minus Sparbeitrag). Beispiel: 60% bedeutet, dass ca. 60% der heutigen Ausgaben durch das Renten-Einkommen abgedeckt werden.",
+      "coverage": "Verhältnis von Renten-Monatsnetto zu heutigen monatlichen Ausgaben (heutiges Nettoeinkommen minus Sparbeitrag). Beispiel: 60% bedeutet, dass ca. 60% der heutigen Ausgaben durch das Renteneinkommen abgedeckt werden.",
       "probability": "Wahrscheinlichkeit, dass die realisierte Rendite des Gesamtvermögens unter der definierten Schwellenrendite liegt. Berechnung basiert auf einem stochastischen Renditemodell unter Berücksichtigung von Risiko und Anlagehorizont."
     },
     "profiles": {
@@ -430,23 +241,36 @@
     "title": "Prof. Dr. Andreas Hackethal",
     "subtitle": "Autor",
     "bio": "Prof. Dr. Andreas Hackethal lehrt und forscht an der Goethe-Universität Frankfurt und am Leibniz-Institut SAFE. Für seine praxisnahe und engagierte Wissensvermittlung erhielt er zahlreiche Lehrpreise und wurde als Deutschlands Professor des Jahres ausgezeichnet. Er ist gefragter Experte in den Medien und berät Politik und Finanzaufsicht.",
+    "alt_text": "Andreas Hackethal",
     "linkedin_label": "Mehr erfahren",
-    "linkedin_url": "https://www.linkedin.com/in/andreashackethal/",
-    "alt_text": "Andreas Hackethal"
+    "linkedin_url": "https:\/\/www.linkedin.com\/in\/andreashackethal\/"
+  },
+  "ki_prompts": {
+    "title": "KI-Prompts",
+    "description": "Diese Prompts stammen aus Teil IV und V des Buches und dienen auch als Vorlagen zum selbst ausprobieren. Kopieren einen Prompt und fügen ihn in Dein bevorzugtes KI-Tool ein.",
+    "copy_button": "Kopieren",
+    "copied": "Kopiert!",
+    "prompts": [
+      {
+        "id": "p1",
+        "title": "Globales Marktportfolio zusammenstellen",
+        "prompt": "Du bist ETF\/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße."
+      }
+    ]
   },
   "impressum": {
     "title": "Impressum",
     "responsible_title": "Angaben gemäß § 5 TMG",
-    "responsible_text": "Prof. Dr. Andreas Hackethal\n[Adresse bitte ergänzen]\n[PLZ Ort]",
+    "responsible_text": "Andreas Hackethal\nTulpenhofstr. 52\n63067 Offenbach am Main",
     "contact_title": "Kontakt",
-    "contact_text": "E-Mail: [E-Mail-Adresse bitte ergänzen]",
+    "contact_text": "E-Mail: info@seasn.de",
     "disclaimer_title": "Haftungsausschluss",
     "disclaimer_text": "Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Die Website dient ausschließlich Informationszwecken und stellt keine Anlageberatung dar."
   },
   "datenschutz": {
     "title": "Datenschutzerklärung",
     "responsible_title": "Verantwortlicher",
-    "responsible_text": "Prof. Dr. Andreas Hackethal\n[Adresse bitte ergänzen]\n[PLZ Ort]\nE-Mail: [E-Mail-Adresse bitte ergänzen]",
+    "responsible_text": "Andreas Hackethal\nTulpenhofstr. 52\n63067 Offenbach\ninfo@seasn.de",
     "overview_title": "Allgemeines zur Datenverarbeitung",
     "overview_text": "Diese Website erhebt und verarbeitet so wenig personenbezogene Daten wie möglich. Es werden keine Cookies gesetzt und keine personenbezogenen Daten an Dritte weitergegeben.",
     "hosting_title": "Hosting",
@@ -459,5 +283,251 @@
     "external_links_text": "Diese Website enthält Links zu externen Diensten (Amazon, LinkedIn, Seasn). Beim Anklicken dieser Links werden Sie auf die jeweiligen Websites weitergeleitet, für deren Datenschutz der jeweilige Anbieter verantwortlich ist.",
     "rights_title": "Ihre Rechte",
     "rights_text": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit und das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Kontaktieren Sie uns hierzu unter der oben genannten E-Mail-Adresse."
+  },
+  "celebrity_quotes": {
+    "title": "Was andere sagen",
+    "quotes": [
+      {
+        "id": "cq1",
+        "text": "Mit richtiger Technik und Einstellung die eigenen Finanzen in Bestform bringen.",
+        "name": "Michael Groß",
+        "role": "Olympiasieger und Unternehmensberater"
+      },
+      {
+        "id": "cq2",
+        "text": "Fundierte Finanzbildung für den selbstbestimmten Lifestyle.",
+        "name": "Bettina Stark-Watzinger",
+        "role": "Wissenschaftsministerin von 2021-2024"
+      },
+      {
+        "id": "cq3",
+        "text": "Verlässliche Expertise und klare Orientierung für stabile und auskömmliche Finanzen.",
+        "name": "Herbert Hans Grüntker",
+        "role": "Vorstandsvorsitzender Sparkasse, Landesbank von 2007-2020"
+      },
+      {
+        "id": "cq4",
+        "text": "Anschaulich und ohne unnötig insiderhaftes Börsenvokabular. Nutzwert 5\/5!",
+        "name": "€URO Magazin",
+        "role": "Ausgabe 3\/2026 S. 136"
+      },
+      {
+        "id": "cq5",
+        "text": "Fundierte und umsetzbare Finanzstrategien. Hilft auch für ruhigeren Schlaf.",
+        "name": "Dennis Schmoltzi",
+        "role": "CEO von Emma - the Sleep Company"
+      },
+      {
+        "id": "cq6",
+        "text": "Sie wollen endlich Ihre Finanzen regeln? Dann fangen Sie jetzt an...Am 26. Februar erscheint sein Buch »Dein Financial Lifestyle Code« .",
+        "name": "SPIEGEL+",
+        "role": "Ausgabe vom 21.1.2026"
+      }
+    ]
+  },
+  "gmp_page": {
+    "title": "Globales Marktportfolio",
+    "description": "Das GMP zeigt, wie das Kapital der Welt auf die wichtigsten Anlageklassen verteilt ist. Es bot historisch ein unschlagbares Rendite-Risiko-Verhältnis.",
+    "prompt_title": "KI-Prompt: GMP zusammenstellen",
+    "prompt_text": "Du bist ETF\/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
+    "copy_button": "Kopieren",
+    "copied": "Kopiert!",
+    "answers": {
+      "chatgpt": "Abfrage vom 17.2.2026:\n<b>WELTAKTIEN – TOP 1<\/b>\nSPDR MSCI ACWI IMI UCITS ETF Acc | ISIN IE00B3YLTY66 | TER 0,17% | physisch (Sampling) | thesaurierend | Fondsgröße ~4,3 Mrd. € | Developed+EM+Small Caps (sehr marktnahe Abdeckung)\n<b>WELTAKTIEN – TOP 2<\/b>\nAmundi Prime All Country World UCITS ETF Acc | ISIN IE0003XJA0J9 | TER 0,07% | physisch | thesaurierend | Fondsgröße ~1,1 Mrd. € | günstiger, aber ohne Small Caps\n<b>WELTAKTIEN – GÜNSTIGSTER MARKT<\/b>\nAmundi Prime Global UCITS ETF Acc | TER 0,05% | nur Developed Large\/Mid, kein EM, kein Small\n\n<b>WELTANLEIHEN – TOP 1<\/b>\nVanguard Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BG47KH54 | TER 0,08% | physisch (Sampling) | thesaurierend | Fondsgröße ~1,9 Mrd. € | breit, EUR-hedged\n<b>WELTANLEIHEN – TOP 2<\/b>\niShares Core Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BDBRDM35 | TER 0,10% | physisch (Sampling) | thesaurierend | Fondsgröße ~2,3 Mrd. € | sehr ähnlich, minimal teurer\n<b>WELTANLEIHEN – GÜNSTIGSTER MARKT<\/b>\nVanguard Global Aggregate Bond EUR Hedged Acc | TER 0,08%\n\n<b>GOLD – TOP<\/b>\nXetra-Gold | ISIN DE000A0S9GB0 | TER 0,00% | physisch besichert | Fondsgröße ~23 Mrd. € | Kostenbenchmark\n\n<b>PRIVATE EQUITY – GRÖSSTE OPTION<\/b>\niShares Listed Private Equity UCITS ETF Dist | Fondsgröße ~776 Mio. € | ausschüttend | erfüllt 500 Mio., aber nicht thesaurierend\n<b>PRIVATE EQUITY – THESAURIEREND<\/b>\nXtrackers LPX Private Equity Swap UCITS ETF 1C | TER 0,70% | thesaurierend | synthetisch | Fondsgröße ~320 Mio. € | unter 500 Mio., Swap\n<b>PRIVATE EQUITY – GÜNSTIGSTER MARKT<\/b>\niShares Listed Private Equity UCITS ETF Acc | günstig auf Index, aber Fondsgröße ~86 Mio. € (unter Kriterium)\n\n<b>BITCOIN – TOP 1<\/b>\niShares Bitcoin ETP | TER 0,15% | physisch | Fondsgröße ~647 Mio. €\n<b>BITCOIN – TOP 2<\/b>\nWisdomTree Physical Bitcoin | TER 0,15% | physisch | Fondsgröße ~972 Mio. €\n<b>BITCOIN – GÜNSTIGSTER MARKT<\/b>\n21Shares Bitcoin Core ETP | TER 0,10% | physisch | Fondsgröße ~326 Mio. € (unter 500 Mio.)",
+      "gemini": "Abfrage vom 17.2.2026:\n<b>Weltaktien (Industrie- & Schwellenländer)<\/b>\nTop-Empfehlung: SPDR MSCI ACWI IMI UCITS ETF (IE00BFY0GT14)\nVorteil: Deckt Large, Mid und Small Caps ab (ca. 9000 Aktien). Mit 0,17% TER extrem günstig für ein All-in-One-Paket.\nAlternative: Vanguard FTSE All-World UCITS ETF (IE00BK5BQT80). TER 0,22%, physisch, extrem liquide, aber ohne Small Caps. Beide sind aufgrund der hohen Liquidität und engen Spreads exzellent.\nGünstigste Marktgröße: Amundi MSCI World (IE00BI8OT95) mit 0,12% TER (nur Industrieländer).\n\n<b>Weltanleihen (Investment Grade, Hedged)<\/b>\nTop-Empfehlung: Vanguard Global Aggregate Bond UCITS ETF EUR Hedged (IE00BG47KH54)\nVorteil: TER 0,10%, physisches Sampling, deckt Staats- und Unternehmensanleihen weltweit ab. Währungsabsicherung (Hedge) auf EUR ist bei Anleihen essenziell.\nAlternative: iShares Core Global Aggregate Bond UCITS ETF EUR Hedged (IE00BDBRDM35). TER 0,10%, faktisch gleichwertig in Liquidität und Kosten.\nGünstigste Marktgröße: iShares Core Global Aggregate Bond (TER 0,10%).\n\n<b>Gold (Physisch besichert)<\/b>\nTop-Empfehlung: iShares Physical Gold ETC (IE00B4ND3602)\nVorteil: TER 0,12%, extrem liquide, physisch hinterlegt.\nAlternative: Xetra-Gold (DE000A0S9GB0). TER 0,00%, aber 0,36% p.a. Verwahrgebühr über die Depotbank. Vorteil hier ist die steuerliche Gleichstellung mit physischem Gold (nach 1 Jahr steuerfrei in DE), was den Kostennachteil oft schlägt.\nGünstigste Marktgröße: Xtrackers Physical Gold (DE000A2T0VU5) mit 0,11% TER.\n\n<b>Private Equity (Börsennotiert)<\/b>\nTop-Empfehlung: iShares Listed Private Equity UCITS ETF (IE00D8FCSD8)\nVorteil: Thesaurierende Variante des Klassikers, TER 0,75%, physisch replizierend. Höchste Liquidität im Sektor.\nAlternative: FlexShares Listed Private Equity UCITS ETF (IE0008ZGI5C1). Günstiger mit 0,40% TER, ebenfalls physisch, aber deutlich kleineres Fondsvolumen und tendenziell höhere Spreads.\nGünstigste Marktgröße: FlexShares Listed Private Equity (0,40% TER).\n\n<b>Bitcoin (Physisch besichert)<\/b>\nTop-Empfehlung: iShares Bitcoin ETP (IE000S99TPH6)\nVorteil: TER aktuell 0,15% (Aktion, danach 0,25%), physisch besichert durch BlackRock, höchste Liquidität und engste Spreads am Markt.\nAlternative: Invesco Physical Bitcoin (XS2376095068). TER 0,10%, ebenfalls physisch und sehr günstig, aber geringeres Volumen als iShares.\nGünstigste Marktgröße: 21Shares Bitcoin Core ETP (CH1199067674) mit 0,10% TER."
+    }
+  },
+  "ki_page": {
+    "title": "KI-Prompts",
+    "description": "Diese Prompts stammen aus Teil IV und V des Buches und dienen auch als Vorlagen zum selbst ausprobieren. Kopiere einen Prompt und fügen ihn in Dein bevorzugtes KI-Tool ein.",
+    "quiz_section_title": "Kompetenz-Quiz",
+    "copy_section_title": "Prompts zum Kopieren",
+    "copy_button": "Kopieren",
+    "copied": "Kopiert!",
+    "providers": {
+      "chatgpt": "ChatGPT",
+      "gemini": "Gemini",
+      "perplexity": "Perplexity"
+    },
+    "quiz_prompts": {
+      "q1": {
+        "question": "Wofür ist die persönliche Risikotoleranz in Finanzfragen wichtig und wie kann ich die eigene herausfinden?",
+        "answers": {
+          "chatgpt": "Die persönliche Risikotoleranz bestimmt, wie stark Wertschwankungen man psychologisch aushält und ist Grundlage für die strategische Asset Allocation. Sie lässt sich über standardisierte Fragebögen, experimentelle Lotterie-Entscheidungen, Beobachtung früherer Anlageentscheidungen und Gespräche zu Verlustszenarien ermitteln. \/\/18.2.26",
+          "gemini": "Die Risikotoleranz ist die psychologische und finanzielle Fähigkeit, Marktschwankungen und Verluste auszuhalten, ohne die gewählte Strategie emotional bedingt aufzugeben. Sie ist die Basis für die Asset Allocation (Aufteilung in riskante und risikoarme Anlagen). Man ermittelt sie durch standardisierte Risikofragebögen, die Finanzwissen, Verlustbereitschaft und den Anlagehorizont abfragen, sowie durch Szenarioanalysen (Stresstests), bei denen ein hypothetischer Depotverlust von beispielsweise 30 oder 50 Prozent simuliert wird. \/\/18.2.26",
+          "perplexity": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        }
+      },
+      "q2": {
+        "question": "Wie kann ich eine persönliche Vermögens- und Risikobilanz für Prognosezwecke aufstellen?",
+        "answers": {
+          "chatgpt": "Eine Vermögens- und Risikobilanz erfasst alle Vermögenswerte und Verbindlichkeiten zum Marktwert und ordnet sie nach Risikoarten. Für Prognosen werden Zahlungsströme, erwartete Renditen, Volatilitäten und Korrelationen berücksichtigt. Humankapital wird als Barwert künftiger Arbeitseinkommen integriert, idealerweise risikoadjustiert. \/\/18.2.26",
+          "gemini": "Eine Vermögensbilanz stellt alle Aktiva (Immobilien, Depots, Barwerte von Rentenansprüchen) den Passiva (Kredite, Verpflichtungen) gegenüber, um das Reinvermögen zu ermitteln. Für Prognosezwecke werden künftige Cashflows (Einkommen, Ausgaben) geschätzt und mit Diskontierungssätzen auf den Barwert umgerechnet. Die Risikobilanz bewertet zudem die Sensitivität dieser Werte gegenüber Marktschwankungen oder Zinsänderungen, um die langfristige Risikotragfähigkeit sicherzustellen. \/\/18.2.26",
+          "perplexity": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+      },
+      "q3": {
+        "question": "Welche klassischen Geldfehler unterlaufen Menschen und welche Verhaltensmuster stecken dahinter?",
+        "answers": {
+          "chatgpt": "Klassische Geldfehler sind mangelnde Diversifikation, Markt-Timing, Herdenverhalten, Overconfidence, Verlustaversion, Dispositionseffekt, Mental Accounting und Gegenwartspräferenz. Dahinter stehen kognitive Verzerrungen und emotionale Entscheidungsheuristiken.\/\/18.2.26",
+          "gemini": "Häufige Fehler sind die Verlustaversion (Verluste schmerzen mehr als Gewinne erfreuen, was zu langem Halten von Verlierer-Aktien führt), der Home Bias (Übergewichtung heimischer Märkte) und das Herdenverhalten (Kaufen bei Höchstpreisen). Dahinter stecken evolutionäre Verhaltensmuster und kognitive Heuristiken der Behavioral Finance, wie die Selbstüberschätzung (Overconfidence) oder das mentale Kontoführen, die rationale Entscheidungen behindern. \/\/18.2.26",
+          "perplexity": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+      },
+      "q4": {
+        "question": "Von welchen Faktoren hängt ab, wie viel Risiko ich bei der Geldanlage eingehen sollte? Welche Rolle spielt dabei mein Humankapital?",
+        "answers": {
+          "chatgpt": "Das angemessene Risiko hängt von Risikotoleranz, Risikotragfähigkeit, Anlagehorizont, Liquiditätsbedarf, Vermögenshöhe, Humankapital und institutionellen Rahmenbedingungen ab. Humankapital wirkt wie ein Bond oder wie ein Aktieninvestment: Stabiles, sicheres Einkommen erhöht die Tragfähigkeit für Finanzmarktrisiko, stark konjunkturabhängiges Einkommen reduziert sie. \/\/18.2.26",
+          "gemini": "Die Risikotragfähigkeit hängt vom Anlagehorizont, dem Liquiditätsbedarf und dem Verhältnis von Vermögen zu Verpflichtungen ab. Das Humankapital ist der Barwert aller künftigen Arbeitseinkommen. Es fungiert als impliziter Vermögenswert: Ein sicheres Humankapital (z. B. bei Beamten) wirkt wie eine festverzinsliche Anleihe und erlaubt eine höhere Aktienquote im Finanzvermögen. Ein schwankungsanfälliges Humankapital (z. B. bei Selbstständigen) erfordert hingegen eine defensivere Anlage. \/\/18.2.26",
+          "perplexity": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
+        }
+      },
+      "q5": {
+        "question": "Welche Risikoprämie kann man langfristig auf weltweite Aktien erwarten, welche auf Wohnimmobilien in Deutschland?",
+        "answers": {
+          "chatgpt": "Langfristig kann man für weltweite Aktien real etwa 4 bis 6 Prozent Risikoprämie über sicheren Staatsanleihen erwarten. Für Wohnimmobilien in Deutschland liegt die langfristige reale Risikoprämie typischerweise niedriger, grob 2 bis 4 Prozent, bei höherer Illiquidität und Klumpenrisiko. \/\/18.2.26",
+          "gemini": "Langfristig wird für ein breit diversifiziertes Weltaktienportfolio eine Risikoprämie (Equity Risk Premium) von etwa 4 bis 6 Prozent pro Jahr über dem risikofreien Zins (Geldmarkt) erwartet. Für Wohnimmobilien in Deutschland liegt die langfristige reale Renditeerwartung (nach Inflation) historisch bei etwa 3 bis 4 Prozent, wobei die Risikoprämie gegenüber Staatsanleihen aufgrund von Illiquidität und Klumpenrisiken meist niedriger ausfällt als bei Aktien. \/\/18.2.26",
+          "perplexity": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet."
+        }
+      },
+      "q6": {
+        "question": "Wann sollte ich mich gegen Schäden versichern und wann besser nicht?",
+        "answers": {
+          "chatgpt": "Versichern sollte man existenzbedrohende, seltene und nicht selbst tragbare Risiken mit großer finanzieller Auswirkung. Kleine, häufige und gut kalkulierbare Schäden trägt man besser selbst. \/\/18.2.26",
+          "gemini": "Nach dem Grundsatz der Versicherungsökonomie sollten nur Risiken versichert werden, deren Eintritt die wirtschaftliche Existenz bedrohen würde (z. B. Privathaftpflicht, Berufsunfähigkeit, Wohngebäude). Risiken mit hoher Eintrittswahrscheinlichkeit, aber geringem Schadensausmaß (z. B. Glasbruch, Handyverlust), sollten nicht versichert, sondern durch eigene Rücklagen (Selbstversicherung) gedeckt werden, da die Versicherungsprämien durch Verwaltungskosten und Gewinnmargen statistisch teurer sind als der erwartete Schaden. \/\/18.2.26",
+          "perplexity": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+        }
+      },
+      "q7": {
+        "question": "Welche grundsätzlichen Strategien habe ich, um mich finanziell besser aufzustellen?",
+        "answers": {
+          "chatgpt": "Grundstrategien sind Konsum-Spar-Optimierung über den Lebenszyklus, breite Diversifikation, kostengünstige Umsetzung, Risikosteuerung über Asset Allocation, Absicherung existenzieller Risiken, Steueroptimierung, regelmäßiges Rebalancing und Vermeidung verhaltensbedingter Fehler. \/\/18.2.26",
+          "gemini": "Die drei Kernstrategien sind das Ausgabenmanagement (Erhöhung der Sparquote durch Konsumbewusstsein), die Maximierung des Humankapitals (Investition in Bildung und Qualifikation zur Steigerung des Lebenseinkommens) und die Optimierung der Anlagestrategie (breite Diversifikation, Minimierung von Produktkosten und Steuern, Disziplin bei der Umsetzung). \/\/18.2.26",
+          "perplexity": "Nisi ut aliquid ex ea commodi consequatur."
+        }
+      },
+      "q8": {
+        "question": "Gibt es den richtigen Zeitpunkt zum Einstieg in die Märkte?",
+        "answers": {
+          "chatgpt": "Einen systematisch vorhersagbaren richtigen Einstiegszeitpunkt gibt es nicht. Märkte sind weitgehend effizient. Strategisches Investieren und gegebenenfalls schrittweiser Einstieg reduzieren Timing-Risiko. \/\/18.2.26",
+          "gemini": "Wissenschaftlich betrachtet ist Markttiming (die Vorhersage von Kurswendepunkten) langfristig nicht verlässlich möglich. Da Märkte eine positive Renditeerwartung haben, ist eine sofortige Einmalanlage statistisch oft vorteilhafter als ein Abwarten. Für die psychologische Risikominimierung wird häufig das schrittweise Einsteigen (Cost-Average-Effekt) über Sparpläne empfohlen, um das Risiko eines Einstiegs zum absoluten Höchstkurs zu glätten. \/\/18.2.26",
+          "perplexity": "Itaque earum rerum hic tenetur a sapiente delectus."
+        }
+      },
+      "q9": {
+        "question": "Wie kann ich später feststellen, ob die Anlageentscheidung eine gute war?",
+        "answers": {
+          "chatgpt": "Ob eine Anlageentscheidung gut war, beurteilt man ex ante anhand der Qualität des Entscheidungsprozesses und ex post risikoadjustiert relativ zu einer passenden Benchmark, nicht allein am Ergebnis. \/\/18.2.26",
+          "gemini": "Eine gute Entscheidung bemisst sich nicht allein am Ergebnis (Vermeidung von Outcome Bias), sondern an der Qualität des Entscheidungsprozesses zum Zeitpunkt der Anlage. Objektive Kriterien sind der Vergleich der erzielten Rendite mit einer passenden Benchmark (z. B. MSCI World für Aktien) und die Betrachtung der risikoadjustierten Rendite (z. B. Sharpe Ratio). Zudem muss geprüft werden, ob die Entscheidung im Einklang mit der persönlichen Risikotoleranz und dem Anlageziel stand. \/\/18.2.26",
+          "perplexity": "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis."
+        }
+      },
+      "q10": {
+        "question": "Wie viel Prozent Produktkosten sind bei Fonds wenig oder viel? Wieviel bei Rentenversicherungen?",
+        "answers": {
+          "chatgpt": "Bei Fonds gelten Gesamtkostenquoten unter 0,3 Prozent pro Jahr als sehr günstig, 0,5 bis 1 Prozent als moderat, über 1,5 Prozent als hoch. Bei klassischen Rentenversicherungen liegen Effektivkosten häufig zwischen 1,5 und 3 Prozent pro Jahr oder höher, je nach Produktstruktur. \/\/18.2.26",
+          "gemini": "Bei weltweit anlegenden ETFs (passiven Fonds) gelten Gesamtkostenquoten (TER) von 0,1 bis 0,3 Prozent p.a. als sehr günstig, über 0,5 Prozent als teuer. Aktive Fonds sind mit 1,5 bis 2,0 Prozent p.a. teuer. Bei privaten Rentenversicherungen gelten Effektivkostenquoten von unter 1,0 Prozent p.a. als moderat; Marktdurchschnitte liegen oft bei 1,2 bis 1,8 Prozent, während Kosten über 2,0 Prozent p.a. die Rendite massiv schmälern. \/\/18.2.26",
+          "perplexity": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet."
+        }
+      },
+      "q11": {
+        "question": "Wieviel bezahlt man in Deutschland für Finanzberatung?",
+        "answers": {
+          "chatgpt": "Für Finanzberatung werden in Deutschland je nach Modell Honorar von etwa 100 bis 250 Euro pro Stunde oder pauschale Beratungshonorare im vierstelligen Bereich verlangt. Provisionsbasierte Beratung ist für Kunden formal kostenlos, die Kosten sind im Produkt eingepreist. \/\/18.2.26",
+          "gemini": "In Deutschland herrscht ein duales System: Honorarberater berechnen Stundensätze zwischen 150 und 250 Euro oder Pauschalhonorare für Finanzpläne. In der weit verbreiteten Provisionsberatung zahlt der Kunde kein direktes Honorar, sondern trägt die Kosten indirekt über das Produkt (z. B. 2 bis 5 Prozent Abschlusskosten der Beitragssumme bei Versicherungen sowie jährliche Bestandsprovisionen von ca. 0,3 bis 0,8 Prozent des Depotwerts). \/\/18.2.26",
+          "perplexity": "At vero eos et accusamus et iusto odio dignissimos ducimus."
+        }
+      }
+    },
+    "copy_prompts": {
+      "p1": {
+        "title": "ETFs fürs Globale Marktportfolio",
+        "prompt": "Du bist ETF\/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
+        "answers": {
+          "chatgpt": "WELTAKTIEN – TOP 1\nSPDR MSCI ACWI IMI UCITS ETF Acc | ISIN IE00B3YLTY66 | TER 0,17% | physisch (Sampling) | thesaurierend | Fondsgröße ~4,3 Mrd. € | Developed+EM+Small Caps (sehr marktnahe Abdeckung)\nWELTAKTIEN – TOP 2\nAmundi Prime All Country World UCITS ETF Acc | ISIN IE0003XJA0J9 | TER 0,07% | physisch | thesaurierend | Fondsgröße ~1,1 Mrd. € | günstiger, aber ohne Small Caps\nWELTAKTIEN – GÜNSTIGSTER MARKT\nAmundi Prime Global UCITS ETF Acc | TER 0,05% | nur Developed Large\/Mid, kein EM, kein Small\n\nWELTANLEIHEN – TOP 1\nVanguard Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BG47KH54 | TER 0,08% | physisch (Sampling) | thesaurierend | Fondsgröße ~1,9 Mrd. € | breit, EUR-hedged\nWELTANLEIHEN – TOP 2\niShares Core Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BDBRDM35 | TER 0,10% | physisch (Sampling) | thesaurierend | Fondsgröße ~2,3 Mrd. € | sehr ähnlich, minimal teurer\nWELTANLEIHEN – GÜNSTIGSTER MARKT\nVanguard Global Aggregate Bond EUR Hedged Acc | TER 0,08%\n\nGOLD – TOP\nXetra-Gold | ISIN DE000A0S9GB0 | TER 0,00% | physisch besichert | Fondsgröße ~23 Mrd. € | Kostenbenchmark\nGOLD – GÜNSTIGSTER MARKT\nXetra-Gold | TER 0,00%\n\nPRIVATE EQUITY – GRÖSSTE OPTION\niShares Listed Private Equity UCITS ETF Dist | Fondsgröße ~776 Mio. € | ausschüttend | erfüllt 500 Mio., aber nicht thesaurierend\nPRIVATE EQUITY – THESAURIEREND\nXtrackers LPX Private Equity Swap UCITS ETF 1C | TER 0,70% | thesaurierend | synthetisch | Fondsgröße ~320 Mio. € | unter 500 Mio., Swap",
+          "gemini": "Weltaktien (Industrie- & Schwellenländer)\nTop-Empfehlung: SPDR MSCI ACWI IMI UCITS ETF (IE00BFY0GT14)\nVorteil: Deckt Large, Mid und Small Caps ab (ca. 9000 Aktien). Mit 0,17% TER extrem günstig für ein All-in-One-Paket.\nAlternative: Vanguard FTSE All-World UCITS ETF (IE00BK5BQT80). TER 0,22%, physisch, extrem liquide, aber ohne Small Caps. Beide sind aufgrund der hohen Liquidität und engen Spreads exzellent.\nGünstigste Marktgröße: Amundi MSCI World (IE00BI8OT95) mit 0,12% TER (nur Industrieländer).\n\nWeltanleihen (Investment Grade, Hedged)\nTop-Empfehlung: Vanguard Global Aggregate Bond UCITS ETF EUR Hedged (IE00BG47KH54)\nVorteil: TER 0,10%, physisches Sampling, deckt Staats- und Unternehmensanleihen weltweit ab. Währungsabsicherung (Hedge) auf EUR ist bei Anleihen essenziell.\nAlternative: iShares Core Global Aggregate Bond UCITS ETF EUR Hedged (IE00BDBRDM35). TER 0,10%, faktisch gleichwertig in Liquidität und Kosten.\nGünstigste Marktgröße: iShares Core Global Aggregate Bond (TER 0,10%).\n\nGold (Physisch besichert)\nTop-Empfehlung: iShares Physical Gold ETC (IE00B4ND3602)\nVorteil: TER 0,12%, extrem liquide, physisch hinterlegt.\nAlternative: Xetra-Gold (DE000A0S9GB0). TER 0,00%, aber 0,36% p.a. Verwahrgebühr über die Depotbank. Vorteil hier ist die steuerliche Gleichstellung mit physischem Gold (nach 1 Jahr steuerfrei in DE), was den Kostennachteil oft schlägt.\nGünstigste Marktgröße: Xtrackers Physical Gold (DE000A2T0VU5) mit 0,11% TER.\n\nPrivate Equity (Börsennotiert)\nTop-Empfehlung: iShares Listed Private Equity UCITS ETF (IE00D8FCSD8)\nVorteil: Thesaurierende Variante des Klassikers, TER 0,75%, physisch replizierend. Höchste Liquidität im Sektor.\nAlternative: FlexShares Listed Private Equity UCITS ETF (IE0008ZGI5C1). Günstiger mit 0,40% TER, ebenfalls physisch, aber deutlich kleineres Fondsvolumen und tendenziell höhere Spreads.\nGünstigste Marktgröße: FlexShares Listed Private Equity (0,40% TER).\n\nBitcoin (Physisch besichert)\nTop-Empfehlung: iShares Bitcoin ETP (IE000S99TPH6)\nVorteil: TER aktuell 0,15% (Aktion, danach 0,25%), physisch besichert durch BlackRock, höchste Liquidität und engste Spreads am Markt.\nAlternative: Invesco Physical Bitcoin (XS2376095068). TER 0,10%, ebenfalls physisch und sehr günstig, aber geringeres Volumen als iShares.\nGünstigste Marktgröße: 21Shares Bitcoin Core ETP (CH1199067674) mit 0,10% TER."
+        }
+      },
+      "p2": {
+        "title": "Lebensphilosophie und Lifestyle finden",
+        "prompt": "System (Rolle): Du bist ein einfühlsamer Lifestyle-Coach und Design-Denker. Hilf mir, meine persönliche Lebensphilosophie zu konkretisieren und daraus einen umsetzbaren Lifestyle-Plan mit zugehörigem\nBudget für Wohnen, Reisen, Lebenshaltung, Hobbys, Ausgehen, Mobilität abzuleiten. Sei praktisch, nicht wertend. \/\/ User (Aufgabe): Führe ein kurzes Reflexionsgespräch (max. 8 Fragen), fasse die Antworten zusammen und erstelle anschließend 1) eine prägnante Definition der Lebensphilosophie (Label + 3–4 Sätze), 2) einen konkreten Lifestyle-Blueprint, 3) eine grobe Budgetaufteilung in %-Punkten und 4) 3 Messgrößen, mit denen ich prüfen kann, ob mich der Lifestyle zufrieden macht. Wenn du unsicher bist, schlage 2 alternative Lifestyle-Profile vor (A = konservativer, B = experimenteller) mit schnellen Pro\/Kontra-Punkten. Bitte kompakt und ohne Formatierung antworten.",
+        "answers": {
+          "chatgpt": "<b>Zusammenfassung deiner Antworten<\/b>\nDu suchst Ruhe statt Dauer-Intensität. Dir sind Gestaltungsmacht, Lernen und Einfluss wichtiger als Status. Wohnen hat Priorität vor Vielreisen. Du investierst gern in geistige Nahrung und Beziehungen (Bücher, gute Gespräche, besondere Aufenthalte). Konsum ohne Substanz (Mode, Gadgets, Kitsch) stresst dich eher. Zeitliche Freiheit ist dir sehr wichtig. Ein stabiler, tragfähiger Lebensstil über 15 Jahre würde dich beruhigen – du willst Nachhaltigkeit statt Eskalation.\n\n<b>Lebensphilosophie<\/b><\/b>\nLabel: Souveräne Substanz\nDu gestaltest dein Leben bewusst und ruhig, mit klarem Fokus auf geistige Entwicklung und wirksamen Einfluss. Status ist zweitrangig, entscheidend ist inhaltliche Qualität. Dein Wohlstand zeigt sich in Zeit, Autonomie und anregenden Begegnungen. Stabilität ist kein Stillstand, sondern die Basis für langfristige Wirksamkeit.\n\n<b>Lifestyle-Blueprint<\/b>\nWohnen: Großzügig, ruhig gelegen, viel Licht, Raum für Bücher und Denken. Lieber Qualität und Lage als maximale Quadratmeterzahl. Home-Office- oder Denkraum als Fixpunkt.\n\nReisen: Weniger, aber bewusst. Mehrere kurze Hotel-Aufenthalte mit Substanz (Kultur, Natur, Gespräche) statt hektischer Fernreisen.\n\nLebenshaltung: Hochwertige Lebensmittel, regelmäßige Essen mit Freunden, gute Restaurants statt Alltagsluxus.\n\nHobbys & Lernen: Fester Weiterbildungsfonds (Bücher, Konferenzen, Kurse). Zeitblock pro Woche für Lesen\/Denken.\n\nAusgehen: Selektiv – kulturelle Veranstaltungen, Gespräche, Salons statt Event-Dauerbeschallung.\n\nMobilität: Funktional und stressarm. Komfort wichtiger als Prestige.\n\nZeitdesign: 1 freier halber Tag pro Woche ohne Verpflichtungen. 1 längeres Denk- oder Lernfenster pro Quartal (Mini-Retreat).\n\n<b>Grobe Budgetaufteilung (vom Nettoeinkommen)<\/b>\nWohnen: 30–35 %\nReisen\/Hotels: 10–15 %\nLebenshaltung (inkl. Essen, Alltag): 20–25 %\nHobbys\/Lernen: 8–10 %\nAusgehen\/Kultur: 5–8 %\nMobilität: 5–8 %\nSparen\/Vermögensaufbau\/Freiheitsreserve: 15–20 %\n\n<b>Drei Messgrößen für Zufriedenheit<\/b>\nFreiheitsquote: Wie viele Tage pro Monat sind frei disponierbar? Ziel: mindestens 20 %.\nSubstanz-Quote: Anteil Ausgaben für Lernen, Beziehungen, echte Erlebnisse vs. Statuskonsum. Ziel: mindestens 70 % „Substanz“.\nRuhe-Index: Subjektive Bewertung 1–10: „Wie ruhig und klar fühlt sich mein Alltag an?“ Ziel: dauerhaft ≥ 8.",
+          "gemini": "Zusammenfassung: Du suchst einen festen, ruhigen Pol für Harmonie und Selbstoptimierung, ohne auf soziale Highlights oder persönliche Freiheit zu verzichten.\n\nPhilosophie: Der Harmonische Essentialist. Dein Leben zentriert sich um einen ästhetischen Rückzugsort, der als Basis für maximale persönliche Freiheit dient. Du investierst konsequent in deine körperliche und geistige Verfassung, um unabhängig und leistungsfähig zu bleiben. Materielle Werte und Erlebnisse werden gleichermaßen nach ihrer Qualität und ihrem Beitrag zu deiner inneren Ruhe ausgewählt.\n\nLifestyle-Blueprint: Ein minimalistisches Sanctuary als fester Wohnsitz bildet dein Fundament. Dein Alltag integriert feste Routinen für Fitness und Coaching, wobei ein halber Tag pro Woche strikt für die Selbstoptimierung reserviert bleibt. Soziale Kontakte finden gezielt in Form von qualitativen Feiern mit Freunden statt. Du nutzt Mobilität flexibel, um deine Freiheit zu spüren, kehrst aber immer in deine geordnete Basis zurück.\n\nBudgetaufteilung: Wohnen 35%, Lebenshaltung 20%, Optimierung (Sport\/Coaching) 15%, Reisen und Mobilität 15%, Ausgehen und Soziales 10%, Hobbys 5%.\n\nMessgrößen:\n1. Regeneration (Bietet mein Heim den nötigen Frieden?)\n2. Autonomie (Habe ich meine Fokuszeit für mich eingehalten?)\n3. Resonanz (Waren soziale Interaktionen energetisierend?)."
+        }
+      },
+      "p3": {
+        "title": "Forschung zusammenfassen",
+        "prompt": "Du bist Spezialist für sorgfältige Recherchen. Fasse mir die Ergebnisse von wissenschaftlichen Studien (ausschließlich Arbeiten aus Top-Journals oder renommierten Institutionen) zur folgender Frage zusammen: Macht der Kauf von nachhaltigen Fonds einen Unterschied für die Umwelt?",
+        "answers": {
+          "chatgpt": "Kurzfassung der Top-Journal-Literatur: Der Kauf nachhaltiger Fonds kann einen Unterschied für die Umwelt machen, aber meist indirekt und abhängig von der konkreten Strategie.\n\n1 Preis- und Kapitalkostenkanal: Wenn viele Investoren „grüne“ Unternehmen bevorzugen und „braune“ meiden, können sich Aktienpreise und damit Kapitalkosten verschieben. Theoretisch kann das Investitionen und Emissionen beeinflussen. Empirisch sind diese Effekte jedoch oft klein, solange der Anteil strikt nachhaltigen Kapitals begrenzt ist.\n\n2 Engagement-Kanal: Die stärkste Evidenz gibt es für aktives Eigentum. Wenn nachhaltige Investoren gezielt Unternehmen adressieren, abstimmen und Druck ausüben, lassen sich Umweltpraktiken nachweislich verändern. Reines Divestment kann dagegen Einflussmöglichkeiten reduzieren.\n\n3 Messproblem: ESG-Ratings unterscheiden sich stark. „Nachhaltiger Fonds“ bedeutet nicht automatisch reale Emissionsreduktion. Die Umweltwirkung hängt davon ab, ob der Fonds tatsächlich emissionsrelevante Kriterien und Transition-Strategien adressiert.\n\n4 Anlegernachfrage: Investoren investieren nachweislich aus Nachhaltigkeitspräferenzen, auch ohne Renditevorteil. Das verschiebt Kapitalströme, garantiert aber keine unmittelbare reale Umweltwirkung.\n\nGesamtfazit: Nachhaltige Fonds können über Kapitalkosten und vor allem über aktives Engagement Umweltwirkungen entfalten. Reines Screening oder Labeling ohne aktives Eigentum hat wahrscheinlich nur begrenzten realwirtschaftlichen Effekt.",
+          "gemini": "Wissenschaftliche Studien aus führenden Fachzeitschriften (u. a. Journal of Finance, Review of Financial Studies) und von Institutionen wie dem MIT oder der Universität Zürich (Kölbel et al.) kommen zu einem differenzierten Ergebnis: Der Kauf herkömmlicher nachhaltiger Publikumsfonds (ESG-Fonds) hat am öffentlichen Aktienmarkt kaum einen direkten messbaren Effekt auf die Umwelt.\nDie Forschung unterscheidet drei Hauptmechanismen:\n1 Kapitalallokation und Divestment: Studien wie die von Berk und van Binsbergen (2021\/2024) zeigen, dass der Ausschluss von \"schmutzigen\" Unternehmen (Divestment) die Kapitalkosten dieser Firmen nur minimal erhöht. Der Effekt ist meist zu gering, um Unternehmen zu einer Änderung ihres Geschäftsmodells zu zwingen, da andere Investoren die Anteile übernehmen. Ein direkter Umwelteffekt durch bloßen Aktienhandel im Sekundärmarkt ist empirisch kaum nachweisbar.\n\n2 Shareholder Engagement (Stewardship): Dies gilt als der wirksamste Hebel. Studien (z. B. Barko et al., 2021) belegen, dass aktives Stimmrechtsmanagement und der direkte Dialog zwischen Fondsmanagern und Unternehmensführung zu messbaren Verbesserungen führen können, etwa bei der Reduktion von CO2-Emissionen oder der Offenlegung von Klimarisiken. Die Wirkung hängt jedoch stark von der Größe des Investors und der Kooperation mit anderen Aktionären ab.\n\n3 Finanzierung von Wachstum (Primärmarkt): Einen echten Unterschied machen Fonds vor allem dann, wenn sie frisches Kapital direkt in nachhaltige Projekte lenken (z. B. Green Bonds oder Private Equity). Hier ermöglicht das Kapital Projekte, die sonst nicht zustande kämen. Bei klassischen börsennotierten Aktienfonds findet dieser Prozess jedoch kaum statt.\n\nFazit der Wissenschaft: Die meisten ESG-Fonds optimieren zwar das Risiko-Rendite-Profil für Anleger, erzielen aber keinen \"Real World Impact\" im Sinne einer zusätzlichen Emissionsminderung. Für eine echte Umweltwirkung ist der Fokus auf Impact Investing (Primärmarkt) oder aggressives Stewardship (Engagement) entscheidend."
+        }
+      },
+      "p4": {
+        "title": "Kosten Rentenversicherung",
+        "prompt": "Produktkosten: Bitte recherchiere die durchschnittliche Kostenbelastung bzw. die Reduction in Yield (RiY) für den folgenden Rentenversicherungstarif: ________ , Jahr des Vertragsbeginns: ______ . Ich suche eine grobe Schätzung, wie sie in Produktinformationsblättern, Testberichten oder Vergleichen typischerweise angegeben wird. Bitte gib auch an, woher du deine Informationen hast, und ob sich die RiY im üblichen Marktbereich (z. B. 1–2 % p. a.) bewegt oder auffällig hoch\/niedrig ist. Wenn möglich, gib auch an, ob der Tarif fondsgebunden, klassisch oder hybrid ist und ob es Garantien gibt, die sich auf die Kosten auswirken\nkönnten.",
+        "answers": {
+          "chatgpt": "Für den Tarif NAME mit Vertragsbeginn 1.7.2020 lässt sich aus öffentlich zugänglichen Produktinformationen und Testberichten eine grobe Reduction in Yield (RiY) von etwa 1,0 bis 1,3 Prozentpunkten pro Jahr ableiten. Ältere Beispielrechnungen nennen Effektivkosten um 0,94 Prozent p. a., neuere Vergleiche liegen bei rund 1,24 Prozentpunkten Renditeminderung. Damit bewegt sich der Tarif im üblichen Marktbereich von etwa 1–2 Prozent p. a. und ist weder auffällig günstig noch besonders teuer, eher im soliden Mittelfeld provisionsbasierter Privatrenten.\n\nDer Tarif NAME ist keine reine Fonds-Police, sondern eine sicherheitsorientierte Rentenversicherung mit Anlage im Sicherungsvermögen und Garantien, typischerweise mit einem garantierten Kapitalniveau (z. B. rund 90 Prozent der eingezahlten Beiträge) und garantierter Mindestrente. Diese Garantien wirken sich tendenziell renditedämpfend aus. Die tatsächliche RiY hängt stark von Laufzeit, Beitrag, Dynamik und Rentenoptionen ab, sodass die genannten Werte nur als grobe Orientierung zu verstehen sind.\n>>Ursprungstext wurde von KI nochmals gekürzt.",
+          "gemini": "Tarif NAME aus dem Jahr 2020 weist bei einer Laufzeit von 30 Jahren eine Reduction in Yield (RiY) von ca. 0,75 bis 0,95 Prozent pro Jahr auf. Bei kürzeren Laufzeiten liegt dieser Wert zwischen 1,3 und 1,6 Prozent. Damit gilt der Tarif als kosteneffizient und liegt am unteren Ende des marktüblichen Bereichs für Versicherungsprodukte. Es handelt sich um ein Produkt der Modernen Klassik, bei dem die Beiträge in das NAME Sicherungsvermögen fließen. Zum Rentenbeginn besteht in der Regel eine 100-prozentige Beitragsgarantie. Die Informationen stammen aus Produktinformationsblättern (PIB) von 2020, Ratings des IVFP sowie Fachberichten von Focus Money und Euro.\n>>Ursprungstext wurde von KI nochmals gekürzt"
+        }
+      },
+      "p5": {
+        "title": "Deutsches Rentensystem",
+        "prompt": "Du bist Rentenexpertin. Erläutere mir das 3-Säulen-Modell der Altersvorsorge in Deutschland (gesetzlich, betrieblich, privat) und mache an drei Beispielfällen (Angestellte, Selbstständige, Beamtin) konkret.",
+        "answers": {
+          "chatgpt": "1. Gesetzliche Rentenversicherung (GRV)\nPrinzip: Umlageverfahren – die aktuell Erwerbstätigen finanzieren die laufenden Renten.\nAnspruch: Pflicht für Arbeitnehmer bis zur Beitragsbemessungsgrenze; viele Selbstständige nicht pflichtversichert; Beamte nicht.\nLeistung: Abhängig von Entgeltpunkten, Zugangsfaktor, Rentenartfaktor und aktuellem Rentenwert.\nZiel: Basisabsicherung mit lebenslanger Rente sowie Absicherung bei Erwerbsminderung und für Hinterbliebene.\nSteuer: Nachgelagerte Besteuerung; der steuerpflichtige Anteil hängt vom Jahr des Rentenbeginns ab.\n\n2. Betriebliche Altersversorgung (bAV)\nPrinzip: Vom Arbeitgeber organisierte Zusatzversorgung (z. B. Direktversicherung, Pensionskasse, Pensionsfonds, Unterstützungskasse, Direktzusage).\nFinanzierung: Arbeitgeberbeiträge und\/oder Entgeltumwandlung aus dem Bruttogehalt.\nVorteile: Steuer- und sozialabgabenbegünstigte Beiträge in der Ansparphase; häufig verpflichtender Arbeitgeberzuschuss bei Entgeltumwandlung.\nLeistung: In der Regel lebenslange Rente, teilweise mit Kapitalwahlrecht.\nZiel: Ergänzung der gesetzlichen Rente und Schließen der Versorgungslücke.\n\n3. Private Vorsorge\nPrinzip: Individuell abgeschlossene Vorsorgeprodukte, z. B. ETF-Sparplan, private Rentenversicherung, Riester-Rente, Basisrente (Rürup).\nVorteile: Hohe Flexibilität; je nach Produkt steuerliche Förderung (z. B. Zulagen bei Riester, Sonderausgabenabzug bei Basisrente).\nZiel: Individuelle Lücken schließen, Vermögen aufbauen, zusätzliche Flexibilität schaffen.\n\nBeispielfall 1: Angestellte, 45 Jahre, 70.000 Euro brutto\nSäule 1: Pflichtbeiträge zur GRV bis zur Beitragsbemessungsgrenze; Erwerb von Entgeltpunkten. Die spätere Nettorente liegt meist deutlich unter dem letzten Nettoeinkommen, sodass eine Versorgungslücke entsteht.\nSäule 2: Nutzung der bAV über Entgeltumwandlung, z. B. bis zu 4 Prozent der Beitragsbemessungsgrenze, plus Arbeitgeberzuschuss. Steuer- und Sozialabgabenersparnis erhöht die Effektivität der Vorsorge.\nSäule 3: Ergänzender ETF-Sparplan für zusätzliche Renditechancen und Flexibilität, etwa für einen früheren Ruhestand oder größere Ausgaben.\nTypische Strategie: Kombination aller drei Säulen; die bAV als renditestarker Baustein durch Arbeitgeberzuschuss, private Vorsorge für Liquidität und individuelle Ziele.\n\nBeispielfall 2: Selbstständiger, 45 Jahre, IT-Berater\nSäule 1: Häufig keine Pflichtversicherung in der GRV; freiwillige Beiträge sind möglich, aber optional.\nSäule 2: Keine klassische bAV; bei Tätigkeit über eine eigene GmbH unter Umständen umsetzbar.\nSäule 3: Zentrale Rolle. Nutzung von Basisrente (Rürup) zur steuerlichen Entlastung bei hohem Einkommen sowie breit gestreute ETF-Depots oder Immobilieninvestitionen.\nTypische Strategie: Starker Fokus auf kapitalmarktorientierte Vorsorge; zusätzlich Absicherung existenzieller Risiken wie Berufsunfähigkeit und Krankheit besonders wichtig.\n\nBeispielfall 3: Beamtin, 45 Jahre, Besoldungsgruppe A13\nSäule 1: Keine GRV, sondern Beamtenversorgung (Pension) durch den Dienstherrn. Die Höhe hängt von ruhegehaltfähigen Dienstzeiten und Bezügen ab. Versorgungsbezüge werden steuerlich wie andere Pensionen behandelt.\nSäule 2: Klassische bAV entfällt.\nSäule 3: Ergänzende private Vorsorge, etwa über ETF-Sparpläne, um Abschläge, Teilzeitphasen oder Inflationsrisiken auszugleichen und zusätzliche Flexibilität zu schaffen.\nTypische Strategie: Solide Basis durch die Pension, private Vorsorge zur Diversifikation und Absicherung individueller Lebensrisiken.\n\nKernaussage: Arbeitnehmer können alle drei Säulen nutzen, Selbstständige bauen vor allem auf private Vorsorge, und bei Beamten ersetzt die Pension die gesetzliche Rente. Eine Kombination aus Grundabsicherung und ergänzendem Kapitalaufbau ist in allen Fällen sinnvoll, um die individuelle Versorgungslücke zu schließen.",
+          "gemini": "Das 3-Säulen-Modell beschreibt die Struktur der Altersvorsorge in Deutschland. 1. Säule: Basisversorgung (Gesetzliche Rentenversicherung, Beamtenversorgung, berufsständische Versorgungswerke). Sie ist umlagefinanziert und dient der Grundabsicherung. 2. Säule: Zusatzversorgung (Betriebliche Altersvorsorge - bAV). Sie wird durch den Arbeitgeber organisiert, oft per Entgeltumwandlung gefördert und ist kapitalgedeckt. 3. Säule: Private Vorsorge (Private Rentenversicherungen, ETFs, Immobilien, Riester\/Rürup). Sie ist freiwillig, individuell und dient dem Schließen der Rentenlücke.\n\nHier sind drei konkrete Beispielfälle:\n\n1. Angestellte (z. B. Industriekauffrau): Sie zahlt verpflichtend in die 1. Säule (GRV) ein. Ihr Arbeitgeber bietet zusätzlich eine bAV (2. Säule) als Direktversicherung an, bei der sie Teile ihres Bruttogehalts spart. Privat (3. Säule) investiert sie monatlich in einen ETF-Sparplan, um ihren Lebensstandard im Alter zu sichern.\n2. Selbstständige (z. B. Grafikdesignerin): Sie ist meist nicht in der GRV pflichtversichert (1. Säule entfällt oft). Daher nutzt sie häufig die Rürup-Rente (Basis-Rente), die steuerlich gefördert wird. Eine bAV (2. Säule) hat sie als Inhaberin in der Regel nicht. Die Hauptlast trägt ihre private Vorsorge (3. Säule), etwa durch eine vermietete Eigentumswohnung oder private Rentenpolicen.\n3. Beamtin (z. B. Lehrerin): Ihre 1. Säule ist die Beamtenversorgung (Pension), die vom Dienstherrn finanziert wird und meist höher ausfällt als die gesetzliche Rente. Eine klassische bAV (2. Säule) gibt es für Beamte nicht. Zur Schließung der individuellen Lücke nutzt sie die 3. Säule, oft in Form einer privaten Rentenversicherung oder Riester-Rente, da sie als Beamtin unmittelbar zulagenberechtigt ist."
+        }
+      },
+      "p6": {
+        "title": "Zwei Jahre früher in Rente",
+        "prompt": "Schätze für mich ab, was es für die Höhe meiner gesetzlichen Rente bedeuten würde, wenn ich zwei Jahre früher in Rente gehe. Frage mich nach Informationen, um eine möglichst akkurate Schätzung zu machen.",
+        "answers": {
+          "chatgpt": "Hier eine überschlägige, aber recht belastbare Rechnung auf Basis deiner Angaben:\n\nAlter: 45\nRegelalter: 67\nGeplanter Rentenbeginn: 24 Monate früher, also mit 65\nPrognostische Monatsrente mit 67 laut Bescheid: 2500 Euro\nBruttojahreseinkommen: 82.000 Euro\nWeiterhin Vollzeit bis 65\n\n1. Abschlag wegen 24 Monate früherem Rentenbeginn\nIn der gesetzlichen Rentenversicherung beträgt der Abschlag 0,3 Prozent pro Monat.\n24 Monate × 0,3 Prozent = 7,2 Prozent dauerhafter Abschlag.\n\nAllein dadurch würde sich deine prognostizierte Rente von 2500 Euro um 7,2 Prozent reduzieren: 2500 × 0,072 = 180 Euro.\n\nNeue Monatsrente nur durch den Abschlag: 2500 − 180 = 2320 Euro.\n\n2. Zusätzlich fehlende Entgeltpunkte aus zwei Arbeitsjahren\nBei 82.000 Euro brutto liegst du über der Beitragsbemessungsgrenze. Das heißt: Du sammelst pro Jahr ungefähr rund 2 Entgeltpunkte (Maximum pro Jahr).\n\nZwei Jahre weniger bedeuten also grob rund 4 Entgeltpunkte weniger.\n\nEin Entgeltpunkt bringt derzeit etwa 39 bis 40 Euro Monatsrente (West).\n4 Entgeltpunkte entsprechen also ungefähr 160 Euro Monatsrente.\n\n3. Gesamteffekt\nZu den 180 Euro Abschlag kommen rund 160 Euro weniger durch fehlende Beitragsjahre.\nGesamtdifferenz gegenüber Rente mit 67: ungefähr 340 Euro pro Monat.\nStatt rund 2500 Euro lägst du bei etwa 2160 Euro Monatsrente.\nDas entspricht einer Reduktion von grob 13 bis 14 Prozent gegenüber der Rente mit 67.\n\nWichtig:\n– Der Abschlag von 7,2 Prozent wirkt lebenslang.\n– Die fehlenden Entgeltpunkte wirken ebenfalls lebenslang.\n– Rechnet man das über 20 Jahre Rentenbezug, summiert sich der Unterschied schnell auf über 80.000 Euro in heutiger Kaufkraft.",
+          "gemini": "Basierend auf Ihren Angaben (45 Jahre alt, 2.500 € Zielrente, 82.000 € Brutto, 35 Beitragsjahre) ergibt ein zwei Jahre früherer Renteneintritt (mit 65 statt 67 Jahren) folgende Schätzung der Rentenminderung:\n\nDer lebenslange Abschlag: Da Sie langjährig versichert sind, kostet Sie jeder vorzeitige Monat 0,3 % Ihrer Rente. Bei 24 Monaten früherem Eintritt sind das dauerhaft 7,2 % Abzug. Von Ihren 2.500 € fallen somit ca. 180 € durch den versicherungsmathematischen Abschlag weg.\n\nFehlende Rentenpunkte: Mit einem Bruttoeinkommen von 82.000 € liegen Sie über der Beitragsbemessungsgrenze und sammeln pro Jahr ca. 2,0 Entgeltpunkte (EP). In zwei Jahren fehlen Ihnen also etwa 4,0 EP. Beim aktuellen Rentenwert von 39,32 € entspricht dies einer weiteren Minderung von ca. 157 €.\n\nDas Gesamtergebnis der Schätzung: Ihre monatliche Bruttorente reduziert sich bei einem um zwei Jahre vorgezogenen Ruhestand um insgesamt ca. 337 €.\n\nVoraussichtliche Rente (regulär): 2.500 €\n\nAbschlag (7,2 %): 180 €\n\nFehlende Beiträge (2 Jahre): 157 €\nGeschätzte Bruttorente mit 65 Jahren: 2.163 €\n\nBitte beachten Sie, dass dies eine Kalkulation auf Basis heutiger Werte ist. Inflation und zukünftige Rentenanpassungen verändern die absoluten Zahlen bis zu Ihrem Renteneintritt in 20 Jahren noch deutlich. Zudem sind von der Bruttorente noch Beiträge zur Kranken- und Pflegeversicherung sowie Steuern abzuziehen."
+        }
+      },
+      "p7": {
+        "title": "Profitabilität von Immobilien",
+        "prompt": "Du bist Immobilienexperte. Ich überlege mir, eine Wohnung als Kapitalanlage zu kaufen. Erläutere mir in allgemein verständlicher Sprache, welche Faktoren die Profitabilität bestimmen. Worauf muss ich besonders achten? Führe mich durch eine Beispielrechnung mit steuerlichen Implikationen.",
+        "answers": {
+          "chatgpt": "Wenn du eine Wohnung als Kapitalanlage kaufst, ist „Profitabilität“ mehr als nur: Miete minus Kreditrate. Entscheidend ist die Gesamtrendite aus (1) laufendem Cashflow nach allen Kosten und Steuern, (2) Tilgungseffekt (Vermögensaufbau durch Rückzahlung), (3) Wertentwicklung und (4) einem sauberen Exit (Verkauf, Steuern, Kosten).\n\n1. Die wichtigsten Treiber der Profitabilität (verständlich erklärt)\n\nA) Kaufpreis im Verhältnis zur erzielbaren Miete\nDas ist meist der größte Hebel. Zwei identische Wohnungen können bei gleicher Miete sehr unterschiedlich rentabel sein, wenn du einmal zu teuer kaufst. Faustidee: Je höher der Kaufpreisfaktor (Kaufpreis \/ Jahresnettokaltmiete), desto schwieriger wird es, eine ordentliche Rendite zu erzielen, außer du rechnest mit kräftiger Wertsteigerung.\n\nB) Laufende, nicht umlagefähige Kosten\nViele unterschätzen diese Position. Dazu gehören typischerweise: Instandhaltungsrücklage\/Erhaltungsaufwand (soweit wirklich ausgegeben), Verwaltung, WEG-Sonderumlagen, Mietausfall, Leerstand, Reparaturen, Versicherungen, ggf. Grundsteuer, Bankgebühren, Inserate, Rechtskosten. Umlagefähige Betriebskosten sind weniger kritisch, weil du sie über Nebenkosten an den Mieter weiterreichen kannst.\n\nC) Leerstand, Mietausfall und Mieterqualität\nEin „theoretischer“ Mietpreis hilft nichts, wenn du 1–2 Monate Leerstand pro Jahr oder häufige Wechsel hast. Der Standort-Mikromarkt (Straße, Haus, Grundriss, Energiezustand) ist oft wichtiger als die Stadt auf dem Exposé.\n\nD) Finanzierung: Zins, Tilgung, Laufzeit, Eigenkapital\nDer Zinssatz beeinflusst den Cashflow sofort. Tilgung ist keine „Kostenposition“ in der Steuer, aber sie entscheidet, wie schnell du Vermögen aufbaust. Hohe Tilgung kann den monatlichen Cashflow belasten, verbessert aber deine Robustheit (Verschuldung sinkt, Zinsänderungsrisiko nimmt ab).\n\nE) Instandhaltung, Modernisierung, Energiezustand\nGroße Hebel (und Risiken) sind Dach, Fassade, Heizung, Fenster, Leitungen, Aufzug, Balkon. Bei WEGs besonders wichtig: Gibt es einen Sanierungsstau? Wie hoch ist die Rücklage? Stehen Sonderumlagen im Raum? Energieeffizienz beeinflusst Vermietbarkeit und künftige Investitionen.\n\nF) „Einmalige“ Kaufnebenkosten und Exit-Kosten\nGrunderwerbsteuer, Notar, Grundbuch, ggf. Makler sind sofort weg und müssen erst verdient werden. Beim Verkauf kommen ggf. Maklerkosten und Verkaufsnebenkosten dazu. Das macht kurze Haltedauern oft unattraktiv.\n\nG) Steuerlogik (wirkt stark auf die Nachsteuerrendite)\nIn Deutschland werden Mieteinnahmen als Einkünfte aus Vermietung und Verpachtung besteuert. Viele Kosten sind als Werbungskosten abziehbar (z.B. Zinsen, Verwaltung, Reparaturen). Tilgung ist steuerlich nicht absetzbar. Die Gebäudeabschreibung (AfA) mindert ebenfalls den steuerpflichtigen Überschuss, ohne dass dafür jedes Jahr Cash abfließt.\n\n2. Worauf du besonders achten solltest (Praxis-Checkliste)\n\nRealistische Miete ansetzen, nicht „Wunschmiete“: Mietspiegel, Lage, Zustand, Mietpreisbremse\/Regulierung im Markt, Zielmietergruppe, Konkurrenzangebote.\n\nHausgeld aufdröseln: Was ist umlagefähig (vom Mieter zahlbar) und was bleibt bei dir? Wie hoch ist die Rücklage? Wird sie real ausgegeben oder nur angespart?\n\nWEG-Unterlagen prüfen: Protokolle der Eigentümerversammlungen (mehrere Jahre), Wirtschaftsplan, Rücklagenentwicklung, geplante Maßnahmen, Gutachten, Streitigkeiten, Zahlungsrückstände in der WEG.\n\nTechnischer Zustand: Heizung, Dach, Leitungen, Feuchte, Elektrik, Fenster, Fassade. Sanierungsstau ist ein Renditekiller.\n\nFinanzierung stress-testen: Was passiert bei 1–2 Monaten Leerstand, 10–20% niedrigeren Mieten, unerwarteter Sonderumlage, oder höherem Anschlusszins?\n\nRendite immer nach Kosten und Steuern denken: Bruttomietrendite ist nur ein erster Indikator. Entscheidend sind Netto-Cashflow und Nachsteuerrendite.\n\nExit-Szenario klar haben: Haltedauer, Verkaufskosten, Renovierung vor Verkauf, steuerliche Spekulationsfrist.\n\n3. Beispielrechnung (vereinfachtes, aber realistisches Schema) inkl. Steuern\nAnnahmen:\nKaufpreis Wohnung: 350.000 EUR\nDavon Grundstücksanteil (nicht abschreibbar): 50.000 EUR\nKaufnebenkosten (GrESt, Notar, Grundbuch, ggf. Makler), pauschal: 35.000 EUR\nFinanzierung: 80% Darlehen = 280.000 EUR\nZins: 3,5% p.a. (im 1. Jahr vereinfacht konstant), Tilgung: 2,0% p.a.\nMiete (Nettokalt): 1.200 EUR\/Monat = 14.400 EUR\/Jahr\nNicht umlagefähige laufende Kosten (Beispiele): Verwaltung 300, Versicherung 250, kleinere Reparaturen 1.000, nicht umlagefähiger Hausgeldanteil\/sonstige 1.500 => 3.050 EUR\/Jahr\n\nSchritt 1: Cashflow vor Steuern (grob)\nMieteinnahmen: +14.400\nZinsen (280.000 * 3,5%): -9.800\nTilgung (280.000 * 2,0%): -5.600 (Achtung: nicht steuerlich absetzbar)\nLaufende nicht umlagefähige Kosten: -3.050\nCashflow vor Steuern: 14.400 - 9.800 - 5.600 - 3.050 = -4.050 EUR (also im 1. Jahr negativ)\n\nSchritt 2: Steuerliches Ergebnis (Einkünfte aus Vermietung)\nSteuerlich abziehbar sind typischerweise:\n* Zinsen: -9.800\n* Laufende Kosten (soweit Werbungskosten): -3.050\n* AfA (Abschreibung nur auf Gebäudeanteil inkl. zugeordneten Kaufnebenkosten)\n\nAfA-Bemessungsgrundlage (vereinfacht):\nGebäudewert = Kaufpreis minus Grundstück = 300.000\nGebäudeanteil an Kaufnebenkosten = 35.000 * (300.000 \/ 350.000) = 30.000\nAfA-Basis Gebäude = 300.000 + 30.000 = 330.000\n\nLineare AfA bei typischen Bestandsgebäuden: 2% p.a. (wenn das Gebäude nicht „neu“ im Sinne der 3%-Regel ist) => 6.600 EUR\/Jahr. Die konkreten Sätze hängen u.a. vom Fertigstellungszeitpunkt ab (z.B. 3% bei bestimmten neueren Gebäuden).  ￼\n\nSteuerliches Ergebnis:\nMiete 14.400\nminus Zinsen 9.800\nminus Kosten 3.050\nminus AfA 6.600\n= 14.400 - 9.800 - 3.050 - 6.600 = -5.050 EUR (steuerlicher Verlust)\n\nSchritt 3: Steuerwirkung (vereinfachtes Beispiel)\nWenn dein persönlicher Grenzsteuersatz z.B. 42% beträgt, kann ein steuerlicher Verlust von 5.050 EUR deine Steuerlast um ungefähr 5.050 * 0,42 = 2.121 EUR senken (Details hängen von deiner Gesamtsituation ab).\n\nSchritt 4: Cashflow nach Steuern\nCashflow vor Steuern: -4.050\nplus Steuerentlastung (grob): +2.121\n= -1.929 EUR\n\nInterpretation: Du zahlst im 1. Jahr netto drauf, baust aber Vermögen durch Tilgung auf (5.600 EUR mehr Eigenkapital in der Immobilie, vereinfacht). Ob das „gut“ ist, hängt davon ab, wie robust der Plan ist, wie wahrscheinlich Mieterhöhungen sind, welche Instandhaltungen anstehen, und welche Wertentwicklung du realistisch erwartest.\n\n\n4. Wichtige steuerliche Punkte, die du kennen solltest (ohne zu sehr ins Juristische zu gehen)\n\n* Zinsen sind in der Regel als Werbungskosten abziehbar, Tilgung nicht.  ￼\n* AfA: Lineare Gebäude-AfA richtet sich nach gesetzlichen Sätzen (je nach Alter\/Fertigstellung). Außerdem gibt es für bestimmte Neubau-Konstellationen zeitlich befristet eine degressive AfA (5% vom Restwert) als Investitionsanreiz; das kann die Steuerlast in den ersten Jahren deutlich senken, ist aber an Bedingungen und Zeitfenster geknüpft.  ￼\n* Verkauf: Bei privat gehaltenen Immobilien ist ein Gewinn aus Verkauf nach Ablauf der 10-jährigen Spekulationsfrist in der Regel steuerfrei; bei Verkauf innerhalb der Frist kann er steuerpflichtig sein (mit Ausnahmen, z.B. bei Eigennutzung).  ￼\n* WEG\/Hausgeld: Steuerlich zählt nicht „Hausgeld gezahlt“, sondern welche Kosten tatsächlich angefallen sind und wie sie umlagefähig\/nicht umlagefähig sind. Das ist in der Praxis ein häufiger Stolperstein.  ￼",
+          "gemini": "Hier ist eine Übersicht der entscheidenden Faktoren und eine Beispielrechnung.\n\nDie wichtigsten Faktoren für die Profitabilität\n\n1. Die Lage (Makro- und Mikrolage)\nDie Lage entscheidet über die Wiedervermietbarkeit und das Potenzial für Wertsteigerungen. Achte auf die Infrastruktur, die wirtschaftliche Stärke der Region und die Attraktivität des Viertels.\n2. Der Kaufpreis und die Kaufnebenkosten\nDein Gewinn liegt im Einkauf. Zu dem Kaufpreis kommen Nebenkosten wie Grunderwerbsteuer, Notargebühren und Maklerprovision hinzu (meist 7% bis 12% des Kaufpreises). Diese Kosten müssen erst einmal durch Mieteinnahmen oder Wertsteigerung erwirtschaftet werden.\n3. Die Bruttomietrendite vs. Nettomietrendite\nDie Bruttomietrendite (Jahreskaltmiete geteilt durch Kaufpreis) ist nur ein grober Richtwert. Entscheidend ist die Nettorendite, die auch die nicht umlegbaren Verwaltungskosten und Instandhaltungsrücklagen berücksichtigt.\n4. Finanzierung und Zinsen\nDurch den Einsatz von Fremdkapital kannst du die Eigenkapitalrendite steigern (Leverage-Effekt). Das funktioniert, solange die Gesamtrendite der Immobilie höher ist als der Zinssatz der Bank.\n5. Zustand und Sanierungsstau\nPrüfe das Protokoll der Eigentümerversammlungen. Stehen teure energetische Sanierungen an? Diese können die Kalkulation nachträglich verhageln.\n\nBeispielrechnung (vereinfacht)\n\nNehmen wir an, du kaufst eine Eigentumswohnung für 200.000 Euro.\n\nKaufpreis: 200.000 Euro\nKaufnebenkosten (ca. 10%): 20.000 Euro\nInvestition Gesamt: 220.000 Euro\n\nEigenkapital: 50.000 Euro\nDarlehen: 170.000 Euro (Zins 3,5%, Tilgung 1%)\n\nEinnahmen:\nKaltmiete pro Monat: 800 Euro (9.600 Euro pro Jahr)\n\nAusgaben:\nZinsen (3,5% von 170.000): 5.950 Euro pro Jahr\nNicht umlegbare Kosten (Verwaltung\/Rücklage): ca. 1.200 Euro pro Jahr\nGesamtausgaben vor Steuern: 7.150 Euro\n\nCashflow vor Steuern: 9.600 - 7.150 = 2.450 Euro (vor Tilgung)\n\nSteuerliche Implikationen (Der Clou)\n\nIn Deutschland kannst du die Anschaffungskosten des Gebäudes (nicht des Grundstücks!) abschreiben (AfA). Meist sind das 2% oder sogar 3% pro Jahr. Zudem sind die Schuldzinsen und alle Erhaltungskosten voll von der Steuer absetzbar.\n\nRechnung für das Finanzamt (Annahme: Gebäudeanteil 80% = 160.000 Euro):\nMieteinnahmen: + 9.600 Euro\nZinsen: - 5.950 Euro\nVerwaltung\/Instandhaltung: - 1.200 Euro\nAbschreibung (AfA 2% von 160.000): - 3.200 Euro\nZu versteuerndes Einkommen: - 750 Euro\n\nObwohl du real Geld eingenommen hast, weist du steuerlich einen Verlust aus. Diesen \"Verlust\" kannst du mit deinem normalen Gehalt verrechnen, was zu einer Steuererstattung führt. Das macht die Immobilie besonders attraktiv.\n\nZusammenfassung: Worauf du achten musst\n\n* Kalkuliere konservativ: Rechne mit mindestens einem Monat Leerstand pro Jahr.\n* Instandhaltung: Spare monatlich genug Geld für Reparaturen an.\n* Steuerberatung: Die individuelle Steuerlast entscheidet oft darüber, ob sich das Objekt wirklich lohnt."
+        }
+      },
+      "p8": {
+        "title": "Hack 1: Impulskäufe",
+        "prompt": "Welche psychologischen Tricks helfen mir, Impulskäufe zu vermeiden?",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 8.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 8."
+        }
+      },
+      "p9": {
+        "title": "Hack 2: Sparpotenziale",
+        "prompt": "Wo finde ich die größten Sparpotenziale in meinem Alltag, ohne auf Lebensqualität zu verzichten?",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 9.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 9."
+        }
+      },
+      "p10": {
+        "title": "Haushaltsbuch",
+        "prompt": "Wie erstelle ich ein Haushaltsbuch und halte es konsequent durch?",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 10.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 10."
+        }
+      },
+      "p11": {
+        "title": "Quis autem vel eum iure",
+        "prompt": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.",
+        "answers": {
+          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 11.",
+          "gemini": "Platzhalter: Gemini-Antwort für Prompt 11."
+        }
+      }
+    }
   }
 }
