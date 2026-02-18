@@ -1,11 +1,13 @@
 'use client';
 
-import styled, { keyframes } from 'styled-components';
+import { useRef, useEffect, useCallback } from 'react';
+import styled from 'styled-components';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 
 const MOBILE_BREAKPOINT = 768;
+const SPEED = 0.5; // px per frame
 
 const Section = styled.section`
   width: 100%;
@@ -44,14 +46,10 @@ const MarqueeWrapper = styled.div`
     black 92%,
     transparent 100%
   );
-`;
+  cursor: grab;
 
-const scroll = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+  &:active {
+    cursor: grabbing;
   }
 `;
 
@@ -59,15 +57,10 @@ const Track = styled.div`
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: ${scroll} 30s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
-  }
+  will-change: transform;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     gap: 16px;
-    animation-duration: 25s;
   }
 `;
 
@@ -80,6 +73,7 @@ const QuoteCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  user-select: none;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     width: 260px;
@@ -142,14 +136,93 @@ function QuoteCardItem({ quote }: { quote: Quote }) {
 export default function CelebrityQuotesSection() {
   const { t, tObject } = useTranslations();
   const quotes = tObject<Quote[]>('celebrity_quotes.quotes') || [];
+  const trackRef = useRef<HTMLDivElement>(null);
+  const offset = useRef(0);
+  const dragging = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartOffset = useRef(0);
+  const paused = useRef(false);
+  const rafId = useRef<number>(0);
+
+  const getHalfWidth = useCallback(() => {
+    if (!trackRef.current) return 1;
+    // Half the track = one full set of cards + gaps
+    return trackRef.current.scrollWidth / 2;
+  }, []);
+
+  const animate = useCallback(() => {
+    if (!paused.current && !dragging.current) {
+      offset.current += SPEED;
+      const half = getHalfWidth();
+      if (offset.current >= half) offset.current -= half;
+    }
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(-${offset.current}px)`;
+    }
+    rafId.current = requestAnimationFrame(animate);
+  }, [getHalfWidth]);
+
+  useEffect(() => {
+    rafId.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId.current);
+  }, [animate]);
+
+  // Mouse drag
+  const onMouseDown = (e: React.MouseEvent) => {
+    dragging.current = true;
+    dragStartX.current = e.clientX;
+    dragStartOffset.current = offset.current;
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!dragging.current) return;
+    const delta = dragStartX.current - e.clientX;
+    offset.current = dragStartOffset.current + delta;
+    const half = getHalfWidth();
+    if (offset.current < 0) offset.current += half;
+    if (offset.current >= half) offset.current -= half;
+  };
+
+  const onMouseUp = () => {
+    dragging.current = false;
+  };
+
+  // Touch drag
+  const onTouchStart = (e: React.TouchEvent) => {
+    dragging.current = true;
+    dragStartX.current = e.touches[0].clientX;
+    dragStartOffset.current = offset.current;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (!dragging.current) return;
+    const delta = dragStartX.current - e.touches[0].clientX;
+    offset.current = dragStartOffset.current + delta;
+    const half = getHalfWidth();
+    if (offset.current < 0) offset.current += half;
+    if (offset.current >= half) offset.current -= half;
+  };
+
+  const onTouchEnd = () => {
+    dragging.current = false;
+  };
 
   if (quotes.length === 0) return null;
 
   return (
     <Section>
       <SectionTitle>{t('celebrity_quotes.title')}</SectionTitle>
-      <MarqueeWrapper>
-        <Track>
+      <MarqueeWrapper
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseEnter={() => { paused.current = true; }}
+        onMouseLeave={() => { dragging.current = false; paused.current = false; }}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <Track ref={trackRef}>
           {quotes.map((quote) => (
             <QuoteCardItem key={quote.id} quote={quote} />
           ))}

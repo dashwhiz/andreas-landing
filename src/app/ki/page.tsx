@@ -239,7 +239,7 @@ const providerColors: Record<Provider, string> = {
 };
 
 const QUIZ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11'] as const;
-const COPY_KEYS = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10'] as const;
+const COPY_KEYS = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'p11'] as const;
 const PROVIDERS: Provider[] = ['chatgpt', 'gemini'];
 
 // Section theme colors
