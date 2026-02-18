@@ -14,25 +14,25 @@ const Section = styled.section`
   margin: 0 auto;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: ${AppFontSizes['2xl']};
+const SectionTitle = styled.h1`
+  font-size: ${AppFontSizes['4xl']};
   font-weight: 700;
   color: ${AppColors.brand.neutral.neutralBlack};
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
   text-align: center;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    font-size: ${AppFontSizes.xl};
+    font-size: ${AppFontSizes['3xl']};
   }
 `;
 
 const SectionDescription = styled.p`
-  font-size: ${AppFontSizes.base};
-  color: ${AppColors.brand.neutral[30]};
+  font-size: ${AppFontSizes.md};
+  color: ${AppColors.brand.neutral[20]};
   line-height: 1.6;
   margin: 0 0 32px 0;
   text-align: center;
-  max-width: 600px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 `;

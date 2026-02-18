@@ -15,7 +15,7 @@ const PageTitle = styled.h1`
   margin: 0 0 32px 0;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    font-size: ${AppFontSizes['3xl']};
+    font-size: ${AppFontSizes['2xl']};
   }
 `;
 

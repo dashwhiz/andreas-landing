@@ -40,11 +40,13 @@ const HeroSection = styled.section`
   gap: 60px;
   width: 100%;
   max-width: 900px;
+  padding-top: 24px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     flex-direction: column-reverse;
     gap: 32px;
     text-align: center;
+    padding-top: 16px;
   }
 `;
 

@@ -15,16 +15,14 @@ const MOBILE_BREAKPOINT = 900;
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  padding: 16px 16px 0 16px;
+  padding: 16px;
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
-  background: ${AppColors.white};
-  border-bottom: none;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  background-color: transparent;
 `;
 
 const NavWithSubMenu = styled.div`
