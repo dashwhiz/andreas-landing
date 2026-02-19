@@ -248,8 +248,8 @@
     "linkedin_url": "https:\/\/www.linkedin.com\/in\/andreashackethal\/"
   },
   "ki_prompts": {
-    "title": "KI-Prompts",
-    "description": "Diese Prompts stammen aus Teil IV und V des Buches und dienen auch als Vorlagen zum selbst ausprobieren. Kopieren einen Prompt und fügen ihn in Dein bevorzugtes KI-Tool ein.",
+    "title": "KI-Prompts...",
+    "description": "...aus Teil IV und V des Buches. Mit den Quiz-Fragen checkst Du die Kompetenz von Beratern. Die copy&paste Beispiele zeigen Dir, wie Du KI für Ideen und Fachwissen nutzen kannst.",
     "copy_button": "Kopieren",
     "copied": "Kopiert!",
     "prompts": [
@@ -287,7 +287,7 @@
     "rights_text": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten sowie das Recht auf Datenübertragbarkeit und das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Kontaktieren Sie uns hierzu unter der oben genannten E-Mail-Adresse."
   },
   "celebrity_quotes": {
-    "title": "Was andere sagen",
+    "title": "Stimmen zum Buch",
     "quotes": [
       {
         "id": "cq1",
@@ -339,20 +339,19 @@
     "prompt_title": "KI-Prompt: GMP zusammenstellen",
     "prompt_text": "Du bist ETF\/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
     "copy_button": "Kopieren",
-    "copy_tooltip": "Prompt kopieren",
     "copied": "Kopiert!",
     "answers": {
       "chatgpt": "Abfrage vom 17.2.2026:\n<b>WELTAKTIEN – TOP 1<\/b>\nSPDR MSCI ACWI IMI UCITS ETF Acc | ISIN IE00B3YLTY66 | TER 0,17% | physisch (Sampling) | thesaurierend | Fondsgröße ~4,3 Mrd. € | Developed+EM+Small Caps (sehr marktnahe Abdeckung)\n<b>WELTAKTIEN – TOP 2<\/b>\nAmundi Prime All Country World UCITS ETF Acc | ISIN IE0003XJA0J9 | TER 0,07% | physisch | thesaurierend | Fondsgröße ~1,1 Mrd. € | günstiger, aber ohne Small Caps\n<b>WELTAKTIEN – GÜNSTIGSTER MARKT<\/b>\nAmundi Prime Global UCITS ETF Acc | TER 0,05% | nur Developed Large\/Mid, kein EM, kein Small\n\n<b>WELTANLEIHEN – TOP 1<\/b>\nVanguard Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BG47KH54 | TER 0,08% | physisch (Sampling) | thesaurierend | Fondsgröße ~1,9 Mrd. € | breit, EUR-hedged\n<b>WELTANLEIHEN – TOP 2<\/b>\niShares Core Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BDBRDM35 | TER 0,10% | physisch (Sampling) | thesaurierend | Fondsgröße ~2,3 Mrd. € | sehr ähnlich, minimal teurer\n<b>WELTANLEIHEN – GÜNSTIGSTER MARKT<\/b>\nVanguard Global Aggregate Bond EUR Hedged Acc | TER 0,08%\n\n<b>GOLD – TOP<\/b>\nXetra-Gold | ISIN DE000A0S9GB0 | TER 0,00% | physisch besichert | Fondsgröße ~23 Mrd. € | Kostenbenchmark\n\n<b>PRIVATE EQUITY – GRÖSSTE OPTION<\/b>\niShares Listed Private Equity UCITS ETF Dist | Fondsgröße ~776 Mio. € | ausschüttend | erfüllt 500 Mio., aber nicht thesaurierend\n<b>PRIVATE EQUITY – THESAURIEREND<\/b>\nXtrackers LPX Private Equity Swap UCITS ETF 1C | TER 0,70% | thesaurierend | synthetisch | Fondsgröße ~320 Mio. € | unter 500 Mio., Swap\n<b>PRIVATE EQUITY – GÜNSTIGSTER MARKT<\/b>\niShares Listed Private Equity UCITS ETF Acc | günstig auf Index, aber Fondsgröße ~86 Mio. € (unter Kriterium)\n\n<b>BITCOIN – TOP 1<\/b>\niShares Bitcoin ETP | TER 0,15% | physisch | Fondsgröße ~647 Mio. €\n<b>BITCOIN – TOP 2<\/b>\nWisdomTree Physical Bitcoin | TER 0,15% | physisch | Fondsgröße ~972 Mio. €\n<b>BITCOIN – GÜNSTIGSTER MARKT<\/b>\n21Shares Bitcoin Core ETP | TER 0,10% | physisch | Fondsgröße ~326 Mio. € (unter 500 Mio.)",
       "gemini": "Abfrage vom 17.2.2026:\n<b>Weltaktien (Industrie- & Schwellenländer)<\/b>\nTop-Empfehlung: SPDR MSCI ACWI IMI UCITS ETF (IE00BFY0GT14)\nVorteil: Deckt Large, Mid und Small Caps ab (ca. 9000 Aktien). Mit 0,17% TER extrem günstig für ein All-in-One-Paket.\nAlternative: Vanguard FTSE All-World UCITS ETF (IE00BK5BQT80). TER 0,22%, physisch, extrem liquide, aber ohne Small Caps. Beide sind aufgrund der hohen Liquidität und engen Spreads exzellent.\nGünstigste Marktgröße: Amundi MSCI World (IE00BI8OT95) mit 0,12% TER (nur Industrieländer).\n\n<b>Weltanleihen (Investment Grade, Hedged)<\/b>\nTop-Empfehlung: Vanguard Global Aggregate Bond UCITS ETF EUR Hedged (IE00BG47KH54)\nVorteil: TER 0,10%, physisches Sampling, deckt Staats- und Unternehmensanleihen weltweit ab. Währungsabsicherung (Hedge) auf EUR ist bei Anleihen essenziell.\nAlternative: iShares Core Global Aggregate Bond UCITS ETF EUR Hedged (IE00BDBRDM35). TER 0,10%, faktisch gleichwertig in Liquidität und Kosten.\nGünstigste Marktgröße: iShares Core Global Aggregate Bond (TER 0,10%).\n\n<b>Gold (Physisch besichert)<\/b>\nTop-Empfehlung: iShares Physical Gold ETC (IE00B4ND3602)\nVorteil: TER 0,12%, extrem liquide, physisch hinterlegt.\nAlternative: Xetra-Gold (DE000A0S9GB0). TER 0,00%, aber 0,36% p.a. Verwahrgebühr über die Depotbank. Vorteil hier ist die steuerliche Gleichstellung mit physischem Gold (nach 1 Jahr steuerfrei in DE), was den Kostennachteil oft schlägt.\nGünstigste Marktgröße: Xtrackers Physical Gold (DE000A2T0VU5) mit 0,11% TER.\n\n<b>Private Equity (Börsennotiert)<\/b>\nTop-Empfehlung: iShares Listed Private Equity UCITS ETF (IE00D8FCSD8)\nVorteil: Thesaurierende Variante des Klassikers, TER 0,75%, physisch replizierend. Höchste Liquidität im Sektor.\nAlternative: FlexShares Listed Private Equity UCITS ETF (IE0008ZGI5C1). Günstiger mit 0,40% TER, ebenfalls physisch, aber deutlich kleineres Fondsvolumen und tendenziell höhere Spreads.\nGünstigste Marktgröße: FlexShares Listed Private Equity (0,40% TER).\n\n<b>Bitcoin (Physisch besichert)<\/b>\nTop-Empfehlung: iShares Bitcoin ETP (IE000S99TPH6)\nVorteil: TER aktuell 0,15% (Aktion, danach 0,25%), physisch besichert durch BlackRock, höchste Liquidität und engste Spreads am Markt.\nAlternative: Invesco Physical Bitcoin (XS2376095068). TER 0,10%, ebenfalls physisch und sehr günstig, aber geringeres Volumen als iShares.\nGünstigste Marktgröße: 21Shares Bitcoin Core ETP (CH1199067674) mit 0,10% TER."
-    }
+    },
+    "copy_tooltip": "Prompt kopieren"
   },
   "ki_page": {
-    "title": "KI-Prompts",
-    "description": "Diese Prompts stammen aus Teil IV und V des Buches und dienen auch als Vorlagen zum selbst ausprobieren. Kopiere einen Prompt und fügen ihn in Dein bevorzugtes KI-Tool ein.",
+    "title": "KI-Prompts...",
+    "description": "...aus Teil IV und V des Buches. Mit den Quiz-Fragen checkst Du die Kompetenz von Beratern. Die copy&paste Beispiele zeigen Dir, wie Du KI für Ideen und Fachwissen nutzen kannst.",
     "quiz_section_title": "Kompetenz-Quiz",
-    "copy_section_title": "Prompts zum Kopieren",
+    "copy_section_title": "copy&paste Prompts",
     "copy_button": "Kopieren",
-    "copy_tooltip": "Prompt kopieren",
     "copied": "Kopiert!",
     "providers": {
       "chatgpt": "ChatGPT",
@@ -523,21 +522,22 @@
         }
       },
       "p10": {
-        "title": "Haushaltsbuch",
+        "title": "Hack 3: Haushaltsbuch",
         "prompt": "Wie erstelle ich ein Haushaltsbuch und halte es konsequent durch?",
         "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 10.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 10."
+          "chatgpt": "Mach dein Haushaltsbuch so klein, so automatisch und so sichtbar wie möglich.\n\nSchritt 1: Radikal vereinfachen. Du brauchst keine 25 Kategorien. Starte mit fünf: Wohnen, Fixkosten, Alltag, Freizeit, Sparen. Ziel ist nicht perfekte Buchhaltung, sondern Klarheit über die großen Stellhebel.\n\nSchritt 2: Automatisieren, wo es geht. Nutze Konto-Export oder eine App, die Umsätze automatisch einliest. Alles, was du nicht händisch eintippen musst, erhöhst du die Wahrscheinlichkeit, dass du dranbleibst.\n\nSchritt 3: Fester Wochenrhythmus. Lege einen festen Termin von 15 Minuten pro Woche fest, zum Beispiel Sonntagabend. Kein Nachtragen für drei Monate am Stück – das killt jede Motivation. Lieber kleine, regelmäßige Updates.\n\nSchritt 4: Ziel sichtbar machen. Verknüpfe das Haushaltsbuch mit einem konkreten Warum: mehr Freiheit, früher in Teilzeit, größere Reise, Puffer für Sicherheit. Schreib dieses Ziel oben auf die erste Seite oder in die Kopfzeile deiner Datei. Ohne emotionalen Anker wird es zur lästigen Pflicht.\n\nSchritt 5: Mit einer einfachen Kennzahl arbeiten. Zum Beispiel Sparquote oder „freie Mittel nach Fixkosten“. Beobachte nur diese eine Zahl. Wenn sie sich verbessert, hast du ein Erfolgserlebnis. Das motiviert stärker als jede Detailauswertung.\n\nTipps zum Dranbleiben:\nErlaube dir Unperfektheit. Zwei Wochen vergessen? Kein Drama. Einfach wieder einsteigen. Konsistenz schlägt Perfektion.\nBaue eine kleine Belohnung ein: Wenn du drei Monate durchhältst, gönn dir bewusst etwas aus dem Freizeitbudget.\nReduziere Reibung: Speichere die Datei direkt auf dem Desktop oder als Favorit im Handy. Je weniger Klicks, desto höher die Chance, dass du es machst.\nDenke in Experimenten statt in Verboten. Statt „Ich darf nicht mehr essen gehen“ lieber: „Was passiert mit meiner Sparquote, wenn ich einen Monat weniger Lieferdienste nutze?“ Neugier funktioniert besser als Disziplin.\n\nEin Haushaltsbuch ist kein Kontrollinstrument, sondern ein Spiegel. Wenn du es als Werkzeug für Selbstbestimmung begreifst und nicht als moralische Instanz, bleibst du deutlich leichter dran.",
+          "gemini": "So behältst du deine Finanzen im Griff und ziehst das Haushaltsbuch endlich konsequent durch.\n\nWähle ein System, das wirklich zu deinem Alltag passt. Wenn du ohnehin ständig das Smartphone nutzt, ist eine App mit automatischer Bank-Synchronisation ideal. Wer Struktur liebt, nutzt eine Excel-Tabelle, und für haptische Typen ist das klassische Notizbuch am besten.\n\nErfasse im ersten Schritt alle fixen Ausgaben wie Miete, Versicherungen, Abos und Verträge. So siehst du sofort, wie viel Geld dir nach Abzug der Fixkosten für den Rest des Monats tatsächlich zur Verfügung steht.\n\nNutze die Sofort-Regel für variable Kosten. Trage Ausgaben unmittelbar nach dem Kauf ein, während du an der Kasse oder auf den Bus wartest. Das verhindert, dass sich am Abend ein Berg an Belegen türmt, der dich demotiviert.\n\nHalte deine Kategorien so simpel wie möglich. Zu viele Unterteilungen sorgen für Verwirrung. Gruppiere Ausgaben in grobe Blöcke wie Lebensmittel, Freizeit, Haushalt und Mobilität.\n\nEtabliere ein wöchentliches Finanz-Date mit dir selbst. Nimm dir jeden Sonntag zehn Minuten Zeit, um die Woche Revue passieren zu lassen und das restliche Budget für den Monat zu prüfen.\n\nEin entscheidender Hack für die Motivation ist die Verknüpfung mit einem konkreten Ziel. Notiere dir oben in deinem Haushaltsbuch, wofür du sparst, etwa für eine Reise oder eine größere Anschaffung. Das macht den Verzicht auf unnötige Kleinausgaben greifbar.\n\nSei bei Cent-Beträgen nicht zu penibel. Wenn dich das Erfassen von Kleingeld stresst, runde Beträge einfach auf den nächsten Euro auf. Das spart Zeit und schafft einen kleinen Puffer in deiner Kalkulation.\n\nVerzeih dir Lücken. Wenn du das Eintragen ein paar Tage vergessen hast, schätze die Ausgaben grob ab und mache einfach weiter. Es geht um den langfristigen Überblick, nicht um eine lückenlose Buchhaltung auf den Cent genau."
         }
       },
       "p11": {
-        "title": "Quis autem vel eum iure",
-        "prompt": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.",
+        "title": "Hack 4: Verhandlungsstrategien",
+        "prompt": "Welche Verhandlungsstrategien kann ich nutzen, um bei meiner Bank bessere Konditionen für einen Kredit zu bekommen?",
         "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 11.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 11."
+          "chatgpt": "Verhandle deinen Kredit wie ein Profi – nicht wie ein Bittsteller.\n\n1. Komme mit Alternativen. Hole mindestens zwei konkrete Vergleichsangebote ein. Wer Auswahl hat, hat Verhandlungsmacht. Ohne Referenzzins keine Verhandlung.\n\n2. Sprich in Zahlen, nicht in Wünschen. Frage nicht „Geht da noch was?“, sondern: „Ein anderes Institut bietet mir 0,3 Prozentpunkte weniger – können Sie das matchen oder übertreffen?“\n\n3. Verhandle das Gesamtpaket, nicht nur den Nominalzins. Achte auf Effektivzins, Sondertilgungsrechte, Bereitstellungszinsen, Tilgungssatzwechsel, Gebühren. Kleine Stellschrauben machen über Jahre viel Geld aus.\n\n4. Nutze deine Bonität aktiv. Hohe Eigenkapitalquote, stabiles Einkommen, geringe Verschuldung, gute Schufa – das sind deine Argumente. Je geringer das Risiko für die Bank, desto besser die Konditionen.\n\n5. Spiele mit Laufzeit und Tilgung. Kürzere Zinsbindung oder höhere Tilgung kann den Zinssatz senken. Lass dir Varianten rechnen und entscheide strategisch.\n\n6. Setze einen Anker. Nenne selbstbewusst eine realistische Zielkondition. Wer zuerst eine Zahl nennt, setzt den Referenzrahmen.\n\n7. Verhandle auch Nebenprodukte. Kontoführungsgebühren, Restschuldversicherung oder Vermittlungsprovisionen sind oft verhandelbar oder verzichtbar.\n\n8. Bleib freundlich, aber klar. Du willst eine langfristige Geschäftsbeziehung, aber zu marktgerechten Konditionen. Sachlich, vorbereitet, vergleichend – so verhandelt man auf Augenhöhe.",
+          "gemini": "Vergleiche vorab Angebote konkurrierender Institute, um eine klare Verhandlungsbasis zu haben. Präsentiere deine finanzielle Situation durch lückenlose Unterlagen professionell und hebe eine positive Historie mit der Bank hervor. Nutze das günstigste Konkurrenzangebot gezielt als Hebel für Zinsnachlässe. Verhandle neben dem Zinssatz auch über weiche Faktoren wie kostenlose Sondertilgungen oder Ratenanpassungen, um die Gesamtkosten zu senken. Signalisiere bei Bedarf Wechselbereitschaft, um den Spielraum des Beraters maximal auszureizen.\n\nFolgende Unterlagen solltest du für das Gespräch vorbereiten:\nGültiger Lichtbildausweis, Einkommensnachweis der letzten drei Monate, aktueller Einkommensteuerbescheid, Aufstellung der monatlichen Einnahmen und Ausgaben (Selbstauskunft), Nachweise über bestehende Kredite oder finanzielle Verpflichtungen, Eigenkapitalnachweise wie Depotauszüge oder Sparbücher, aktueller Arbeitsvertrag sowie gegebenenfalls Unterlagen zum Finanzierungsobjekt."
         }
       }
-    }
+    },
+    "copy_tooltip": "Prompt kopieren"
   }
 }
