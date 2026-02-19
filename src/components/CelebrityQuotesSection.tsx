@@ -67,8 +67,9 @@ const Track = styled.div`
 const QuoteCard = styled.div`
   width: 300px;
   flex-shrink: 0;
-  background: ${AppColors.brand.neutral[100]};
+  background: ${AppColors.white};
   border-radius: 16px;
+  border-left: 3px solid ${AppColors.brand.blue[50]};
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
