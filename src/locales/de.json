@@ -12,7 +12,9 @@
       "gmp": "GMP",
       "vermoegen": "Vermögen",
       "ki": "KI-Prompts"
-    }
+    },
+    "amazon_tooltip": "Auf Amazon bestellen",
+    "seasn_tooltip": "Seasn öffnen"
   },
   "footer": {
     "copyright": "Alle Rechte vorbehalten.",
@@ -331,6 +333,7 @@
     "prompt_title": "KI-Prompt: GMP zusammenstellen",
     "prompt_text": "Du bist ETF\/ETC-Experte und mein Finanzcoach. Finde mir nach eingehender Recherche die besten Fonds für mich, um das Globale Marktportfolio zusammenzustellen: Weltaktien, Weltanleihen, Gold, Private Equity, Bitcoin. Die Fonds sollten minimale TER und Spreads haben, eine Mindestgröße von 500 Millionen Euro, thesaurierend sein und möglichst physisch replizieren. Falls du mehrere Top-Kandidaten pro Kategorie findest, diskutiere die Vor- und Nachteile bzw. schreib mir, dass beide gleich gut sind. Nenne mir pro Kategorie unabhängig von den anderen Kriterien auch den günstigsten Fonds im Markt als Vergleichsgröße.",
     "copy_button": "Kopieren",
+    "copy_tooltip": "Prompt kopieren",
     "copied": "Kopiert!",
     "answers": {
       "chatgpt": "Abfrage vom 17.2.2026:\n<b>WELTAKTIEN – TOP 1<\/b>\nSPDR MSCI ACWI IMI UCITS ETF Acc | ISIN IE00B3YLTY66 | TER 0,17% | physisch (Sampling) | thesaurierend | Fondsgröße ~4,3 Mrd. € | Developed+EM+Small Caps (sehr marktnahe Abdeckung)\n<b>WELTAKTIEN – TOP 2<\/b>\nAmundi Prime All Country World UCITS ETF Acc | ISIN IE0003XJA0J9 | TER 0,07% | physisch | thesaurierend | Fondsgröße ~1,1 Mrd. € | günstiger, aber ohne Small Caps\n<b>WELTAKTIEN – GÜNSTIGSTER MARKT<\/b>\nAmundi Prime Global UCITS ETF Acc | TER 0,05% | nur Developed Large\/Mid, kein EM, kein Small\n\n<b>WELTANLEIHEN – TOP 1<\/b>\nVanguard Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BG47KH54 | TER 0,08% | physisch (Sampling) | thesaurierend | Fondsgröße ~1,9 Mrd. € | breit, EUR-hedged\n<b>WELTANLEIHEN – TOP 2<\/b>\niShares Core Global Aggregate Bond UCITS ETF EUR Hedged Acc | ISIN IE00BDBRDM35 | TER 0,10% | physisch (Sampling) | thesaurierend | Fondsgröße ~2,3 Mrd. € | sehr ähnlich, minimal teurer\n<b>WELTANLEIHEN – GÜNSTIGSTER MARKT<\/b>\nVanguard Global Aggregate Bond EUR Hedged Acc | TER 0,08%\n\n<b>GOLD – TOP<\/b>\nXetra-Gold | ISIN DE000A0S9GB0 | TER 0,00% | physisch besichert | Fondsgröße ~23 Mrd. € | Kostenbenchmark\n\n<b>PRIVATE EQUITY – GRÖSSTE OPTION<\/b>\niShares Listed Private Equity UCITS ETF Dist | Fondsgröße ~776 Mio. € | ausschüttend | erfüllt 500 Mio., aber nicht thesaurierend\n<b>PRIVATE EQUITY – THESAURIEREND<\/b>\nXtrackers LPX Private Equity Swap UCITS ETF 1C | TER 0,70% | thesaurierend | synthetisch | Fondsgröße ~320 Mio. € | unter 500 Mio., Swap\n<b>PRIVATE EQUITY – GÜNSTIGSTER MARKT<\/b>\niShares Listed Private Equity UCITS ETF Acc | günstig auf Index, aber Fondsgröße ~86 Mio. € (unter Kriterium)\n\n<b>BITCOIN – TOP 1<\/b>\niShares Bitcoin ETP | TER 0,15% | physisch | Fondsgröße ~647 Mio. €\n<b>BITCOIN – TOP 2<\/b>\nWisdomTree Physical Bitcoin | TER 0,15% | physisch | Fondsgröße ~972 Mio. €\n<b>BITCOIN – GÜNSTIGSTER MARKT<\/b>\n21Shares Bitcoin Core ETP | TER 0,10% | physisch | Fondsgröße ~326 Mio. € (unter 500 Mio.)",
@@ -343,6 +346,7 @@
     "quiz_section_title": "Kompetenz-Quiz",
     "copy_section_title": "Prompts zum Kopieren",
     "copy_button": "Kopieren",
+    "copy_tooltip": "Prompt kopieren",
     "copied": "Kopiert!",
     "providers": {
       "chatgpt": "ChatGPT",

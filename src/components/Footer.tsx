@@ -88,9 +88,9 @@ export default function Footer() {
       <FooterContent>
         <LogoLink href="/">{t('header.logo_text')}</LogoLink>
         <FooterLinks>
-          <FooterLink href="/zinseszins">{t('header.navigation.rendite')}</FooterLink>
+          <FooterLink href="/rendite">{t('header.navigation.rendite')}</FooterLink>
           <FooterLink href="/gmp">{t('header.navigation.gmp')}</FooterLink>
-          <FooterLink href="/rentenprognose">{t('header.navigation.vermoegen')}</FooterLink>
+          <FooterLink href="/vermoegen">{t('header.navigation.vermoegen')}</FooterLink>
           <FooterLink href="/ki">{t('header.navigation.ki')}</FooterLink>
         </FooterLinks>
         <FooterLinks>

@@ -40,13 +40,15 @@ const HeroSection = styled.section`
   gap: 60px;
   width: 100%;
   max-width: 900px;
-  padding-top: 24px;
+  padding-top: 48px;
+  margin-bottom: 32px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     flex-direction: column-reverse;
     gap: 32px;
     text-align: center;
-    padding-top: 16px;
+    padding-top: 32px;
+    margin-bottom: 16px;
   }
 `;
 
@@ -218,9 +220,23 @@ const TeaserSectionDescription = styled.p`
   line-height: 1.5;
 `;
 
-const TeaserScrollWrapper = styled.div`
+const TeaserScrollWrapper = styled.div<{ $showFade: boolean }>`
   width: 100%;
   position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, ${AppColors.white});
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    opacity: ${({ $showFade }) => ($showFade ? 1 : 0)};
+  }
 `;
 
 const TeaserScroll = styled.div`
@@ -315,8 +331,12 @@ const LightboxOverlay = styled.div`
   animation: fadeIn 0.2s ease;
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
 
@@ -363,7 +383,8 @@ const LightboxArrow = styled.button<{ $direction: 'left' | 'right' }>`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  ${({ $direction }) => ($direction === 'left' ? 'left: 16px;' : 'right: 16px;')}
+  ${({ $direction }) =>
+    $direction === 'left' ? 'left: 16px;' : 'right: 16px;'}
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -398,7 +419,8 @@ const Dot = styled.button<{ $active: boolean }>`
   height: 10px;
   border-radius: 50%;
   border: none;
-  background: ${({ $active }) => ($active ? 'white' : 'rgba(255, 255, 255, 0.4)')};
+  background: ${({ $active }) =>
+    $active ? 'white' : 'rgba(255, 255, 255, 0.4)'};
   cursor: pointer;
   padding: 0;
   transition: background 0.2s ease;
@@ -410,7 +432,7 @@ const AuthorSection = styled.section`
   align-items: center;
   gap: 32px;
   padding: 32px;
-  background: transparent;
+  background: ${AppColors.brand.blue[90]};
   border-radius: 20px;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
@@ -472,7 +494,7 @@ const LinkedInLink = styled.a`
   gap: 8px;
   margin-top: 8px;
   padding: 12px 24px;
-  background: #0A66C2;
+  background: #0a66c2;
   color: ${AppColors.white};
   font-size: ${AppFontSizes.sm};
   font-weight: 600;
@@ -519,13 +541,15 @@ export default function Home() {
 
   const goNext = useCallback(() => {
     setLightboxIndex((prev) =>
-      prev !== null ? (prev + 1) % teaserImages.length : null
+      prev !== null ? (prev + 1) % teaserImages.length : null,
     );
   }, []);
 
   const goPrev = useCallback(() => {
     setLightboxIndex((prev) =>
-      prev !== null ? (prev - 1 + teaserImages.length) % teaserImages.length : null
+      prev !== null
+        ? (prev - 1 + teaserImages.length) % teaserImages.length
+        : null,
     );
   }, []);
 
@@ -600,19 +624,30 @@ export default function Home() {
 
         <TeaserSection>
           <TeaserSectionTitle>{t('home.teaser.title')}</TeaserSectionTitle>
-          <TeaserSectionDescription>{t('home.teaser.description')}</TeaserSectionDescription>
-          <TeaserScrollWrapper>
+          <TeaserSectionDescription>
+            {t('home.teaser.description')}
+          </TeaserSectionDescription>
+          <TeaserScrollWrapper $showFade={showScrollFade}>
             <TeaserScroll ref={scrollRef}>
               <TeaserTrack>
                 {teaserImages.map((img, index) => (
-                  <TeaserCard key={img.alt} onClick={() => {
-                    if (img.link) {
-                      window.open(img.link, '_blank', 'noopener,noreferrer');
-                    } else {
-                      setLightboxIndex(index);
-                    }
-                  }}>
-                    <Image src={img.src} alt={img.alt} width={400} height={400} style={{ width: '100%', height: 'auto' }} />
+                  <TeaserCard
+                    key={img.alt}
+                    onClick={() => {
+                      if (img.link) {
+                        window.open(img.link, '_blank', 'noopener,noreferrer');
+                      } else {
+                        setLightboxIndex(index);
+                      }
+                    }}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={400}
+                      height={400}
+                      style={{ width: '100%', height: 'auto' }}
+                    />
                   </TeaserCard>
                 ))}
               </TeaserTrack>
@@ -622,26 +657,41 @@ export default function Home() {
               onClick={() => {
                 scrollRef.current?.scrollBy({ left: 300, behavior: 'smooth' });
               }}
-              aria-label="Scroll right"
+              aria-label='Scroll right'
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6" />
+              <svg
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                strokeWidth='2.5'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              >
+                <path d='M9 18l6-6-6-6' />
               </svg>
             </ScrollArrow>
           </TeaserScrollWrapper>
           <LeseprobeFooter>
             <LeseprobeText>
               <LeseprobeTitle>{t('home.leseprobe.title')}</LeseprobeTitle>
-              <LeseprobeDescription>{t('home.leseprobe.description')}</LeseprobeDescription>
+              <LeseprobeDescription>
+                {t('home.leseprobe.description')}
+              </LeseprobeDescription>
             </LeseprobeText>
             <DownloadLink
-              href="/Hackethal,_52062_Dein_Financial_Lifestyle_Code_Einleitung.pdf"
+              href='/Hackethal,_52062_Dein_Financial_Lifestyle_Code_Einleitung.pdf'
               download
             >
-              <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
+              <svg
+                viewBox='0 0 24 24'
+                fill='none'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              >
+                <path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4' />
+                <polyline points='7 10 12 15 17 10' />
+                <line x1='12' y1='15' x2='12' y2='3' />
               </svg>
               {t('home.leseprobe.download_button')}
             </DownloadLink>
@@ -665,11 +715,11 @@ export default function Home() {
             <AuthorBio>{t('autor.bio')}</AuthorBio>
             <LinkedInLink
               href={t('autor.linkedin_url')}
-              target="_blank"
-              rel="noopener noreferrer"
+              target='_blank'
+              rel='noopener noreferrer'
             >
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
               </svg>
               {t('autor.linkedin_label')}
             </LinkedInLink>
@@ -683,35 +733,86 @@ export default function Home() {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <LightboxClose onClick={closeLightbox} aria-label="Close">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
+          <LightboxClose onClick={closeLightbox} aria-label='Close'>
+            <svg
+              width='20'
+              height='20'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            >
+              <line x1='18' y1='6' x2='6' y2='18' />
+              <line x1='6' y1='6' x2='18' y2='18' />
             </svg>
           </LightboxClose>
-          <LightboxArrow $direction="left" onClick={(e) => { e.stopPropagation(); goPrev(); }} aria-label="Previous">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
+          <LightboxArrow
+            $direction='left'
+            onClick={(e) => {
+              e.stopPropagation();
+              goPrev();
+            }}
+            aria-label='Previous'
+          >
+            <svg
+              width='20'
+              height='20'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2.5'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            >
+              <path d='M15 18l-6-6 6-6' />
             </svg>
           </LightboxArrow>
-          <LightboxImage onClick={(e) => {
-            e.stopPropagation();
-            const currentImg = teaserImages[lightboxIndex];
-            if (currentImg.link) {
-              window.open(currentImg.link, '_blank', 'noopener,noreferrer');
-            }
-          }} style={{ cursor: teaserImages[lightboxIndex].link ? 'pointer' : 'default' }}>
+          <LightboxImage
+            onClick={(e) => {
+              e.stopPropagation();
+              const currentImg = teaserImages[lightboxIndex];
+              if (currentImg.link) {
+                window.open(currentImg.link, '_blank', 'noopener,noreferrer');
+              }
+            }}
+            style={{
+              cursor: teaserImages[lightboxIndex].link ? 'pointer' : 'default',
+            }}
+          >
             <Image
               src={teaserImages[lightboxIndex].src}
               alt={teaserImages[lightboxIndex].alt}
               width={1200}
               height={1200}
-              style={{ width: 'auto', height: 'auto', maxWidth: '90vw', maxHeight: '90vh' }}
+              style={{
+                width: 'auto',
+                height: 'auto',
+                maxWidth: '90vw',
+                maxHeight: '90vh',
+              }}
             />
           </LightboxImage>
-          <LightboxArrow $direction="right" onClick={(e) => { e.stopPropagation(); goNext(); }} aria-label="Next">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
+          <LightboxArrow
+            $direction='right'
+            onClick={(e) => {
+              e.stopPropagation();
+              goNext();
+            }}
+            aria-label='Next'
+          >
+            <svg
+              width='20'
+              height='20'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2.5'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            >
+              <path d='M9 18l6-6-6-6' />
             </svg>
           </LightboxArrow>
           <LightboxDots>
@@ -719,7 +820,10 @@ export default function Home() {
               <Dot
                 key={i}
                 $active={i === lightboxIndex}
-                onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex(i);
+                }}
               />
             ))}
           </LightboxDots>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
@@ -36,7 +37,7 @@ const NavWithSubMenu = styled.div`
 
 const NavContainer = styled.nav`
   width: 100%;
-  padding: 0 36px;
+  padding: 8px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,9 +82,7 @@ const NavLinks = styled.ul`
 const NavItem = styled.li`
   font-weight: 600;
   font-size: ${AppFontSizes.base};
-  cursor: pointer;
   color: ${AppColors.white};
-  padding: 8px 12px;
   border-radius: 8px;
   transition: background 0.2s ease;
 
@@ -95,6 +94,8 @@ const NavItem = styled.li`
     color: inherit;
     text-decoration: none;
     display: block;
+    padding: 8px 12px;
+    cursor: pointer;
   }
 `;
 
@@ -174,8 +175,14 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleLogoClick = () => {
+  const pathname = usePathname();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
     setMobileMenuOpen(false);
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -188,7 +195,7 @@ export default function Header() {
 
           <NavLinks>
             <NavItem>
-              <Link href='/zinseszins'>
+              <Link href='/rendite'>
                 {t('header.navigation.rendite')}
               </Link>
             </NavItem>
@@ -198,7 +205,7 @@ export default function Header() {
               </Link>
             </NavItem>
             <NavItem>
-              <Link href='/rentenprognose'>
+              <Link href='/vermoegen'>
                 {t('header.navigation.vermoegen')}
               </Link>
             </NavItem>
@@ -225,6 +232,7 @@ export default function Header() {
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Buy on Amazon'
+              title={t('header.amazon_tooltip')}
             >
               <Image
                 src={amazonLogo}
@@ -238,6 +246,7 @@ export default function Header() {
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Seasn'
+              title={t('header.seasn_tooltip')}
             >
               <Image
                 src={seasnIcon}

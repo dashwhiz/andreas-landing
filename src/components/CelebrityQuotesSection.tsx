@@ -81,20 +81,20 @@ const QuoteCard = styled.div`
   }
 `;
 
+const DecorativeQuote = styled.span`
+  font-size: 64px;
+  font-weight: 700;
+  color: ${AppColors.brand.blue[80]};
+  line-height: 0.6;
+  font-family: Georgia, serif;
+`;
+
 const QuoteText = styled.p`
   font-size: ${AppFontSizes.base};
   color: ${AppColors.brand.neutral[10]};
   line-height: 1.7;
   margin: 0;
   font-style: italic;
-
-  &::before {
-    content: '\u201E';
-  }
-
-  &::after {
-    content: '\u201C';
-  }
 `;
 
 const QuoteAuthor = styled.div`
@@ -124,6 +124,7 @@ interface Quote {
 function QuoteCardItem({ quote }: { quote: Quote }) {
   return (
     <QuoteCard>
+      <DecorativeQuote>&ldquo;</DecorativeQuote>
       <QuoteText>{quote.text}</QuoteText>
       <QuoteAuthor>
         <AuthorName>{quote.name}</AuthorName>

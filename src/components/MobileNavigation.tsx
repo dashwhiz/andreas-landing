@@ -104,7 +104,7 @@ export default function MobileNavigation({ isOpen, closeMenu }: MobileNavigation
     <MobileNavContainer>
       <AnimatedList>
         <MobilePrimaryItem>
-          <Link href="/zinseszins" onClick={handleLinkClick}>
+          <Link href="/rendite" onClick={handleLinkClick}>
             {t('header.navigation.rendite')}
           </Link>
         </MobilePrimaryItem>
@@ -114,7 +114,7 @@ export default function MobileNavigation({ isOpen, closeMenu }: MobileNavigation
           </Link>
         </MobilePrimaryItem>
         <MobilePrimaryItem>
-          <Link href="/rentenprognose" onClick={handleLinkClick}>
+          <Link href="/vermoegen" onClick={handleLinkClick}>
             {t('header.navigation.vermoegen')}
           </Link>
         </MobilePrimaryItem>

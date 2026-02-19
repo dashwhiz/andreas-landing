@@ -209,8 +209,12 @@ const QuestionText = styled.p`
   font-weight: 500;
 `;
 
-const CopyButton = styled.button<{ $copied: boolean }>`
-  padding: 6px 12px;
+const CopyIconButton = styled.button<{ $copied: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   border: 1px solid ${(props) =>
     props.$copied ? AppColors.brand.green[50] : AppColors.brand.neutral[70]};
@@ -218,16 +222,20 @@ const CopyButton = styled.button<{ $copied: boolean }>`
     props.$copied ? AppColors.brand.green[90] : AppColors.white};
   color: ${(props) =>
     props.$copied ? AppColors.brand.green[30] : AppColors.brand.neutral[30]};
-  font-size: ${AppFontSizes.xs};
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
   flex-shrink: 0;
 
   &:hover {
     background: ${(props) =>
       props.$copied ? AppColors.brand.green[90] : AppColors.brand.neutral[100]};
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
   }
 `;
 
@@ -333,12 +341,22 @@ export default function KiPage() {
                             </ProviderTab>
                           ))}
                         </ProviderTabs>
-                        <CopyButton
+                        <CopyIconButton
                           $copied={copiedId === key}
                           onClick={() => handleCopy(question, key)}
+                          title={copiedId === key ? t('ki_page.copied') : t('ki_page.copy_tooltip')}
                         >
-                          {copiedId === key ? t('ki_page.copied') : t('ki_page.copy_button')}
-                        </CopyButton>
+                          {copiedId === key ? (
+                            <svg viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                          ) : (
+                            <svg viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                          )}
+                        </CopyIconButton>
                       </ProviderRow>
                       <AnswerContent>
                         <AnswerText dangerouslySetInnerHTML={{ __html: t(`ki_page.quiz_prompts.${key}.answers.${provider}`) }} />
@@ -398,12 +416,22 @@ export default function KiPage() {
                             </ProviderTab>
                           ))}
                         </ProviderTabs>
-                        <CopyButton
+                        <CopyIconButton
                           $copied={copiedId === copyId}
                           onClick={() => handleCopy(prompt, copyId)}
+                          title={copiedId === copyId ? t('ki_page.copied') : t('ki_page.copy_tooltip')}
                         >
-                          {copiedId === copyId ? t('ki_page.copied') : t('ki_page.copy_button')}
-                        </CopyButton>
+                          {copiedId === copyId ? (
+                            <svg viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                          ) : (
+                            <svg viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                          )}
+                        </CopyIconButton>
                       </ProviderRow>
                       <AnswerContent>
                         <AnswerText dangerouslySetInnerHTML={{ __html: t(`ki_page.copy_prompts.${key}.answers.${provider}`) }} />

@@ -131,8 +131,12 @@ const AnswerText = styled.div`
   b, strong { font-weight: 700; }
 `;
 
-const CopyButton = styled.button<{ $copied: boolean }>`
-  padding: 6px 12px;
+const CopyIconButton = styled.button<{ $copied: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   border: 1px solid ${(props) =>
     props.$copied ? AppColors.brand.green[50] : AppColors.brand.neutral[70]};
@@ -140,16 +144,20 @@ const CopyButton = styled.button<{ $copied: boolean }>`
     props.$copied ? AppColors.brand.green[90] : AppColors.white};
   color: ${(props) =>
     props.$copied ? AppColors.brand.green[30] : AppColors.brand.neutral[30]};
-  font-size: ${AppFontSizes.xs};
-  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
   flex-shrink: 0;
 
   &:hover {
     background: ${(props) =>
       props.$copied ? AppColors.brand.green[90] : AppColors.brand.neutral[100]};
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
   }
 `;
 
@@ -206,9 +214,22 @@ export default function GmpPage() {
                       </ProviderTab>
                     ))}
                   </ProviderTabs>
-                  <CopyButton $copied={copied} onClick={handleCopy}>
-                    {copied ? t('gmp_page.copied') : t('gmp_page.copy_button')}
-                  </CopyButton>
+                  <CopyIconButton
+                    $copied={copied}
+                    onClick={handleCopy}
+                    title={copied ? t('gmp_page.copied') : t('gmp_page.copy_tooltip')}
+                  >
+                    {copied ? (
+                      <svg viewBox="0 0 24 24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                      </svg>
+                    )}
+                  </CopyIconButton>
                 </ProviderRow>
                 <AnswerContent>
                   <AnswerText dangerouslySetInnerHTML={{ __html: t(`gmp_page.answers.${provider}`) }} />
