@@ -64,12 +64,13 @@ const Track = styled.div`
   }
 `;
 
-const QuoteCard = styled.div`
+const QuoteCard = styled.div<{ $type: string }>`
   width: 300px;
   flex-shrink: 0;
   background: ${AppColors.white};
   border-radius: 16px;
-  border-left: 3px solid ${AppColors.brand.blue[50]};
+  border-left: 3px solid ${({ $type }) =>
+    $type === 'magazine' ? AppColors.brand.orange[50] : AppColors.brand.blue[50]};
   padding: 28px 24px;
   display: flex;
   flex-direction: column;
@@ -82,10 +83,11 @@ const QuoteCard = styled.div`
   }
 `;
 
-const DecorativeQuote = styled.span`
+const DecorativeQuote = styled.span<{ $type: string }>`
   font-size: 64px;
   font-weight: 700;
-  color: ${AppColors.brand.blue[80]};
+  color: ${({ $type }) =>
+    $type === 'magazine' ? AppColors.brand.orange[80] : AppColors.brand.blue[80]};
   line-height: 0.6;
   font-family: Georgia, serif;
 `;
@@ -117,6 +119,7 @@ const AuthorRole = styled.p`
 
 interface Quote {
   id: string;
+  type: 'person' | 'magazine';
   text: string;
   name: string;
   role: string;
@@ -124,8 +127,8 @@ interface Quote {
 
 function QuoteCardItem({ quote }: { quote: Quote }) {
   return (
-    <QuoteCard>
-      <DecorativeQuote>&ldquo;</DecorativeQuote>
+    <QuoteCard $type={quote.type}>
+      <DecorativeQuote $type={quote.type}>&ldquo;</DecorativeQuote>
       <QuoteText>{quote.text}</QuoteText>
       <QuoteAuthor>
         <AuthorName>{quote.name}</AuthorName>

@@ -291,45 +291,86 @@
     "quotes": [
       {
         "id": "cq1",
+        "type": "person",
         "text": "Mit richtiger Technik und Einstellung die eigenen Finanzen in Bestform bringen.",
         "name": "Michael Groß",
         "role": "Olympiasieger und Unternehmensberater"
       },
       {
         "id": "cq2",
+        "type": "person",
         "text": "Fundierte Finanzbildung für den selbstbestimmten Lifestyle.",
         "name": "Bettina Stark-Watzinger",
         "role": "Wissenschaftsministerin von 2021-2024"
       },
       {
         "id": "cq3",
+        "type": "person",
         "text": "Verlässliche Expertise und klare Orientierung für stabile und auskömmliche Finanzen.",
         "name": "Herbert Hans Grüntker",
         "role": "Vorstandsvorsitzender Sparkasse, Landesbank von 2007-2020"
       },
       {
         "id": "cq4",
+        "type": "magazine",
         "text": "Anschaulich und ohne unnötig insiderhaftes Börsenvokabular. Nutzwert 5\/5!",
         "name": "€URO Magazin",
         "role": "Ausgabe 3\/2026 S. 136"
       },
       {
         "id": "cq5",
+        "type": "person",
         "text": "Fundierte und umsetzbare Finanzstrategien. Hilft auch für ruhigeren Schlaf.",
         "name": "Dennis Schmoltzi",
         "role": "CEO von Emma - the Sleep Company"
       },
       {
         "id": "cq6",
+        "type": "magazine",
         "text": "Sie wollen endlich Ihre Finanzen regeln? Dann fangen Sie jetzt an...Am 26. Februar erscheint sein Buch »Dein Financial Lifestyle Code« .",
         "name": "SPIEGEL+",
         "role": "Ausgabe vom 21.1.2026"
       },
       {
         "id": "cq7",
+        "type": "person",
         "text": "Der ultimative Trainingsplan, um finanziell in die Offensive zu gehen.",
         "name": "Max Coga",
         "role": "MMA Champion"
+      },
+      {
+        "id": "cq8",
+        "type": "person",
+        "text": "Dieses Buch stellt seine Leser auf die Schultern der Giganten der Finanzforschung \u2013 und macht Nobelpreiswissen direkt anwendbar.",
+        "name": "Roman Inderst",
+        "role": "Ökonom und Leibniz-Preisträger"
+      },
+      {
+        "id": "cq9",
+        "type": "magazine",
+        "text": "Der Wissenschaftler überrascht mit seinen sehr praxisnahen Beispielfällen, die den Leser auch emotional ansprechen und damit auch zeigen: Eine erfolgreiche Geldanlage hängt vor allem davon ab, wie wir mental mit den Höhen und Tiefen des Lebens umgehen.",
+        "name": "prisma TV-Beilage",
+        "role": "Extra Folge Meine Finanzen"
+      }
+    ]
+  },
+  "home_interviews": {
+    "title": "Interviews und Podcasts",
+    "description": "Aktuelle Medienauftritte, Interviews und Podcast-Folgen rund um das Buch.",
+    "items": [
+      {
+        "id": "iv1",
+        "image": "frankfurter_allgemeine_sonntagszeitung.jpg",
+        "title": "Frankfurter Allgemeine Sonntagszeitung (22.2.2026)",
+        "text": "Vorabdruck des Abschnitts über 9+1 strategische Stellhebel beim Vermögensaufbau",
+        "link": "https:\/\/zeitung.faz.net\/data\/680\/reader\/reader.html?#!preferred\/0\/package\/680\/pub\/942\/page\/28\/content\/122174"
+      },
+      {
+        "id": "iv2",
+        "image": "campus_podcast.png",
+        "title": "Campus Beats - Dein Business-Update (Folge #129)",
+        "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln.",
+        "link": "https:\/\/www.campus.de\/podcast\/campus-beats.html"
       }
     ]
   },
