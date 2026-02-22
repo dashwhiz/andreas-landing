@@ -313,6 +313,7 @@
       {
         "id": "cq4",
         "type": "magazine",
+        "logo": "euro-logo.png",
         "text": "Anschaulich und ohne unnötig insiderhaftes Börsenvokabular. Nutzwert 5\/5!",
         "name": "€URO Magazin",
         "role": "Ausgabe 3\/2026 S. 136"
@@ -320,6 +321,7 @@
       {
         "id": "cq5",
         "type": "person",
+        "logo": "Emma_Sleep_GmbH_Logo.svg",
         "text": "Fundierte und umsetzbare Finanzstrategien. Hilft auch für ruhigeren Schlaf.",
         "name": "Dennis Schmoltzi",
         "role": "CEO von Emma - the Sleep Company"
@@ -327,6 +329,7 @@
       {
         "id": "cq6",
         "type": "magazine",
+        "logo": "der_spiegel_logo.svg",
         "text": "Sie wollen endlich Ihre Finanzen regeln? Dann fangen Sie jetzt an...Am 26. Februar erscheint sein Buch »Dein Financial Lifestyle Code« .",
         "name": "SPIEGEL+",
         "role": "Ausgabe vom 21.1.2026"
@@ -348,6 +351,7 @@
       {
         "id": "cq9",
         "type": "magazine",
+        "logo": "prisma_logo.png",
         "text": "Der Wissenschaftler überrascht mit seinen sehr praxisnahen Beispielfällen, die den Leser auch emotional ansprechen und damit auch zeigen: Eine erfolgreiche Geldanlage hängt vor allem davon ab, wie wir mental mit den Höhen und Tiefen des Lebens umgehen.",
         "name": "prisma TV-Beilage",
         "role": "Extra Folge Meine Finanzen"
@@ -361,13 +365,15 @@
       {
         "id": "iv1",
         "image": "frankfurter_allgemeine_sonntagszeitung.jpg",
+        "logo": "frankfurter_allgemeine_logo.png",
         "title": "Frankfurter Allgemeine Sonntagszeitung (22.2.2026)",
         "text": "Vorabdruck des Abschnitts über 9+1 strategische Stellhebel beim Vermögensaufbau",
         "link": "https:\/\/zeitung.faz.net\/data\/680\/reader\/reader.html?#!preferred\/0\/package\/680\/pub\/942\/page\/28\/content\/122174"
       },
       {
         "id": "iv2",
-        "image": "campus_podcast.png",
+        "image": "podcast_banner.png",
+        "logo": "campus_logo.svg",
         "title": "Campus Beats - Dein Business-Update (Folge #129)",
         "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln.",
         "link": "https:\/\/www.campus.de\/podcast\/campus-beats.html"

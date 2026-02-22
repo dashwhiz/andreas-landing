@@ -6,18 +6,20 @@ import AppColors from '@/constants/AppColors';
 import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import fasScreenshot from '../../../public/images/frankfurter_allgemeine_sonntagszeitung.jpg';
-import campusScreenshot from '../../../public/images/campus_podcast.png';
+import campusScreenshot from '../../../public/images/podcast_banner.png';
 
 const MOBILE_BREAKPOINT = 768;
 
 const interviewImages: Record<string, typeof fasScreenshot> = {
   'frankfurter_allgemeine_sonntagszeitung.jpg': fasScreenshot,
   'campus_podcast.png': campusScreenshot,
+  'podcast_banner.png': campusScreenshot,
 };
 
 interface InterviewItem {
   id: string;
   image: string;
+  logo?: string;
   title: string;
   text: string;
   link: string;
@@ -65,7 +67,7 @@ const Grid = styled.div`
 `;
 
 const Card = styled.a`
-  width: 320px;
+  width: 380px;
   flex-shrink: 0;
   background: ${AppColors.white};
   border: 1px solid ${AppColors.brand.neutral[80]};
@@ -80,21 +82,20 @@ const Card = styled.a`
   }
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    width: 280px;
+    width: 320px;
   }
 `;
 
 const ImageWrapper = styled.div`
   width: 100%;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: ${AppColors.brand.neutral[90]};
 
   img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
   }
 `;
 
@@ -120,6 +121,15 @@ const CardText = styled.p`
   margin: 0;
 `;
 
+const CardLogo = styled.img`
+  max-height: 20px;
+  max-width: 100px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.45;
+  margin-top: 4px;
+`;
+
 export default function InterviewsSection() {
   const { t, tObject } = useTranslations();
   const items = tObject<InterviewItem[]>('home_interviews.items') || [];
@@ -143,15 +153,17 @@ export default function InterviewsSection() {
                 <Image
                   src={interviewImages[item.image]}
                   alt={item.title}
-                  width={640}
-                  height={400}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  sizes="380px"
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 />
               )}
             </ImageWrapper>
             <Content>
               <CardTitle>{item.title}</CardTitle>
               <CardText>{item.text}</CardText>
+              {item.logo && (
+                <CardLogo src={`/images/${item.logo}`} alt={item.title} />
+              )}
             </Content>
           </Card>
         ))}
