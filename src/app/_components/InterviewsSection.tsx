@@ -69,6 +69,8 @@ const Grid = styled.div`
 const Card = styled.a`
   width: 380px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   background: ${AppColors.white};
   border: 1px solid ${AppColors.brand.neutral[80]};
   border-radius: 14px;
@@ -104,6 +106,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex: 1;
 `;
 
 const CardTitle = styled.h3`
@@ -127,7 +130,8 @@ const CardLogo = styled.img`
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.45;
-  margin-top: 4px;
+  align-self: flex-end;
+  margin-top: auto;
 `;
 
 export default function InterviewsSection() {
