@@ -66,7 +66,7 @@ const Track = styled.div`
 `;
 
 const QuoteCard = styled.div<{ $type: string }>`
-  width: 300px;
+  width: 350px;
   flex-shrink: 0;
   background: ${AppColors.white};
   border-radius: 16px;
@@ -82,7 +82,7 @@ const QuoteCard = styled.div<{ $type: string }>`
   user-select: none;
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    width: 260px;
+    width: 300px;
     padding: 24px 20px;
   }
 `;

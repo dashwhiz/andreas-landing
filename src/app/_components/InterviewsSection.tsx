@@ -67,7 +67,7 @@ const Grid = styled.div`
 `;
 
 const Card = styled.a`
-  width: 380px;
+  width: 230px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ const Card = styled.a`
   }
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    width: 320px;
+    width: 195px;
   }
 `;
 
@@ -157,7 +157,7 @@ export default function InterviewsSection() {
                 <Image
                   src={interviewImages[item.image]}
                   alt={item.title}
-                  sizes="380px"
+                  sizes="230px"
                   style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 />
               )}
