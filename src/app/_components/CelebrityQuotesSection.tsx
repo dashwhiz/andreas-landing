@@ -55,7 +55,6 @@ const MarqueeWrapper = styled.div`
 
 const Track = styled.div`
   display: flex;
-  align-items: flex-start;
   gap: 20px;
   width: max-content;
   will-change: transform;
@@ -177,26 +176,24 @@ export default function CelebrityQuotesSection() {
 
   const getHalfWidth = useCallback(() => {
     if (!trackRef.current) return 1;
-    // Half the track = one full set of cards + gaps
     return trackRef.current.scrollWidth / 2;
   }, []);
 
-  const animate = useCallback(() => {
-    if (!paused.current && !dragging.current) {
-      offset.current += SPEED;
-      const half = getHalfWidth();
-      if (offset.current >= half) offset.current -= half;
-    }
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(-${offset.current}px)`;
-    }
-    rafId.current = requestAnimationFrame(animate);
-  }, [getHalfWidth]);
-
   useEffect(() => {
+    const animate = () => {
+      if (!paused.current && !dragging.current) {
+        offset.current += SPEED;
+        const half = getHalfWidth();
+        if (offset.current >= half) offset.current -= half;
+      }
+      if (trackRef.current) {
+        trackRef.current.style.transform = `translateX(-${offset.current}px)`;
+      }
+      rafId.current = requestAnimationFrame(animate);
+    };
     rafId.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafId.current);
-  }, [animate]);
+  }, [getHalfWidth]);
 
   // Mouse drag
   const onMouseDown = (e: React.MouseEvent) => {
