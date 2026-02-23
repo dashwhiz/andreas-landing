@@ -3,6 +3,7 @@ import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
 import { TranslationProvider } from "@/contexts/TranslationProvider";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ppObjectSans } from "./fonts";
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function RootLayout({
             {children}
           </TranslationProvider>
           <Analytics />
+          <SpeedInsights />
         </StyledComponentsRegistry>
       </body>
     </html>
