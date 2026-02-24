@@ -376,6 +376,33 @@
         "title": "Campus Beats - Dein Business-Update (Folge #129)",
         "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln.",
         "link": "https:\/\/www.campus.de\/podcast\/campus-beats.html"
+      },
+      {
+        "id": "iv3",
+        "image": "",
+        "title": "SAT.1 Frühstücksfernsehen (25.2.2026)",
+        "text": "Gastauftritt",
+        "link": "",
+        "upcoming": true,
+        "date": "25.2.2026"
+      },
+      {
+        "id": "iv4",
+        "image": "",
+        "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
+        "text": "Gespräch mit Uli und Sandra",
+        "link": "",
+        "upcoming": true,
+        "date": "27.2.2026"
+      },
+      {
+        "id": "iv5",
+        "image": "",
+        "title": "ZDF Morgenmagazin (17.3.2026)",
+        "text": "Gastauftritt",
+        "link": "",
+        "upcoming": true,
+        "date": "17.3.2026"
       }
     ]
   },
