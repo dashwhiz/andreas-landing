@@ -380,6 +380,7 @@
       {
         "id": "iv3",
         "image": "",
+        "logo": "sat-1-logo.svg",
         "title": "SAT.1 Frühstücksfernsehen (25.2.2026)",
         "text": "Gastauftritt",
         "link": "",
@@ -389,6 +390,7 @@
       {
         "id": "iv4",
         "image": "",
+        "logo": "N-tv-Logo.png",
         "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
         "text": "Gespräch mit Uli und Sandra",
         "link": "",
@@ -398,6 +400,7 @@
       {
         "id": "iv5",
         "image": "",
+        "logo": "ZDF_logo.png",
         "title": "ZDF Morgenmagazin (17.3.2026)",
         "text": "Gastauftritt",
         "link": "",
