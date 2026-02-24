@@ -82,8 +82,8 @@
     "copy_prompt": "Prompt kopieren",
     "copied": "Kopiert!",
     "providers": {
-      "chatgpt": "ChatGPT",
-      "gemini": "Gemini",
+      "chatgpt": "Antwort ChatGPT",
+      "gemini": "Antwort Gemini",
       "perplexity": "Perplexity"
     },
     "questions": [
@@ -291,121 +291,69 @@
     "quotes": [
       {
         "id": "cq1",
-        "type": "person",
         "text": "Mit richtiger Technik und Einstellung die eigenen Finanzen in Bestform bringen.",
         "name": "Michael Groß",
-        "role": "Olympiasieger und Unternehmensberater"
+        "role": "Olympiasieger und Unternehmensberater",
+        "type": "person"
       },
       {
         "id": "cq2",
-        "type": "person",
         "text": "Fundierte Finanzbildung für den selbstbestimmten Lifestyle.",
         "name": "Bettina Stark-Watzinger",
-        "role": "Wissenschaftsministerin von 2021-2024"
+        "role": "Wissenschaftsministerin von 2021-2024",
+        "type": "person"
       },
       {
         "id": "cq3",
-        "type": "person",
         "text": "Verlässliche Expertise und klare Orientierung für stabile und auskömmliche Finanzen.",
         "name": "Herbert Hans Grüntker",
-        "role": "Vorstandsvorsitzender Sparkasse, Landesbank von 2007-2020"
+        "role": "Vorstandsvorsitzender Sparkasse, Landesbank von 2007-2020",
+        "type": "person"
       },
       {
         "id": "cq4",
-        "type": "magazine",
-        "logo": "euro-logo.png",
         "text": "Anschaulich und ohne unnötig insiderhaftes Börsenvokabular. Nutzwert 5\/5!",
         "name": "€URO Magazin",
-        "role": "Ausgabe 3\/2026 S. 136"
+        "role": "Ausgabe 3\/2026 S. 136",
+        "type": "magazine",
+        "logo": "euro-logo.png"
       },
       {
         "id": "cq5",
-        "type": "person",
         "text": "Fundierte und umsetzbare Finanzstrategien. Hilft auch für ruhigeren Schlaf.",
         "name": "Dennis Schmoltzi",
-        "role": "CEO von Emma - the Sleep Company"
+        "role": "CEO von Emma - the Sleep Company",
+        "type": "person"
       },
       {
         "id": "cq6",
-        "type": "magazine",
-        "logo": "der_spiegel_logo.svg",
         "text": "Sie wollen endlich Ihre Finanzen regeln? Dann fangen Sie jetzt an...Am 26. Februar erscheint sein Buch »Dein Financial Lifestyle Code« .",
         "name": "SPIEGEL+",
-        "role": "Ausgabe vom 21.1.2026"
+        "role": "Ausgabe vom 21.1.2026",
+        "type": "magazine",
+        "logo": "der_spiegel_logo.svg"
       },
       {
         "id": "cq7",
-        "type": "person",
         "text": "Der ultimative Trainingsplan, um finanziell in die Offensive zu gehen.",
         "name": "Max Coga",
-        "role": "MMA Champion"
+        "role": "MMA Champion und Clubbesitzer",
+        "type": "person"
       },
       {
         "id": "cq8",
         "type": "person",
-        "text": "Dieses Buch stellt seine Leser auf die Schultern der Giganten der Finanzforschung \u2013 und macht Nobelpreiswissen direkt anwendbar.",
+        "text": "Das Buch stellt seine Leser auf die Schultern der Giganten der Finanzforschung – und macht Nobelpreiswissen anwendbar.",
         "name": "Roman Inderst",
         "role": "Ökonom und Leibniz-Preisträger"
       },
       {
         "id": "cq9",
         "type": "magazine",
-        "logo": "prisma_logo.png",
-        "text": "Der Wissenschaftler überrascht mit seinen sehr praxisnahen Beispielfällen, die den Leser auch emotional ansprechen und damit auch zeigen: Eine erfolgreiche Geldanlage hängt vor allem davon ab, wie wir mental mit den Höhen und Tiefen des Lebens umgehen.",
+        "text": "Der Wissenschaftler überrascht mit seinen sehr praxisnahen Beispielfällen, die den Leser auch emotional ansprechen.",
         "name": "prisma TV-Beilage",
-        "role": "Extra Folge Meine Finanzen"
-      }
-    ]
-  },
-  "home_interviews": {
-    "title": "Interviews und Podcasts",
-    "description": "Aktuelle Medienauftritte, Interviews und Podcast-Folgen rund um das Buch.",
-    "items": [
-      {
-        "id": "iv1",
-        "image": "frankfurter_allgemeine_sonntagszeitung.jpg",
-        "logo": "frankfurter_allgemeine_logo.png",
-        "title": "Frankfurter Allgemeine Sonntagszeitung (22.2.2026)",
-        "text": "Vorabdruck des Abschnitts über 9+1 strategische Stellhebel beim Vermögensaufbau",
-        "link": "https:\/\/zeitung.faz.net\/data\/680\/reader\/reader.html?#!preferred\/0\/package\/680\/pub\/942\/page\/28\/content\/122174"
-      },
-      {
-        "id": "iv2",
-        "image": "podcast_banner.png",
-        "logo": "campus_logo.svg",
-        "title": "Campus Beats - Dein Business-Update (Folge #129)",
-        "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln.",
-        "link": "https:\/\/www.campus.de\/podcast\/campus-beats.html"
-      },
-      {
-        "id": "iv3",
-        "image": "",
-        "logo": "sat-1-logo.svg",
-        "title": "SAT.1 Frühstücksfernsehen (25.2.2026)",
-        "text": "Gastauftritt",
-        "link": "",
-        "upcoming": true,
-        "date": "25.2.2026"
-      },
-      {
-        "id": "iv4",
-        "image": "",
-        "logo": "N-tv-Logo.png",
-        "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
-        "text": "Gespräch mit Uli und Sandra",
-        "link": "",
-        "upcoming": true,
-        "date": "27.2.2026"
-      },
-      {
-        "id": "iv5",
-        "image": "",
-        "logo": "ZDF_logo.png",
-        "title": "ZDF Morgenmagazin (17.3.2026)",
-        "text": "Gastauftritt",
-        "link": "",
-        "upcoming": true,
-        "date": "17.3.2026"
+        "role": "Extra Folge Meine Finanzen",
+        "logo": "prisma_logo.png"
       }
     ]
   },
@@ -430,8 +378,8 @@
     "copy_button": "Kopieren",
     "copied": "Kopiert!",
     "providers": {
-      "chatgpt": "ChatGPT",
-      "gemini": "Gemini",
+      "chatgpt": "Antwort ChatGPT",
+      "gemini": "Antwort Gemini",
       "perplexity": "Perplexity"
     },
     "quiz_prompts": {
@@ -585,16 +533,16 @@
         "title": "Hack 1: Impulskäufe",
         "prompt": "Welche psychologischen Tricks helfen mir, Impulskäufe zu vermeiden?",
         "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 8.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 8."
+          "chatgpt": "Hack: Baue Reibung ein und nutze dein zukünftiges Ich als Verbündeten. Impulskäufe entstehen im Moment der Emotion, also verschiebe die Entscheidung systematisch. Lege eine 48-Stunden-Regel für alles über einem selbst gewählten Betrag fest. Packe Produkte in den Warenkorb, aber kaufe sie nicht sofort. Lösche gespeicherte Kreditkarten aus Onlineshops, deaktiviere One-Click-Käufe und bestelle nichts über Social-Media-Links. Frage dich vor jedem Kauf: Würde ich es auch kaufen, wenn ich den gleichen Betrag in bar aus meinem Portemonnaie legen müsste? Und: Welche Lebensqualität kaufe ich mir hier wirklich – oder nur einen kurzen Dopamin-Kick?\n\nNutze mentale Buchführung bewusst: Definiere ein fixes „Spaßbudget“ pro Monat. Wenn es aufgebraucht ist, ist es aufgebraucht. So verbietest du dir nichts grundsätzlich, sondern setzt klare Grenzen. Visualisiere größere Ziele konkret, zum Beispiel als Bild auf dem Handy-Hintergrund. Jeder nicht getätigte Impulskauf wird gedanklich diesem Ziel gutgeschrieben.\n\nZum Dranbleiben: Führe eine einfache Strichliste über vermiedene Impulskäufe und rechne dir am Monatsende aus, wie viel du gespart hast. Belohne dich bewusst, aber geplant, wenn du dein Budget einhältst. Identifiziere typische Trigger wie Langeweile, Stress oder Instagram-Scrolling und ersetze sie durch feste Alternativen, etwa einen kurzen Spaziergang oder einen Anruf bei einer vertrauten Person. Mach es dir leicht, vernünftig zu handeln, und schwer, spontan Geld auszugeben – dann arbeitet deine Umgebung für dich statt gegen dich.",
+          "gemini": "Stoppe Impulskäufe mit dem 72-Stunden-Hack: Bevor du auf Kaufen klickst oder zur Kasse gehst, warte exakt drei Tage. Meist verfliegt der Dopamin-Rausch der Vorfreude in dieser Zeit und das rationale Gehirn übernimmt wieder die Kontrolle. Nutze zusätzlich diese psychologischen Barrieren:\n\n* Die „Anti-Seduction“-Regel: Lösche hinterlegte Zahlungsdaten und Shop-Apps. Je mehr Klicks der Kauf erfordert, desto eher setzt die Vernunft ein.\n* Der Stundenlohn-Check: Rechne den Preis in deine Arbeitszeit um. Frage dich: Ist dieses Teil wirklich 8 Stunden meines Lebens wert?\n* Die „One-In, One-Out“-Regel: Für jeden Neukauf muss ein Gegenstand das Haus verlassen. Das bremst den Jagdinstinkt sofort.\n\nTipps zum Dranbleiben:\n\n1. Führe eine „Wunschliste der Aufschieber“: Schreibe alles auf, was du willst, aber kaufe es erst nach dem nächsten Monatsgehalt. Oft streichst du es dann freiwillig.\n2. Vermeide Shopping als Belohnung: Suche dir kostenlose Alternativen für den schnellen Dopamin-Kick, wie einen Spaziergang oder Sport.\n3. Unsubscribe-Fieber: Melde dich von allen Sale-Newslettern ab, damit die Versuchung gar nicht erst in dein Postfach gelangt."
         }
       },
       "p9": {
         "title": "Hack 2: Sparpotenziale",
         "prompt": "Wo finde ich die größten Sparpotenziale in meinem Alltag, ohne auf Lebensqualität zu verzichten?",
         "answers": {
-          "chatgpt": "Platzhalter: ChatGPT-Antwort für Prompt 9.",
-          "gemini": "Platzhalter: Gemini-Antwort für Prompt 9."
+          "chatgpt": "Hack: Suche nicht bei Cappuccino und Kinoticket, sondern bei den großen, stillen Dauerläufern. Die größten Sparpotenziale liegen fast immer in Wohnen, Mobilität, Versicherungen, Energie, Abos und Steuern – also bei Fixkosten, die jeden Monat automatisch laufen. Prüfe einmal im Jahr systematisch: Kann ich günstiger wohnen oder zumindest Nebenkosten senken? Passt mein Auto wirklich zu meinem Alltag? Zahle ich für Tarife oder Versicherungen, die ich nicht brauche? Läuft irgendwo ein Abo, das ich kaum nutze? Kleine Optimierungen bei großen Posten schlagen jede Kleinsparerei im Alltag.\n\nArbeite mit dem 80\/20-Prinzip: Wenn du die größten fünf Ausgabenblöcke um jeweils nur 5 bis 10 Prozent senkst, entsteht spürbarer finanzieller Spielraum – ganz ohne Verzicht auf Dinge, die dir wirklich Freude machen. Entscheidend ist nicht weniger auszugeben, sondern bewusster. Streiche konsequent, was dir wenig Lebensqualität bringt, und schütze, was dir viel bedeutet.\n\nZum Dranbleiben: Lege einen festen „Fixkosten-Check“-Termin im Kalender, zum Beispiel einmal pro Jahr. Automatisiere Einsparungen, indem du Daueraufträge für Sparbeträge direkt nach Gehaltseingang einrichtest. Miss deinen Fortschritt nicht an Verzicht, sondern an gewonnener Freiheit, etwa an steigender Sparquote oder wachsendem Puffer auf dem Konto. So wird Sparen nicht zur Diät, sondern zur strukturellen Verbesserung deines Systems.",
+          "gemini": "Nutze das „Smart-Substitution-Prinzip“, um Sparpotenziale ohne Verzicht freizulegen: Konzentriere dich auf Fixkosten und Konsumgewohnheiten, die keinen direkten Einfluss auf dein Glücksempfinden haben. Die größten Hebel liegen oft im Verborgenen:\n\n* Versicherungs- und Abo-Check: Kündige ungenutzte Streaming-Dienste und wechsle jährlich Strom- sowie Gastarife. Das spart oft mehrere hundert Euro im Jahr bei absolut identischer Leistung.\n* Eigenmarken-Strategie: Greife im Supermarkt konsequent zu Eigenmarken statt zu Markenprodukten. Qualitativ sind sie oft ebenbürtig, kosten aber bis zu 60% weniger.\n* Mobilitäts-Mix: Nutze für Kurzstrecken das Fahrrad statt das Auto. Du sparst Sprit, Verschleiß und Parkgebühren, während du gleichzeitig deine Fitness verbesserst.\n* Vorkochen (Meal Prepping): Wer mittags selbst Mitgebrachtes isst, spart gegenüber dem täglichen Restaurantbesuch oder Imbiss leicht 100 bis 200 Euro im Monat, ohne schlechter zu essen.\n\nTipps zum Dranbleiben:\n1. Die 24-Stunden-Regel: Warte bei ungeplanten Käufen einen Tag ab. Oft verschwindet der Kaufwunsch von selbst.\n2. Automatisches Sparen: Richte einen Dauerauftrag auf ein Tagesgeldkonto am Monatsanfang ein. Was „weg“ ist, kann nicht mehr impulsiv ausgegeben werden.\n3. Visualisiere dein Ziel: Benenne dein Sparkonto nach einem konkreten Traum (z.B. „Sardinien-Urlaub“), um die Motivation hochzuhalten."
         }
       },
       "p10": {
@@ -615,5 +563,57 @@
       }
     },
     "copy_tooltip": "Prompt kopieren"
+  },
+  "home_interviews": {
+    "title": "Interviews und Podcasts",
+    "description": "Aktuelle Medienauftritte, Interviews und Podcast-Folgen rund um das Buch.",
+    "items": [
+      {
+        "id": "iv1",
+        "image": "frankfurter_allgemeine_sonntagszeitung.jpg",
+        "title": "Frankfurter Allgemeine Sonntagszeitung (22.2.2026)",
+        "text": "Vorabdruck des Abschnitts über 9+1 strategische Stellhebel beim Vermögensaufbau",
+        "link": "https:\/\/zeitung.faz.net\/data\/680\/reader\/reader.html?#!preferred\/0\/package\/680\/pub\/942\/page\/28\/content\/122174",
+        "logo": "frankfurter_allgemeine_logo.png"
+      },
+      {
+        "id": "iv2",
+        "image": "campus_podcast.png",
+        "title": "Campus Beats - Dein Business-Update (Folge #129)",
+        "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln.",
+        "link": "https:\/\/www.campus.de\/podcast\/campus-beats.html",
+        "logo": "campus_logo.svg"
+      },
+      {
+        "id": "iv3",
+        "image": "",
+        "title": "SAT.1 Frühstücksfernsehen (25.2.2026)",
+        "text": "Gastauftritt",
+        "link": "",
+        "upcoming": "1",
+        "date": "25.2.2026",
+        "logo": "sat-1-logo.svg"
+      },
+      {
+        "id": "iv4",
+        "image": "",
+        "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
+        "text": "Gespräch mit Uli und Sandra",
+        "link": "",
+        "upcoming": "1",
+        "date": "27.2.2026",
+        "logo": "N-tv-Logo.png"
+      },
+      {
+        "id": "iv5",
+        "image": "",
+        "title": "ZDF Morgenmagazin (17.3.2026)",
+        "text": "Gastauftritt",
+        "link": "",
+        "upcoming": "1",
+        "date": "17.3.2026",
+        "logo": "ZDF_logo.png"
+      }
+    ]
   }
 }
