@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef, useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import AppColors from '@/constants/AppColors';
@@ -52,6 +53,25 @@ const SectionDescription = styled.p`
   text-align: center;
   margin: 0 0 32px 0;
   line-height: 1.5;
+`;
+
+const ScrollWrapper = styled.div<{ $showFade: boolean }>`
+  width: 100%;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, ${AppColors.white});
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    opacity: ${({ $showFade }) => ($showFade ? 1 : 0)};
+  }
 `;
 
 const Grid = styled.div`
@@ -178,6 +198,23 @@ const CardLogo = styled.img`
 export default function InterviewsSection() {
   const { t, tObject } = useTranslations();
   const items = tObject<InterviewItem[]>('home_interviews.items') || [];
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [showFade, setShowFade] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 10;
+    setShowFade(!atEnd);
+  }, []);
+
+  useEffect(() => {
+    const el = gridRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    return () => el.removeEventListener('scroll', checkScroll);
+  }, [checkScroll]);
 
   if (items.length === 0) return null;
 
@@ -185,7 +222,8 @@ export default function InterviewsSection() {
     <Section>
       <SectionTitle>{t('home_interviews.title')}</SectionTitle>
       <SectionDescription>{t('home_interviews.description')}</SectionDescription>
-      <Grid>
+      <ScrollWrapper $showFade={showFade}>
+      <Grid ref={gridRef}>
         {items.map((item) => {
           const cardContent = (
             <>
@@ -232,6 +270,7 @@ export default function InterviewsSection() {
           );
         })}
       </Grid>
+      </ScrollWrapper>
     </Section>
   );
 }
