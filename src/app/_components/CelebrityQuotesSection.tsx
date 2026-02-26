@@ -136,14 +136,33 @@ const AuthorRole = styled.p`
   margin: 4px 0 0 0;
 `;
 
-interface Quote {
+interface QuoteData {
   id: string;
   type: 'person' | 'magazine';
   logo?: string;
+}
+
+interface QuoteTranslations {
   text: string;
   name: string;
   role: string;
 }
+
+interface Quote extends QuoteData, QuoteTranslations {}
+
+const QUOTE_DATA: QuoteData[] = [
+  { id: 'cq1', type: 'person' },
+  { id: 'cq2', type: 'person' },
+  { id: 'cq3', type: 'person' },
+  { id: 'cq4', type: 'magazine', logo: 'euro-logo.png' },
+  { id: 'cq5', type: 'person' },
+  { id: 'cq6', type: 'magazine', logo: 'der_spiegel_logo.svg' },
+  { id: 'cq7', type: 'person' },
+  { id: 'cq8', type: 'person' },
+  { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
+  { id: 'cq10', type: 'person' },
+  { id: 'cq11', type: 'magazine', logo: 'sat-1-logo.svg' },
+];
 
 function QuoteCardItem({ quote }: { quote: Quote }) {
   return (
@@ -165,7 +184,11 @@ function QuoteCardItem({ quote }: { quote: Quote }) {
 
 export default function CelebrityQuotesSection() {
   const { t, tObject } = useTranslations();
-  const quotes = tObject<Quote[]>('celebrity_quotes.quotes') || [];
+  const quoteTranslations = tObject<Record<string, QuoteTranslations>>('celebrity_quotes.quotes') ?? {};
+  const quotes: Quote[] = QUOTE_DATA.map((qd) => ({
+    ...qd,
+    ...(quoteTranslations[qd.id] ?? { text: '', name: '', role: '' }),
+  }));
   const trackRef = useRef<HTMLDivElement>(null);
   const offset = useRef(0);
   const dragging = useRef(false);

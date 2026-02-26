@@ -288,89 +288,63 @@
   },
   "celebrity_quotes": {
     "title": "Stimmen zum Buch",
-    "quotes": [
-      {
-        "id": "cq1",
+    "quotes": {
+      "cq1": {
         "text": "Mit richtiger Technik und Einstellung die eigenen Finanzen in Bestform bringen.",
         "name": "Michael Groß",
-        "role": "Olympiasieger und Unternehmensberater",
-        "type": "person"
+        "role": "Olympiasieger und Unternehmensberater"
       },
-      {
-        "id": "cq2",
+      "cq2": {
         "text": "Fundierte Finanzbildung für den selbstbestimmten Lifestyle.",
         "name": "Bettina Stark-Watzinger",
-        "role": "Wissenschaftsministerin von 2021-2024",
-        "type": "person"
+        "role": "Wissenschaftsministerin von 2021-2024"
       },
-      {
-        "id": "cq3",
+      "cq3": {
         "text": "Verlässliche Expertise und klare Orientierung für stabile und auskömmliche Finanzen.",
         "name": "Herbert Hans Grüntker",
-        "role": "Vorstandsvorsitzender Sparkasse, Landesbank von 2007-2020",
-        "type": "person"
+        "role": "Vorstandsvorsitzender Sparkasse, Landesbank von 2007-2020"
       },
-      {
-        "id": "cq4",
+      "cq4": {
         "text": "Anschaulich und ohne unnötig insiderhaftes Börsenvokabular. Nutzwert 5\/5!",
         "name": "€URO Magazin",
-        "role": "Ausgabe 3\/2026 S. 136",
-        "type": "magazine",
-        "logo": "euro-logo.png"
+        "role": "Ausgabe 3\/2026 S. 136"
       },
-      {
-        "id": "cq5",
+      "cq5": {
         "text": "Fundierte und umsetzbare Finanzstrategien. Hilft auch für ruhigeren Schlaf.",
         "name": "Dennis Schmoltzi",
-        "role": "CEO von Emma - the Sleep Company",
-        "type": "person"
+        "role": "CEO von Emma - the Sleep Company"
       },
-      {
-        "id": "cq6",
+      "cq6": {
         "text": "Sie wollen endlich Ihre Finanzen regeln? Dann fangen Sie jetzt an...Am 26. Februar erscheint sein Buch »Dein Financial Lifestyle Code« .",
         "name": "SPIEGEL+",
-        "role": "Ausgabe vom 21.1.2026",
-        "type": "magazine",
-        "logo": "der_spiegel_logo.svg"
+        "role": "Ausgabe vom 21.1.2026"
       },
-      {
-        "id": "cq7",
+      "cq7": {
         "text": "Der ultimative Trainingsplan, um finanziell in die Offensive zu gehen.",
         "name": "Max Coga",
-        "role": "MMA Champion und Clubbesitzer",
-        "type": "person"
+        "role": "MMA Champion und Clubbesitzer"
       },
-      {
-        "id": "cq8",
-        "type": "person",
+      "cq8": {
         "text": "Das Buch stellt seine Leser auf die Schultern der Giganten der Finanzforschung – und macht Nobelpreiswissen anwendbar.",
         "name": "Roman Inderst",
         "role": "Ökonom und Leibniz-Preisträger"
       },
-      {
-        "id": "cq9",
-        "type": "magazine",
+      "cq9": {
         "text": "Der Wissenschaftler überrascht mit seinen sehr praxisnahen Beispielfällen, die den Leser auch emotional ansprechen.",
         "name": "prisma TV-Beilage",
-        "role": "Extra Folge Meine Finanzen",
-        "logo": "prisma_logo.png"
+        "role": "Extra Folge Meine Finanzen"
       },
-      {
-        "id": "cq10",
-        "type": "person",
+      "cq10": {
         "text": "Zeigt eindrucksvoll, wie gute Finanzbildung Orientierung geben kann…und wo beim Verbraucherschutz rechtspolitischer Handlungsbedarf besteht.",
         "name": "Dorothea Mohn",
         "role": "Verbraucherzentrale Bundesverband e.V."
       },
-      {
-        "id": "cq11",
-        "type": "magazine",
+      "cq11": {
         "text": "Wie ist er denn der Geld-Code?...Zack, da ist das Buch.",
         "name": "SAT.1 Frühstücksfernsehen",
-        "role": "25.2.2026 6:50 und 8:40",
-        "logo": "sat-1-logo.svg"
+        "role": "25.2.2026 6:50 und 8:40"
       }
-    ]
+    }
   },
   "gmp_page": {
     "title": "Globales Marktportfolio",
@@ -582,52 +556,27 @@
   "home_interviews": {
     "title": "Interviews und Podcasts",
     "description": "Aktuelle Medienauftritte, Interviews und Podcast-Folgen rund um das Buch.",
-    "items": [
-      {
-        "id": "iv1",
-        "image": "frankfurter_allgemeine_sonntagszeitung.jpg",
+    "items": {
+      "iv1": {
         "title": "Frankfurter Allgemeine Sonntagszeitung (22.2.2026)",
-        "text": "Vorabdruck des Abschnitts über 9+1 strategische Stellhebel beim Vermögensaufbau",
-        "link": "https:\/\/zeitung.faz.net\/data\/680\/reader\/reader.html?#!preferred\/0\/package\/680\/pub\/942\/page\/28\/content\/122174",
-        "logo": "frankfurter_allgemeine_logo.png"
+        "text": "Vorabdruck des Abschnitts über 9+1 strategische Stellhebel beim Vermögensaufbau"
       },
-      {
-        "id": "iv2",
-        "image": "campus_podcast.png",
+      "iv2": {
         "title": "Campus Beats - Dein Business-Update (Folge #129)",
-        "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln.",
-        "link": "https:\/\/www.campus.de\/podcast\/campus-beats.html",
-        "logo": "campus_logo.svg"
+        "text": "Interview zum Buchstart mit Tipps und Tricks aus den fünf Kapiteln."
       },
-      {
-        "id": "iv3",
-        "image": "sat_1_podcast.jpeg",
+      "iv3": {
         "title": "SAT.1 Frühstücksfernsehen (25.2.2026)",
-        "text": "Gastauftritt",
-        "link": "https:\/\/www.joyn.de\/play\/serien\/sat1-fruehstuecksfernsehen-dph1vf52g3ey\/2026-39-start-in-den-mittwoch-mit-spar-tipps-und-meze-kueche",
-        "date": "25.2.2026",
-        "logo": "sat-1-logo.svg"
+        "text": "Gastauftritt"
       },
-      {
-        "id": "iv4",
-        "image": "",
+      "iv4": {
         "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
-        "text": "Gespräch mit Uli und Sandra",
-        "link": "",
-        "upcoming": true,
-        "date": "27.2.2026",
-        "logo": "N-tv-Logo.png"
+        "text": "Gespräch mit Uli und Sandra"
       },
-      {
-        "id": "iv5",
-        "image": "",
+      "iv5": {
         "title": "ZDF Morgenmagazin (17.3.2026)",
-        "text": "Gastauftritt",
-        "link": "",
-        "upcoming": true,
-        "date": "17.3.2026",
-        "logo": "ZDF_logo.png"
+        "text": "Gastauftritt"
       }
-    ]
+    }
   }
 }

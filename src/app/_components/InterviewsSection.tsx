@@ -19,16 +19,29 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'sat_1_podcast.jpeg': sat1Screenshot,
 };
 
-interface InterviewItem {
+interface InterviewData {
   id: string;
   image: string;
   logo?: string;
-  title: string;
-  text: string;
   link: string;
   upcoming?: boolean;
   date?: string;
 }
+
+interface InterviewTranslations {
+  title: string;
+  text: string;
+}
+
+interface InterviewItem extends InterviewData, InterviewTranslations {}
+
+const INTERVIEW_DATA: InterviewData[] = [
+  { id: 'iv1', image: 'frankfurter_allgemeine_sonntagszeitung.jpg', logo: 'frankfurter_allgemeine_logo.png', link: 'https://zeitung.faz.net/data/680/reader/reader.html?#!preferred/0/package/680/pub/942/page/28/content/122174' },
+  { id: 'iv2', image: 'campus_podcast.png', logo: 'campus_logo.svg', link: 'https://www.campus.de/podcast/campus-beats.html' },
+  { id: 'iv3', image: 'sat_1_podcast.jpeg', logo: 'sat-1-logo.svg', link: 'https://www.joyn.de/play/serien/sat1-fruehstuecksfernsehen-dph1vf52g3ey/2026-39-start-in-den-mittwoch-mit-spar-tipps-und-meze-kueche', date: '25.2.2026' },
+  { id: 'iv4', image: '', logo: 'N-tv-Logo.png', link: '', upcoming: true, date: '27.2.2026' },
+  { id: 'iv5', image: '', logo: 'ZDF_logo.png', link: '', upcoming: true, date: '17.3.2026' },
+];
 
 const Section = styled.section`
   width: 100%;
@@ -202,7 +215,11 @@ const CardLogo = styled.img`
 
 export default function InterviewsSection() {
   const { t, tObject } = useTranslations();
-  const items = tObject<InterviewItem[]>('home_interviews.items') || [];
+  const interviewTranslations = tObject<Record<string, InterviewTranslations>>('home_interviews.items') ?? {};
+  const items: InterviewItem[] = INTERVIEW_DATA.map((d) => ({
+    ...d,
+    ...(interviewTranslations[d.id] ?? { title: '', text: '' }),
+  }));
   const gridRef = useRef<HTMLDivElement>(null);
   const [showFade, setShowFade] = useState(true);
 
