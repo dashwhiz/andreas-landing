@@ -614,7 +614,7 @@
         "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
         "text": "Gespräch mit Uli und Sandra",
         "link": "",
-        "upcoming": "1",
+        "upcoming": true,
         "date": "27.2.2026",
         "logo": "N-tv-Logo.png"
       },
@@ -624,7 +624,7 @@
         "title": "ZDF Morgenmagazin (17.3.2026)",
         "text": "Gastauftritt",
         "link": "",
-        "upcoming": "1",
+        "upcoming": true,
         "date": "17.3.2026",
         "logo": "ZDF_logo.png"
       }
