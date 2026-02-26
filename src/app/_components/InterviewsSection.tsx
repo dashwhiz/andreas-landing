@@ -8,6 +8,7 @@ import AppFontSizes from '@/constants/AppFontSizes';
 import { useTranslations } from '@/contexts/TranslationProvider';
 import fasScreenshot from '../../../public/images/frankfurter_allgemeine_sonntagszeitung.jpg';
 import campusScreenshot from '../../../public/images/podcast_banner.png';
+import sat1Screenshot from '../../../public/images/sat_1_podcast.jpeg';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -15,6 +16,7 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'frankfurter_allgemeine_sonntagszeitung.jpg': fasScreenshot,
   'campus_podcast.png': campusScreenshot,
   'podcast_banner.png': campusScreenshot,
+  'sat_1_podcast.jpeg': sat1Screenshot,
 };
 
 interface InterviewItem {
@@ -127,14 +129,17 @@ const StaticCard = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: ${AppColors.brand.neutral[90]};
+  position: relative;
 
   img {
     display: block;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 `;
 
@@ -237,8 +242,9 @@ export default function InterviewsSection() {
                     <Image
                       src={interviewImages[item.image]}
                       alt={item.title}
+                      fill
                       sizes="230px"
-                      style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                      style={{ objectFit: 'cover', objectPosition: 'center' }}
                     />
                   )}
                 </ImageWrapper>

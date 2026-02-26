@@ -354,6 +354,21 @@
         "name": "prisma TV-Beilage",
         "role": "Extra Folge Meine Finanzen",
         "logo": "prisma_logo.png"
+      },
+      {
+        "id": "cq10",
+        "type": "person",
+        "text": "Zeigt eindrucksvoll, wie gute Finanzbildung Orientierung geben kann…und wo beim Verbraucherschutz rechtspolitischer Handlungsbedarf besteht.",
+        "name": "Dorothea Mohn",
+        "role": "Verbraucherzentrale Bundesverband e.V."
+      },
+      {
+        "id": "cq11",
+        "type": "magazine",
+        "text": "Wie ist er denn der Geld-Code?...Zack, da ist das Buch.",
+        "name": "SAT.1 Frühstücksfernsehen",
+        "role": "25.2.2026 6:50 und 8:40",
+        "logo": "sat-1-logo.svg"
       }
     ]
   },
@@ -586,12 +601,10 @@
       },
       {
         "id": "iv3",
-        "image": "",
+        "image": "sat_1_podcast.jpeg",
         "title": "SAT.1 Frühstücksfernsehen (25.2.2026)",
-        "text": "Gastauftritt",
-        "link": "",
-        "upcoming": "1",
-        "date": "25.2.2026",
+        "text": "Wie ist er denn der Geld-Code?...Zack, da ist das Buch.",
+        "link": "https:\/\/www.joyn.de\/play\/serien\/sat1-fruehstuecksfernsehen-dph1vf52g3ey\/2026-39-start-in-den-mittwoch-mit-spar-tipps-und-meze-kueche",
         "logo": "sat-1-logo.svg"
       },
       {
