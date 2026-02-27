@@ -296,7 +296,7 @@ const PROVIDERS: Provider[] = ['chatgpt', 'gemini'];
 
 export default function GmpPage() {
   const { t } = useTranslations();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [provider, setProvider] = useState<Provider>('chatgpt');
   const [copied, setCopied] = useState(false);
 

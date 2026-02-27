@@ -162,6 +162,7 @@ const QUOTE_DATA: QuoteData[] = [
   { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
   { id: 'cq10', type: 'person' },
   { id: 'cq11', type: 'magazine', logo: 'sat-1-logo.svg' },
+  { id: 'cq12', type: 'magazine', logo: 'perspective_daily_logo.png' },
 ];
 
 function QuoteCardItem({ quote }: { quote: Quote }) {

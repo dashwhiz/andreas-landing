@@ -1,5 +1,5 @@
 const CACHE_TTL = 3600000; // 1 hour
-const CACHE_VERSION = 2; // bump to invalidate all user caches
+const CACHE_VERSION = 3; // bump to invalidate all user caches
 const CACHE_KEY = `translations_de_v${CACHE_VERSION}`;
 
 export async function fetchTranslationsFromLokalise(): Promise<Record<string, unknown> | null> {
