@@ -30,6 +30,7 @@ interface InterviewData {
   link: string;
   upcoming?: boolean;
   date?: string;
+  imageFit?: 'contain' | 'cover';
 }
 
 interface InterviewTranslations {
@@ -44,7 +45,7 @@ const INTERVIEW_DATA: InterviewData[] = [
   { id: 'iv2', image: 'campus_podcast.png', logo: 'campus_logo.svg', link: 'https://www.campus.de/podcast/campus-beats.html' },
   { id: 'iv3', image: 'sat_1_podcast.jpeg', logo: 'sat-1-logo.svg', link: 'https://www.joyn.de/play/clip/vom-sparer-zum-anleger-geld-code-knacken?from=%2Fserien%2Fsat1-fruehstuecksfernsehen-dph1vf52g3ey%23clips' },
   { id: 'iv4', image: 'biz_beyond.jpg', logo: 'N-tv-Logo.png', link: 'https://open.spotify.com/episode/2IWnB9SZ1GuBJd51eoF6ae?si=0ZMLh-jpQi-PwARz5qxroA' },
-  { id: 'iv6', image: 'perspective_daily.png', link: '', date: '27.2.2026' },
+  { id: 'iv6', image: 'perspective_daily.png', logo: 'perspective_daily_logo.png', link: '', imageFit: 'contain' },
   { id: 'iv5', image: '', logo: 'ZDF_logo.png', link: '', upcoming: true, date: '17.3.2026' },
 ];
 
@@ -266,7 +267,7 @@ export default function InterviewsSection() {
                       alt={item.title}
                       fill
                       sizes="230px"
-                      style={{ objectFit: 'cover', objectPosition: 'center' }}
+                      style={{ objectFit: item.imageFit === 'contain' ? 'contain' : 'cover', objectPosition: 'center' }}
                     />
                   )}
                 </ImageWrapper>

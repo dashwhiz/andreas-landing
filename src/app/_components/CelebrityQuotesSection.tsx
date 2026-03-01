@@ -107,8 +107,6 @@ const LogoImage = styled.img`
   max-height: 24px;
   max-width: 80px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.5;
 `;
 
 const QuoteText = styled.p`
@@ -151,18 +149,20 @@ interface QuoteTranslations {
 interface Quote extends QuoteData, QuoteTranslations {}
 
 const QUOTE_DATA: QuoteData[] = [
+  // Media quotes first
+  { id: 'cq4', type: 'magazine', logo: 'euro-logo.png' },
+  { id: 'cq6', type: 'magazine', logo: 'der_spiegel_logo.svg' },
+  { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
+  { id: 'cq11', type: 'magazine', logo: 'sat-1-logo.svg' },
+  { id: 'cq12', type: 'magazine', logo: 'perspective_daily_logo.png' },
+  // Person quotes
   { id: 'cq1', type: 'person' },
   { id: 'cq2', type: 'person' },
   { id: 'cq3', type: 'person' },
-  { id: 'cq4', type: 'magazine', logo: 'euro-logo.png' },
   { id: 'cq5', type: 'person' },
-  { id: 'cq6', type: 'magazine', logo: 'der_spiegel_logo.svg' },
   { id: 'cq7', type: 'person' },
   { id: 'cq8', type: 'person' },
-  { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
   { id: 'cq10', type: 'person' },
-  { id: 'cq11', type: 'magazine', logo: 'sat-1-logo.svg' },
-  { id: 'cq12', type: 'magazine', logo: 'perspective_daily_logo.png' },
 ];
 
 function QuoteCardItem({ quote }: { quote: Quote }) {
