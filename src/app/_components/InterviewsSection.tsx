@@ -10,7 +10,7 @@ import fasScreenshot from '../../../public/images/frankfurter_allgemeine_sonntag
 import campusScreenshot from '../../../public/images/podcast_banner.png';
 import sat1Screenshot from '../../../public/images/sat_1_podcast.jpeg';
 import bizBeyondScreenshot from '../../../public/images/biz_beyond.jpg';
-import perspectiveDailyScreenshot from '../../../public/images/perspective_daily.png';
+import perspectiveDailyScreenshot from '../../../public/images/perspective_daily.jpeg';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -20,7 +20,7 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'podcast_banner.png': campusScreenshot,
   'sat_1_podcast.jpeg': sat1Screenshot,
   'biz_beyond.jpg': bizBeyondScreenshot,
-  'perspective_daily.png': perspectiveDailyScreenshot,
+  'perspective_daily.jpeg': perspectiveDailyScreenshot,
 };
 
 interface InterviewData {
@@ -41,12 +41,44 @@ interface InterviewTranslations {
 interface InterviewItem extends InterviewData, InterviewTranslations {}
 
 const INTERVIEW_DATA: InterviewData[] = [
-  { id: 'iv1', image: 'frankfurter_allgemeine_sonntagszeitung.jpg', logo: 'frankfurter_allgemeine_logo.png', link: 'https://zeitung.faz.net/data/680/reader/reader.html?#!preferred/0/package/680/pub/942/page/28/content/122174' },
-  { id: 'iv2', image: 'campus_podcast.png', logo: 'campus_logo.svg', link: 'https://www.campus.de/podcast/campus-beats.html' },
-  { id: 'iv3', image: 'sat_1_podcast.jpeg', logo: 'sat-1-logo.svg', link: 'https://www.joyn.de/play/clip/vom-sparer-zum-anleger-geld-code-knacken?from=%2Fserien%2Fsat1-fruehstuecksfernsehen-dph1vf52g3ey%23clips' },
-  { id: 'iv4', image: 'biz_beyond.jpg', logo: 'N-tv-Logo.png', link: 'https://open.spotify.com/episode/2IWnB9SZ1GuBJd51eoF6ae?si=0ZMLh-jpQi-PwARz5qxroA' },
-  { id: 'iv6', image: 'perspective_daily.png', logo: 'perspective_daily_logo.png', link: '', imageFit: 'contain' },
-  { id: 'iv5', image: '', logo: 'ZDF_logo.png', link: '', upcoming: true, date: '17.3.2026' },
+  {
+    id: 'iv1',
+    image: 'frankfurter_allgemeine_sonntagszeitung.jpg',
+    logo: 'frankfurter_allgemeine_logo.png',
+    link: 'https://zeitung.faz.net/data/680/reader/reader.html?#!preferred/0/package/680/pub/942/page/28/content/122174',
+  },
+  {
+    id: 'iv2',
+    image: 'campus_podcast.png',
+    logo: 'campus_logo.svg',
+    link: 'https://www.campus.de/podcast/campus-beats.html',
+  },
+  {
+    id: 'iv3',
+    image: 'sat_1_podcast.jpeg',
+    logo: 'sat-1-logo.svg',
+    link: 'https://www.joyn.de/play/clip/vom-sparer-zum-anleger-geld-code-knacken?from=%2Fserien%2Fsat1-fruehstuecksfernsehen-dph1vf52g3ey%23clips',
+  },
+  {
+    id: 'iv4',
+    image: 'biz_beyond.jpg',
+    logo: 'N-tv-Logo.png',
+    link: 'https://open.spotify.com/episode/2IWnB9SZ1GuBJd51eoF6ae?si=0ZMLh-jpQi-PwARz5qxroA',
+  },
+  {
+    id: 'iv6',
+    image: 'perspective_daily.jpeg',
+    logo: 'perspective_daily_logo.png',
+    link: 'https://perspective-daily.de/article/4170-mit-diesem-nicht-wissen-triffst-du-bessere-finanzielle-entscheidungen/probiere',
+  },
+  {
+    id: 'iv5',
+    image: '',
+    logo: 'ZDF_logo.png',
+    link: '',
+    upcoming: true,
+    date: '17.3.2026',
+  },
 ];
 
 const Section = styled.section`
@@ -221,7 +253,9 @@ const CardLogo = styled.img`
 
 export default function InterviewsSection() {
   const { t, tObject } = useTranslations();
-  const interviewTranslations = tObject<Record<string, InterviewTranslations>>('home_interviews.items') ?? {};
+  const interviewTranslations =
+    tObject<Record<string, InterviewTranslations>>('home_interviews.items') ??
+    {};
   const items: InterviewItem[] = INTERVIEW_DATA.map((d) => ({
     ...d,
     ...(interviewTranslations[d.id] ?? { title: '', text: '' }),
@@ -249,56 +283,62 @@ export default function InterviewsSection() {
   return (
     <Section>
       <SectionTitle>{t('home_interviews.title')}</SectionTitle>
-      <SectionDescription>{t('home_interviews.description')}</SectionDescription>
+      <SectionDescription>
+        {t('home_interviews.description')}
+      </SectionDescription>
       <ScrollWrapper $showFade={showFade}>
-      <Grid ref={gridRef}>
-        {items.map((item) => {
-          const cardContent = (
-            <>
-              {item.upcoming ? (
-                <UpcomingPlaceholder>
-                  <UpcomingLabel>demnächst</UpcomingLabel>
-                </UpcomingPlaceholder>
-              ) : (
-                <ImageWrapper>
-                  {interviewImages[item.image] && (
-                    <Image
-                      src={interviewImages[item.image]}
-                      alt={item.title}
-                      fill
-                      sizes="230px"
-                      style={{ objectFit: item.imageFit === 'contain' ? 'contain' : 'cover', objectPosition: 'center' }}
-                    />
-                  )}
-                </ImageWrapper>
-              )}
-              <Content>
-                <CardTitle>{item.title}</CardTitle>
-                <CardText>{item.text}</CardText>
-                {item.date && <CardDate>{item.date}</CardDate>}
-                {item.logo && (
-                  <CardLogo src={`/images/${item.logo}`} alt={item.title} />
+        <Grid ref={gridRef}>
+          {items.map((item) => {
+            const cardContent = (
+              <>
+                {item.upcoming ? (
+                  <UpcomingPlaceholder>
+                    <UpcomingLabel>demnächst</UpcomingLabel>
+                  </UpcomingPlaceholder>
+                ) : (
+                  <ImageWrapper>
+                    {interviewImages[item.image] && (
+                      <Image
+                        src={interviewImages[item.image]}
+                        alt={item.title}
+                        fill
+                        sizes='230px'
+                        style={{
+                          objectFit:
+                            item.imageFit === 'contain' ? 'contain' : 'cover',
+                          objectPosition: 'center',
+                        }}
+                      />
+                    )}
+                  </ImageWrapper>
                 )}
-              </Content>
-            </>
-          );
+                <Content>
+                  <CardTitle>{item.title}</CardTitle>
+                  <CardText>{item.text}</CardText>
+                  {item.date && <CardDate>{item.date}</CardDate>}
+                  {item.logo && (
+                    <CardLogo src={`/images/${item.logo}`} alt={item.title} />
+                  )}
+                </Content>
+              </>
+            );
 
-          if (item.upcoming || !item.link) {
-            return <StaticCard key={item.id}>{cardContent}</StaticCard>;
-          }
+            if (item.upcoming || !item.link) {
+              return <StaticCard key={item.id}>{cardContent}</StaticCard>;
+            }
 
-          return (
-            <Card
-              key={item.id}
-              href={item.link}
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              {cardContent}
-            </Card>
-          );
-        })}
-      </Grid>
+            return (
+              <Card
+                key={item.id}
+                href={item.link}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                {cardContent}
+              </Card>
+            );
+          })}
+        </Grid>
       </ScrollWrapper>
     </Section>
   );
