@@ -46,6 +46,10 @@ const Select = styled.select`
   background: ${AppColors.white};
   color: ${AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.sm};
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    font-size: ${AppFontSizes.base};
+  }
   font-weight: 800;
   cursor: pointer;
   min-width: 200px;
@@ -346,6 +350,10 @@ const TableInput = styled.input<{ $disabled?: boolean }>`
       ? 'rgba(17,24,39,.70)'
       : AppColors.brand.neutral.neutralBlack};
   font-size: ${AppFontSizes.sm};
+
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
+    font-size: ${AppFontSizes.base};
+  }
 
   &:focus {
     outline: none;
