@@ -1571,6 +1571,47 @@ export default function RentenprognosePage() {
                   </MobileWealthField>
                 </MobileWealthFields>
               </MobileWealthCard>
+
+              <MobileWealthCard style={{ borderTop: '2px solid rgba(17,24,39,0.14)' }}>
+                <MobileWealthHeader style={{ fontWeight: 900 }}>
+                  <span>{t('rentenprognose.results_labels.total_wealth')}</span>
+                </MobileWealthHeader>
+                <MobileWealthFields>
+                  <MobileWealthField>
+                    <MobileFieldLabel>
+                      {t('rentenprognose.columns.amount')}
+                    </MobileFieldLabel>
+                    <TableInput
+                      type='text'
+                      value={results ? formatInt(results.totalToday) : '—'}
+                      disabled
+                      $disabled
+                    />
+                  </MobileWealthField>
+                  <MobileWealthField>
+                    <MobileFieldLabel>
+                      {t('rentenprognose.columns.risk_units')}
+                    </MobileFieldLabel>
+                    <TableInput
+                      type='text'
+                      value={results ? formatOneDec(results.reToday) : '—'}
+                      disabled
+                      $disabled
+                    />
+                  </MobileWealthField>
+                  <MobileWealthField>
+                    <MobileFieldLabel>
+                      {t('rentenprognose.columns.risk_premium')}
+                    </MobileFieldLabel>
+                    <TableInput
+                      type='text'
+                      value={results ? formatOneDec(results.rpWeighted) : '—'}
+                      disabled
+                      $disabled
+                    />
+                  </MobileWealthField>
+                </MobileWealthFields>
+              </MobileWealthCard>
             </MobileWealthCards>
           </Callout>
 
