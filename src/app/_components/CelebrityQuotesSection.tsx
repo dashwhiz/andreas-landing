@@ -103,9 +103,9 @@ const DecorativeQuote = styled.span<{ $type: string }>`
   font-family: Georgia, serif;
 `;
 
-const LogoImage = styled.img`
+const LogoImage = styled.img<{ $wide?: boolean }>`
   max-height: 24px;
-  max-width: 80px;
+  max-width: ${({ $wide }) => ($wide ? '120px' : '80px')};
   object-fit: contain;
 `;
 
@@ -119,6 +119,10 @@ const QuoteText = styled.p`
 
 const QuoteAuthor = styled.div`
   margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 `;
 
 const AuthorName = styled.p`
@@ -134,22 +138,51 @@ const AuthorRole = styled.p`
   margin: 4px 0 0 0;
 `;
 
+const CardLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: ${AppFontSizes.sm};
+  font-weight: 600;
+  color: ${AppColors.brand.blue[50]};
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+  }
+`;
+
 interface QuoteData {
   id: string;
   type: 'person' | 'magazine';
   logo?: string;
+  link?: string;
 }
 
 interface QuoteTranslations {
   text: string;
   name: string;
   role: string;
+  linkLabel?: string;
 }
 
 interface Quote extends QuoteData, QuoteTranslations {}
 
 const QUOTE_DATA: QuoteData[] = [
   // Media quotes first
+  {
+    id: 'cq13',
+    type: 'magazine',
+    logo: 'VC_Logo_blau.png',
+    link: 'https://www.vc-magazin.de/blog/2026/02/26/rezension-dein-financial-lifestyle-code/',
+  },
   { id: 'cq4', type: 'magazine', logo: 'euro-logo.png' },
   { id: 'cq6', type: 'magazine', logo: 'der_spiegel_logo.svg' },
   { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
@@ -165,19 +198,47 @@ const QUOTE_DATA: QuoteData[] = [
   { id: 'cq10', type: 'person' },
 ];
 
+const WIDE_LOGOS = new Set(['VC_Logo_blau.png']);
+
 function QuoteCardItem({ quote }: { quote: Quote }) {
   return (
     <QuoteCard $type={quote.type}>
       <CardHeader>
         <DecorativeQuote $type={quote.type}>&ldquo;</DecorativeQuote>
         {quote.logo && (
-          <LogoImage src={`/images/${quote.logo}`} alt={quote.name} />
+          <LogoImage
+            src={`/images/${quote.logo}`}
+            alt={quote.name}
+            $wide={WIDE_LOGOS.has(quote.logo)}
+          />
         )}
       </CardHeader>
       <QuoteText>{quote.text}</QuoteText>
       <QuoteAuthor>
-        <AuthorName>{quote.name}</AuthorName>
-        <AuthorRole>{quote.role}</AuthorRole>
+        <div>
+          <AuthorName>{quote.name}</AuthorName>
+          {quote.role && <AuthorRole>{quote.role}</AuthorRole>}
+        </div>
+        {quote.link && quote.linkLabel && (
+          <CardLink
+            href={quote.link}
+            target='_blank'
+            rel='noopener noreferrer'
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            {quote.linkLabel}
+            <svg
+              viewBox='0 0 24 24'
+              fill='none'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            >
+              <path d='M7 17L17 7' />
+              <path d='M7 7h10v10' />
+            </svg>
+          </CardLink>
+        )}
       </QuoteAuthor>
     </QuoteCard>
   );
@@ -185,7 +246,8 @@ function QuoteCardItem({ quote }: { quote: Quote }) {
 
 export default function CelebrityQuotesSection() {
   const { t, tObject } = useTranslations();
-  const quoteTranslations = tObject<Record<string, QuoteTranslations>>('celebrity_quotes.quotes') ?? {};
+  const quoteTranslations =
+    tObject<Record<string, QuoteTranslations>>('celebrity_quotes.quotes') ?? {};
   const quotes: Quote[] = QUOTE_DATA.map((qd) => ({
     ...qd,
     ...(quoteTranslations[qd.id] ?? { text: '', name: '', role: '' }),

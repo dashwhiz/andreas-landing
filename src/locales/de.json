@@ -348,6 +348,12 @@
         "text": "In seinem Buch zeigt er, wie wir je nach Charakter und Startbedingungen die richtigen finanziellen Entscheidungen treffen.",
         "name": "Perspectives Daily",
         "role": ""
+      },
+      "cq13": {
+        "text": "Wie ein gutes VC-Investment: keine laute Wette, sondern ein robustes, skalierbares System mit hoher Wahrscheinlichkeit auf langfristigen Erfolg.",
+        "name": "VC-Magazin",
+        "role": "Ausgabe 26.2.26",
+        "linkLabel": "Mehr lesen"
       }
     }
   },
