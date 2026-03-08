@@ -354,6 +354,12 @@
         "name": "VC-Magazin",
         "role": "Ausgabe 26.2.26",
         "linkLabel": "Mehr lesen"
+      },
+      "cq14": {
+        "text": "Dank vieler Übungen und Anbindung an die \u201ESeasn\u201C-App der Goethe-Universität direkt umsetzbar.",
+        "name": "reiseTravel",
+        "role": "",
+        "linkLabel": "Mehr lesen"
       }
     }
   },

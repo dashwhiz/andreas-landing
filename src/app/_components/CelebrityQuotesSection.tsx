@@ -120,7 +120,7 @@ const QuoteText = styled.p`
 const QuoteAuthor = styled.div`
   margin-top: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 12px;
 `;
@@ -176,13 +176,20 @@ interface QuoteTranslations {
 interface Quote extends QuoteData, QuoteTranslations {}
 
 const QUOTE_DATA: QuoteData[] = [
-  // Media quotes first
+  // Media quotes with links first
   {
     id: 'cq13',
     type: 'magazine',
     logo: 'VC_Logo_blau.png',
     link: 'https://www.vc-magazin.de/blog/2026/02/26/rezension-dein-financial-lifestyle-code/',
   },
+  {
+    id: 'cq14',
+    type: 'magazine',
+    logo: 'reisetravel-logo.png',
+    link: 'https://www.reisetravel.eu/buch-welt/wissen-mehr/dein-financial-lifestyle-code-campus.html#c13094',
+  },
+  // Other media quotes
   { id: 'cq4', type: 'magazine', logo: 'euro-logo.png' },
   { id: 'cq6', type: 'magazine', logo: 'der_spiegel_logo.svg' },
   { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
