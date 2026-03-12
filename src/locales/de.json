@@ -289,6 +289,12 @@
   "celebrity_quotes": {
     "title": "Stimmen zum Buch",
     "quotes": {
+      "cq15": {
+        "text": "Was kostet ein gelungenes Leben? Andreas Hackethal weiß es. Wie der Finanzforscher einen finanziellen Lebensplan macht – und warum der Hauskauf dabei so riskant ist.",
+        "name": "DIE ZEIT+",
+        "role": "11.3.2026",
+        "linkLabel": "Weiter lesen"
+      },
       "cq1": {
         "text": "Mit richtiger Technik und Einstellung die eigenen Finanzen in Bestform bringen.",
         "name": "Michael Groß",
@@ -590,8 +596,16 @@
         "title": "ntv Podcast \"Biz & Beyond\" (27.2.2026)",
         "text": "Gespräch mit Uli und Sandra über die verborgenen Mechanismen der Finanzwelt."
       },
+      "iv7": {
+        "title": "Interview auf ARD tagesschau24 (11.3.2026)",
+        "text": "Gespräch über die im Buch vorgestellten Erfolgsfaktoren der Geldanlage (ab Minute 16'30)."
+      },
+      "iv8": {
+        "title": "Ausführliches Interview in DIE ZEIT+ einmal quer durchs Buch",
+        "text": ""
+      },
       "iv5": {
-        "title": "ZDF Morgenmagazin (17.3.2026)",
+        "title": "ZDF Morgenmagazin (31.3.2026)",
         "text": "Gastauftritt"
       },
       "iv6": {

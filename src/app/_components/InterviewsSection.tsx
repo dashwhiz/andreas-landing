@@ -11,6 +11,8 @@ import campusScreenshot from '../../../public/images/podcast_banner.png';
 import sat1Screenshot from '../../../public/images/sat_1_podcast.jpeg';
 import bizBeyondScreenshot from '../../../public/images/biz_beyond.jpg';
 import perspectiveDailyScreenshot from '../../../public/images/perspective_daily.jpeg';
+import ardScreenshot from '../../../public/images/ard.png';
+import zeitScreenshot from '../../../public/images/zeit.jpg';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -21,6 +23,8 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'sat_1_podcast.jpeg': sat1Screenshot,
   'biz_beyond.jpg': bizBeyondScreenshot,
   'perspective_daily.jpeg': perspectiveDailyScreenshot,
+  'ard.png': ardScreenshot,
+  'zeit.jpg': zeitScreenshot,
 };
 
 interface InterviewData {
@@ -72,12 +76,25 @@ const INTERVIEW_DATA: InterviewData[] = [
     link: 'https://perspective-daily.de/article/4170-mit-diesem-nicht-wissen-triffst-du-bessere-finanzielle-entscheidungen/probiere',
   },
   {
+    id: 'iv7',
+    image: 'ard.png',
+    logo: 'tagesschau24-logo.jpg',
+    link: 'https://www.tagesschau.de/multimedia/sendung/tagesschau24/boerselive/video-1563860.html',
+  },
+  {
+    id: 'iv8',
+    image: 'zeit.jpg',
+    logo: 'z-plus.webp',
+    link: 'https://www.zeit.de/geld/2026-03/andreas-hackethal-finanzstrategie-vermoegensaufbau-immobilienkauf-finanzplanung',
+    imageFit: 'contain',
+  },
+  {
     id: 'iv5',
     image: '',
     logo: 'ZDF_logo.png',
     link: '',
     upcoming: true,
-    date: '17.3.2026',
+    date: '31.3.2026',
   },
 ];
 
@@ -241,9 +258,11 @@ const CardDate = styled.p`
   line-height: 1.4;
 `;
 
-const CardLogo = styled.img`
-  max-height: 20px;
-  max-width: 100px;
+const LARGE_LOGOS = new Set(['tagesschau24-logo.jpg', 'z-plus.webp']);
+
+const CardLogo = styled.img<{ $large?: boolean }>`
+  max-height: ${({ $large }) => ($large ? '32px' : '20px')};
+  max-width: ${({ $large }) => ($large ? '140px' : '100px')};
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.45;
@@ -317,7 +336,7 @@ export default function InterviewsSection() {
                   <CardText>{item.text}</CardText>
                   {item.date && <CardDate>{item.date}</CardDate>}
                   {item.logo && (
-                    <CardLogo src={`/images/${item.logo}`} alt={item.title} />
+                    <CardLogo src={`/images/${item.logo}`} alt={item.title} $large={LARGE_LOGOS.has(item.logo)} />
                   )}
                 </Content>
               </>

@@ -103,9 +103,9 @@ const DecorativeQuote = styled.span<{ $type: string }>`
   font-family: Georgia, serif;
 `;
 
-const LogoImage = styled.img<{ $wide?: boolean }>`
-  max-height: 24px;
-  max-width: ${({ $wide }) => ($wide ? '120px' : '80px')};
+const LogoImage = styled.img<{ $wide?: boolean; $large?: boolean }>`
+  max-height: ${({ $large }) => ($large ? '36px' : '24px')};
+  max-width: ${({ $wide, $large }) => ($large ? '140px' : $wide ? '120px' : '80px')};
   object-fit: contain;
 `;
 
@@ -178,6 +178,12 @@ interface Quote extends QuoteData, QuoteTranslations {}
 const QUOTE_DATA: QuoteData[] = [
   // Media quotes with links first
   {
+    id: 'cq15',
+    type: 'magazine',
+    logo: 'z-plus.webp',
+    link: 'https://www.zeit.de/geld/2026-03/andreas-hackethal-finanzstrategie-vermoegensaufbau-immobilienkauf-finanzplanung',
+  },
+  {
     id: 'cq13',
     type: 'magazine',
     logo: 'VC_Logo_blau.png',
@@ -206,6 +212,7 @@ const QUOTE_DATA: QuoteData[] = [
 ];
 
 const WIDE_LOGOS = new Set(['VC_Logo_blau.png']);
+const LARGE_LOGOS = new Set(['z-plus.webp']);
 
 function QuoteCardItem({ quote }: { quote: Quote }) {
   return (
@@ -217,6 +224,7 @@ function QuoteCardItem({ quote }: { quote: Quote }) {
             src={`/images/${quote.logo}`}
             alt={quote.name}
             $wide={WIDE_LOGOS.has(quote.logo)}
+            $large={LARGE_LOGOS.has(quote.logo)}
           />
         )}
       </CardHeader>
