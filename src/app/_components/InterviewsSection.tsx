@@ -13,6 +13,7 @@ import bizBeyondScreenshot from '../../../public/images/biz_beyond.jpg';
 import perspectiveDailyScreenshot from '../../../public/images/perspective_daily.jpeg';
 import ardScreenshot from '../../../public/images/ard.png';
 import zeitScreenshot from '../../../public/images/zeit.jpg';
+import wiwoScreenshot from '../../../public/images/wiwo_interview.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -25,6 +26,7 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'perspective_daily.jpeg': perspectiveDailyScreenshot,
   'ard.png': ardScreenshot,
   'zeit.jpg': zeitScreenshot,
+  'wiwo_interview.png': wiwoScreenshot,
 };
 
 interface InterviewData {
@@ -87,6 +89,12 @@ const INTERVIEW_DATA: InterviewData[] = [
     logo: 'z-plus.webp',
     link: 'https://www.zeit.de/geld/2026-03/andreas-hackethal-finanzstrategie-vermoegensaufbau-immobilienkauf-finanzplanung',
     imageFit: 'contain',
+  },
+  {
+    id: 'iv9',
+    image: 'wiwo_interview.png',
+    logo: 'WirtschaftsWoche_Logo.png',
+    link: 'https://www.wiwo.de/finanzen/geldanlage/vermoegensaufbau-entscheidend-fuer-langfristigen-finanziellen-erfolg-sind-wenige-stellhebel/100207452.html',
   },
   {
     id: 'iv5',

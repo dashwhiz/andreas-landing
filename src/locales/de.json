@@ -295,6 +295,11 @@
         "role": "11.3.2026",
         "linkLabel": "Weiter lesen"
       },
+      "cq16": {
+        "text": "Hackethal erklärt, warum gerade jetzt langfristige Strategien wichtig sind.",
+        "name": "WirtschaftsWoche",
+        "role": "15.3.2026"
+      },
       "cq1": {
         "text": "Mit richtiger Technik und Einstellung die eigenen Finanzen in Bestform bringen.",
         "name": "Michael Groß",
@@ -603,6 +608,10 @@
       "iv8": {
         "title": "Ausführliches Interview in DIE ZEIT+ einmal quer durchs Buch",
         "text": ""
+      },
+      "iv9": {
+        "title": "Wortlautinterview in Wirtschaftswoche (15.3.2026)",
+        "text": "Der Schwerpunkt des Gesprächs liegt auf der Frage, wie eine alltagstaugliche, wissenschaftlich fundierte Vermögensplanung funktioniert."
       },
       "iv5": {
         "title": "ZDF Morgenmagazin (31.3.2026)",

@@ -196,6 +196,11 @@ const QUOTE_DATA: QuoteData[] = [
     link: 'https://www.reisetravel.eu/buch-welt/wissen-mehr/dein-financial-lifestyle-code-campus.html#c13094',
   },
   // Other media quotes
+  {
+    id: 'cq16',
+    type: 'magazine',
+    logo: 'WirtschaftsWoche_Logo.png',
+  },
   { id: 'cq4', type: 'magazine', logo: 'euro-logo.png' },
   { id: 'cq6', type: 'magazine', logo: 'der_spiegel_logo.svg' },
   { id: 'cq9', type: 'magazine', logo: 'prisma_logo.png' },
