@@ -14,6 +14,7 @@ import perspectiveDailyScreenshot from '../../../public/images/perspective_daily
 import ardScreenshot from '../../../public/images/ard.png';
 import zeitScreenshot from '../../../public/images/zeit.jpg';
 import wiwoScreenshot from '../../../public/images/wiwo_interview.png';
+import zdfMomaScreenshot from '../../../public/images/zdf_moma.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -27,6 +28,7 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'ard.png': ardScreenshot,
   'zeit.jpg': zeitScreenshot,
   'wiwo_interview.png': wiwoScreenshot,
+  'zdf_moma.png': zdfMomaScreenshot,
 };
 
 interface InterviewData {
@@ -98,11 +100,9 @@ const INTERVIEW_DATA: InterviewData[] = [
   },
   {
     id: 'iv5',
-    image: '',
+    image: 'zdf_moma.png',
     logo: 'ZDF_logo.png',
-    link: '',
-    upcoming: true,
-    date: '31.3.2026',
+    link: 'https://www.zdfheute.de/video/zdf-morgenmagazin/service-finanzen-104.html',
   },
 ];
 
