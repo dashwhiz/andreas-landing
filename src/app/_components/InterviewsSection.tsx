@@ -15,6 +15,8 @@ import ardScreenshot from '../../../public/images/ard.png';
 import zeitScreenshot from '../../../public/images/zeit.jpg';
 import wiwoScreenshot from '../../../public/images/wiwo_interview.png';
 import zdfMomaScreenshot from '../../../public/images/zdf_moma.png';
+import handelsblattScreenshot from '../../../public/images/handelsblatt_media.png';
+import fazMediaScreenshot from '../../../public/images/faz_media.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -29,6 +31,8 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'zeit.jpg': zeitScreenshot,
   'wiwo_interview.png': wiwoScreenshot,
   'zdf_moma.png': zdfMomaScreenshot,
+  'handelsblatt_media.png': handelsblattScreenshot,
+  'faz_media.png': fazMediaScreenshot,
 };
 
 interface InterviewData {
@@ -103,6 +107,18 @@ const INTERVIEW_DATA: InterviewData[] = [
     image: 'zdf_moma.png',
     logo: 'ZDF_logo.png',
     link: 'https://www.zdfheute.de/video/zdf-morgenmagazin/service-finanzen-104.html',
+  },
+  {
+    id: 'iv10',
+    image: 'handelsblatt_media.png',
+    logo: 'Handelsblatt_logo.png',
+    link: 'https://www.handelsblatt.com/finanzen/anlagestrategie/geldanlage-gesunde-finanzen-fangen-immer-mit-selbsterkenntnis-an-03/100188747.html',
+  },
+  {
+    id: 'iv11',
+    image: 'faz_media.png',
+    logo: 'frankfurter_allgemeine_logo.png',
+    link: '',
   },
 ];
 
