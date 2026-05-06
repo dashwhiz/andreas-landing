@@ -17,6 +17,7 @@ import wiwoScreenshot from '../../../public/images/wiwo_interview.png';
 import zdfMomaScreenshot from '../../../public/images/zdf_moma.png';
 import handelsblattScreenshot from '../../../public/images/handelsblatt_media.png';
 import fazMediaScreenshot from '../../../public/images/faz_media.png';
+import spiegelScreenshot from '../../../public/images/spiegel.png';
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -33,6 +34,7 @@ const interviewImages: Record<string, typeof fasScreenshot> = {
   'zdf_moma.png': zdfMomaScreenshot,
   'handelsblatt_media.png': handelsblattScreenshot,
   'faz_media.png': fazMediaScreenshot,
+  'spiegel.png': spiegelScreenshot,
 };
 
 interface InterviewData {
@@ -54,40 +56,34 @@ interface InterviewItem extends InterviewData, InterviewTranslations {}
 
 const INTERVIEW_DATA: InterviewData[] = [
   {
-    id: 'iv1',
-    image: 'frankfurter_allgemeine_sonntagszeitung.jpg',
+    id: 'iv12',
+    image: 'spiegel.png',
+    logo: 'der_spiegel_logo.svg',
+    link: 'https://www.spiegel.de/wirtschaft/service/geldanlage-fuer-einsteiger-market-timing-ist-keine-smarte-strategie-a-07f326ba-cf5b-4440-b050-0981e1826cad',
+  },
+  {
+    id: 'iv11',
+    image: 'faz_media.png',
     logo: 'frankfurter_allgemeine_logo.png',
-    link: 'https://zeitung.faz.net/data/680/reader/reader.html?#!preferred/0/package/680/pub/942/page/28/content/122174',
+    link: '',
   },
   {
-    id: 'iv2',
-    image: 'campus_podcast.png',
-    logo: 'campus_logo.svg',
-    link: 'https://www.campus.de/podcast/campus-beats.html',
+    id: 'iv10',
+    image: 'handelsblatt_media.png',
+    logo: 'Handelsblatt_logo.png',
+    link: 'https://www.handelsblatt.com/finanzen/anlagestrategie/geldanlage-gesunde-finanzen-fangen-immer-mit-selbsterkenntnis-an-03/100188747.html',
   },
   {
-    id: 'iv3',
-    image: 'sat_1_podcast.jpeg',
-    logo: 'sat-1-logo.svg',
-    link: 'https://www.joyn.de/play/clip/vom-sparer-zum-anleger-geld-code-knacken?from=%2Fserien%2Fsat1-fruehstuecksfernsehen-dph1vf52g3ey%23clips',
+    id: 'iv5',
+    image: 'zdf_moma.png',
+    logo: 'ZDF_logo.png',
+    link: 'https://www.zdfheute.de/video/zdf-morgenmagazin/service-finanzen-104.html',
   },
   {
-    id: 'iv4',
-    image: 'biz_beyond.jpg',
-    logo: 'N-tv-Logo.png',
-    link: 'https://open.spotify.com/episode/2IWnB9SZ1GuBJd51eoF6ae?si=0ZMLh-jpQi-PwARz5qxroA',
-  },
-  {
-    id: 'iv6',
-    image: 'perspective_daily.jpeg',
-    logo: 'perspective_daily_logo.png',
-    link: 'https://perspective-daily.de/article/4170-mit-diesem-nicht-wissen-triffst-du-bessere-finanzielle-entscheidungen/probiere',
-  },
-  {
-    id: 'iv7',
-    image: 'ard.png',
-    logo: 'tagesschau24-logo.jpg',
-    link: 'https://www.tagesschau.de/multimedia/sendung/tagesschau24/boerselive/video-1563860.html',
+    id: 'iv9',
+    image: 'wiwo_interview.png',
+    logo: 'WirtschaftsWoche_Logo.png',
+    link: 'https://www.wiwo.de/finanzen/geldanlage/vermoegensaufbau-entscheidend-fuer-langfristigen-finanziellen-erfolg-sind-wenige-stellhebel/100207452.html',
   },
   {
     id: 'iv8',
@@ -97,28 +93,40 @@ const INTERVIEW_DATA: InterviewData[] = [
     imageFit: 'contain',
   },
   {
-    id: 'iv9',
-    image: 'wiwo_interview.png',
-    logo: 'WirtschaftsWoche_Logo.png',
-    link: 'https://www.wiwo.de/finanzen/geldanlage/vermoegensaufbau-entscheidend-fuer-langfristigen-finanziellen-erfolg-sind-wenige-stellhebel/100207452.html',
+    id: 'iv7',
+    image: 'ard.png',
+    logo: 'tagesschau24-logo.jpg',
+    link: 'https://www.tagesschau.de/multimedia/sendung/tagesschau24/boerselive/video-1563860.html',
   },
   {
-    id: 'iv5',
-    image: 'zdf_moma.png',
-    logo: 'ZDF_logo.png',
-    link: 'https://www.zdfheute.de/video/zdf-morgenmagazin/service-finanzen-104.html',
+    id: 'iv6',
+    image: 'perspective_daily.jpeg',
+    logo: 'perspective_daily_logo.png',
+    link: 'https://perspective-daily.de/article/4170-mit-diesem-nicht-wissen-triffst-du-bessere-finanzielle-entscheidungen/probiere',
   },
   {
-    id: 'iv10',
-    image: 'handelsblatt_media.png',
-    logo: 'Handelsblatt_logo.png',
-    link: 'https://www.handelsblatt.com/finanzen/anlagestrategie/geldanlage-gesunde-finanzen-fangen-immer-mit-selbsterkenntnis-an-03/100188747.html',
+    id: 'iv4',
+    image: 'biz_beyond.jpg',
+    logo: 'N-tv-Logo.png',
+    link: 'https://open.spotify.com/episode/2IWnB9SZ1GuBJd51eoF6ae?si=0ZMLh-jpQi-PwARz5qxroA',
   },
   {
-    id: 'iv11',
-    image: 'faz_media.png',
+    id: 'iv3',
+    image: 'sat_1_podcast.jpeg',
+    logo: 'sat-1-logo.svg',
+    link: 'https://www.joyn.de/play/clip/vom-sparer-zum-anleger-geld-code-knacken?from=%2Fserien%2Fsat1-fruehstuecksfernsehen-dph1vf52g3ey%23clips',
+  },
+  {
+    id: 'iv2',
+    image: 'campus_podcast.png',
+    logo: 'campus_logo.svg',
+    link: 'https://www.campus.de/podcast/campus-beats.html',
+  },
+  {
+    id: 'iv1',
+    image: 'frankfurter_allgemeine_sonntagszeitung.jpg',
     logo: 'frankfurter_allgemeine_logo.png',
-    link: '',
+    link: 'https://zeitung.faz.net/data/680/reader/reader.html?#!preferred/0/package/680/pub/942/page/28/content/122174',
   },
 ];
 
